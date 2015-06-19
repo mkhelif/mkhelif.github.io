@@ -1,0 +1,49 @@
+<!-- Projects  -->
+<div id="projects" class="section">
+	<div class="grid grid-pad">
+        <div class="col-1-1"><h2><span>{</span>Projects<span>}</span></h2></div>
+
+        <!-- spring-social-amazon -->
+        <div class="col-1-3">
+            <div class="image">
+                <img src="static/images/project_spring_social_amazon.png" alt="Login with Amazon using Spring social" />
+            </div>
+            <h3><a href="https://github.com/mkhelif/spring-social-amazon" target="_blank">spring-social-amazon</a></h3>
+            <p class="description">
+                The Spring Social Amazon project is an extension to <a href="http://projects.spring.io/spring-social/">Spring Social</a>
+                that enables integration with Amazon.
+            </p>
+            <p class="description">
+                It provides all needed functionalities to seamlessly integrate <a href="http://login.amazon.com/">Login with Amazon</a>
+                OAuth service in any Spring Social enabled application.
+            </p>
+        </div>
+            
+        <!-- Investr -->
+        <div class="col-1-3">
+            <div class="image">
+                <img src="static/images/project_investr.png" alt="Login with Amazon using Spring social" />
+            </div>
+            <h3><a href="" target="_blank">Investr</a></h3>
+            <p class="description">
+                Android application for assets management.
+            </p>
+            <!--<p class="description">
+                <a href="">
+                    <img src="static/images/play_store_2.png" alt="See on Google Play store" title="See on Google Play store" />
+                </a>
+            </p>-->
+        </div>
+
+        <!-- jsassert -->
+        <div class="col-1-3">
+            <div class="image">
+                <img src="static/images/project_jsassert.png" alt="JavaScript unit testing framework" />
+            </div>
+            <h3><a href="https://github.com/mkhelif/jsassert" target="_blank">jsassert</a></h3>
+            <p class="description">
+                JavaScript unit testing framework using fluent assertions.
+            </p>
+        </div>
+    </div>
+</div>

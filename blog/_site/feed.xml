@@ -7,31 +7,6 @@
     <atom:link href="http://mkhelif.fr//feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
-        <title>Welcome to Jekyll!</title>
-        
-        
-          <description>&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
-</description>
-        
-        <pubDate>Fri, 19 Jun 2015 15:30:59 +0200</pubDate>
-        <link>http://mkhelif.fr//2015/welcome-to-jekyll/</link>
-        <guid isPermaLink="true">http://mkhelif.fr//2015/welcome-to-jekyll/</guid>
-      </item>
-    
-      <item>
-        <title>Welcome to Jekyll!</title>
-        
-        
-          <description>&lt;p&gt;You&amp;#39;ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory - edit this post and re-build (or run with the &lt;code&gt;-w&lt;/code&gt; switch) to see your changes!
-To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention: YYYY-MM-DD-name-of-post.ext.&lt;/p&gt;
-</description>
-        
-        <pubDate>Sun, 10 Nov 2013 11:18:00 +0100</pubDate>
-        <link>http://mkhelif.fr//2013/welcome-to-jekyll/</link>
-        <guid isPermaLink="true">http://mkhelif.fr//2013/welcome-to-jekyll/</guid>
-      </item>
-    
-      <item>
         <title>NoSQL : premiers pas avec Cassandra</title>
         
         
@@ -131,6 +106,30 @@ To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; direc
         <pubDate>Sat, 12 Sep 2009 00:00:00 +0200</pubDate>
         <link>http://mkhelif.fr//cinq-moyens-pour-grer-son-identit-virtuelle/</link>
         <guid isPermaLink="true">http://mkhelif.fr//cinq-moyens-pour-grer-son-identit-virtuelle/</guid>
+      </item>
+    
+      <item>
+        <title>Ruby on Rails : déployer une application sur Tomcat avec JRuby</title>
+        
+        
+          <description>&lt;p&gt;[&lt;img style=&quot;border-right-width: 0px; margin: 0px 10px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px&quot; title=&quot;rails&quot; src=&quot;http://www.mkhelif.fr/wp-content/uploads/2009/09/rails_thumb.png&quot; border=&quot;0&quot; alt=&quot;rails&quot; width=&quot;87&quot; height=&quot;111&quot; align=&quot;left&quot; /&gt;][1] Ruby on Rails est un framework qui permet de développer très rapidement des applications Web en suivant le modèle MVC.&lt;/p&gt;
+</description>
+        
+        <pubDate>Mon, 07 Sep 2009 00:00:00 +0200</pubDate>
+        <link>http://mkhelif.fr//ruby-on-rails-dployer-une-application-sur-tomcat-avec-jruby/</link>
+        <guid isPermaLink="true">http://mkhelif.fr//ruby-on-rails-dployer-une-application-sur-tomcat-avec-jruby/</guid>
+      </item>
+    
+      <item>
+        <title>Qu’est ce qu’un Community Manager, le “buzz-job” actuel ?</title>
+        
+        
+          <description>&lt;p&gt;Avec le développement très rapide des médias sociaux comme Twitter ou Facebook, un nouveau métier a vu le jour : celui de Community Manager, que l’on peut traduire en animateur de communauté. Le principe est simple : gérer efficacement sa communauté (lecteurs, followers et fans) afin d’améliorer la communication entre les clients et l’entreprise.&lt;/p&gt;
+</description>
+        
+        <pubDate>Fri, 28 Aug 2009 00:00:00 +0200</pubDate>
+        <link>http://mkhelif.fr//quest-ce-quun-community-manager-le-buzz-job-actuel/</link>
+        <guid isPermaLink="true">http://mkhelif.fr//quest-ce-quun-community-manager-le-buzz-job-actuel/</guid>
       </item>
     
   </channel>

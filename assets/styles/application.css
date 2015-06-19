@@ -1,0 +1,564 @@
+/**
+ * Application style
+ */
+*, *:after, *:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    font-family: "Open Sans", sans-serif;
+    
+    -webkit-font-smoothing: antialiased
+}
+
+body {
+    font-size: 1em;
+}
+@media screen and (max-width: 1024px) { body { font-size: 0.9em; } }
+@media screen and (max-width:  800px) { body { font-size: 0.85em; } }
+@media screen and (max-width:  480px) { body { font-size: 0.65em; } }
+
+/* Headers */
+h1, h2, h3, h4, h5 {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 200;
+    color: #282b32;
+    margin: 0;
+}
+
+h2 {
+    font-size: 5em;
+    font-weight: 200;
+    text-align: center;
+    margin-bottom: 5%;
+}
+h2 span {
+    margin: 0 20px;
+    font-weight: 400;
+    color: rgba(40, 43, 50, 0.25);
+    transition: color 0.2s linear;
+}
+
+h4 {
+    font-size: 28px;
+}
+
+p {
+    margin: 10px 0 0 0;
+}
+
+a {
+    color: #f64744;
+    text-decoration: none;
+}
+a:hover {
+    color: #ff514c;
+}
+
+.section:hover h2 span {
+    color: #f64744;
+}
+.section {
+    padding: 3% 0 5% 0; 
+}
+
+/* Cover */
+#cover {
+    background-image: url(../images/background-cover.png);
+    background-size: 100%;
+    background-attachment: fixed;
+    height: 100%;
+    padding-top: 10%;
+}
+@media screen and (max-width: 750px) {
+    #cover {
+        background-size: auto 100%;
+    }
+}
+#cover h1 {
+    text-align: center;
+    color: #cfcfcf;
+    font-size: 5em;
+}
+#cover p {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 200;
+    font-family: 'Source Sans Pro';
+    color: #999;
+}
+#cover p.down {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+}
+#cover p.down img {
+    cursor: pointer;
+}
+#cover p.down a {
+    margin: 0 5%;
+    vertical-align: top;
+    color: #666;
+}
+#cover p.down a:hover {
+    color: #f64744;
+}
+
+/* Skills */
+#skills {
+    background: url(../images/background-skills.png);
+    border-bottom: 1px solid #282b32;
+    box-shadow: inset 0 0 10px #282b32;
+}
+#skills .label {
+    color: #ddd;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    text-shadow: 0.5px 0.5px 1px #000;
+    text-indent: 10%;
+    margin: 5px 0;
+}
+#skills .label span {
+    margin-left: 5px;
+    color: #282b32;
+    text-shadow: none;
+    text-transform: none;
+    font-family: 'Source Sans Pro';px;
+}
+#skills .value {
+    display: block !important;
+    height: 15px;
+    width: 75%;
+    margin: 0 auto;
+    background: #282B32;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: inset 0 0px 3px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid #555965;
+}
+#skills .value > span {
+    display: block !important;
+    width: 0%;
+    background: #428bca;
+    height: 100%;
+    border-radius: 10px;
+    border: 1px solid #1E2225;
+
+    background: #8fc7d4;
+    background-repeat: repeat-x;
+    background-size: 100%;
+    background: url(../images/progress.png);
+}
+
+/* Experiences */
+#experiences {
+    background: url(../images/background-experiences.png);
+    border-bottom: 1px solid #eee;
+}
+#experiences li {
+    position: relative;
+}
+#experiences h3 {
+    font-size: 38px;
+    margin: 10px 0 0;
+    transition: color 0.2s linear;
+}
+#experiences li:hover h3 {
+    color: #f64744;
+}
+#experiences .dates {
+    font-size: 18px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 200;
+    margin: 0;
+    color: #ccc;
+}
+#experiences .description {
+    margin-top: 20px;
+    padding: 20px;
+    background: #fff;
+    border-left: 5px solid #eee;
+}
+#experiences li:hover .description {
+    border-left-color: rgba(246, 71, 68, 0.5);
+    transition: border-left-color 0.2s linear;
+}
+#experiences .description em {
+    color: #f64744;
+    font-style: normal;
+}
+#experiences .technologies {
+    font-size: 13px;
+    color: #282b32;
+    padding-top: 20px;
+}
+#experiences .technologies span {
+    color: #f64744;
+    padding: 0 5px;
+}
+#experiences .technologies em {
+    font-size: 10px;
+    font-style: normal;
+    color: #bbb; 
+}
+#experiences .actions {
+    position: absolute;
+    right: 50px;
+    top: 30px;
+    font-size: 2em;
+}
+#experiences .actions span {
+    color: #ddd;
+}
+#experiences .actions span:hover {
+    color: #999;
+}
+
+@media screen and (max-width: 650px) {
+    #experiences .actions {
+        right: 15px;
+    }
+}
+
+/* Projects */
+#projects {
+    background-image: url(../images/background-projects.png);
+    background-attachment: fixed;
+    padding-bottom: 75px;
+}
+#projects h2 {
+    color: #fff;
+}
+
+#projects h3 {
+    text-align: center;
+    color: #ddd;
+    font-size: 38px;
+    transition: color 0.2s linear;
+}
+#projects .col-1-3:hover h3 {
+    color: #f64744;
+}
+#projects .image {
+    text-align: center;
+    margin-top: 20px;
+}
+#projects .image img {
+    width: 70%;
+}
+#projects .description {
+    color: #eee;
+    font-size: 14px;
+    text-align: center;
+}
+#projects .col-1-3, #projects .col-2-3 {
+    padding-bottom: 25px;
+}
+
+
+/* Contact */
+#contact {
+    height: 450px;
+    background-color: #dfdfdf;
+}
+
+
+
+
+
+
+
+/* Timeline */
+.timeline {
+    border-left: 2px solid #e3e3e3;
+    margin: 0 0 0 50px;
+    padding-left: 50px;
+    list-style: none;
+}
+.timeline li .logo {
+    float: left;
+    display: block;
+    margin-top: 15px;
+    margin-left: -90px;
+    width: 76px;
+    height: 76px;
+    overflow: hidden;
+    padding: 5px;
+    background: #fff;
+    border: 1px solid #a1a2a5;
+    border-radius: 65px;
+    box-shadow: 0 0 5px rgba(40, 43, 50, 0.15);
+}
+.timeline li .logo img {
+    border-radius: 65px;
+}
+.timeline li .content {
+    padding: 15px;
+}
+
+@media screen and (max-width: 650px) {
+    .timeline {
+        border-left: 0;
+        margin: 0;
+        padding: 0;
+    }
+
+    .timeline li .logo {
+        margin-top: 25px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+/* Tooltipster Theme */
+.tooltipster-mk {
+    border-radius: 4px;
+    border: 1px solid #181b22;
+    background: #282b32;
+    color: #bbb; 
+}
+.tooltipster-mk .tooltipster-content {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    line-height: 16px;
+    padding: 5px 15px;
+}
+.tooltipster-mk a {
+    color: #bbb;
+}
+.tooltipster-mk a:hover {
+    color: #fff;
+}
+
+/* MFG Font */
+@font-face {
+    font-family: 'mfg_labs_iconsetregular';
+    src: url('../fonts/mfglabsiconset-webfont.eot');
+    src: url('../fonts/mfglabsiconset-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/mfglabsiconset-webfont.woff') format('woff'),
+         url('../fonts/mfglabsiconset-webfont.ttf') format('truetype'),
+         url('../fonts/mfglabsiconset-webfont.svg#mfg_labs_iconsetregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon {
+  font-family: 'mfg_labs_iconsetregular' !important;
+  font-style: normal;
+  speak: none;
+  font-weight: normal;
+  font-size: 1em;
+  -webkit-font-smoothing: antialiased;
+}
+.icon2x { font-size: 2em; }
+.icon3x { font-size: 3em; }
+
+/*  MFG Labs iconset uses the Unicode Private Use Area (PUA) to ensure screen
+    readers do not read off random characters that represent icons.
+    We also use semantic unicode when they are available for the icon we provide. */
+
+.icon-cloud:before                { content: "\2601"; }
+.icon-at:before                   { content: "\0040"; }
+.icon-plus:before                 { content: "\002B"; }
+.icon-minus:before                { content: "\2212"; }
+
+.icon-arrow_up:before             { content: "\2191"; }
+.icon-arrow_down:before           { content: "\2193"; }
+.icon-arrow_right:before          { content: "\2192"; }
+.icon-arrow_left:before           { content: "\2190"; }
+.icon-chevron_down:before         { content: "\f004"; }
+.icon-chevron_up:before           { content: "\f005"; }
+.icon-chevron_right:before        { content: "\f006"; }
+.icon-chevron_left:before         { content: "\f007"; }
+.icon-reorder:before              { content: "\f008"; }
+.icon-list:before                 { content: "\f009"; }
+.icon-reorder_square:before       { content: "\f00a"; }
+.icon-reorder_square_line:before  { content: "\f00b"; }
+.icon-coverflow:before            { content: "\f00c"; }
+.icon-coverflow_line:before       { content: "\f00d"; }
+.icon-pause:before                { content: "\f00e"; }
+.icon-play:before                 { content: "\f00f"; }
+
+.icon-step_forward:before         { content: "\f010"; }
+.icon-step_backward:before        { content: "\f011"; }
+.icon-fast_forward:before         { content: "\f012"; }
+.icon-fast_backward:before        { content: "\f013"; }
+.icon-cloud_upload:before         { content: "\f014"; }
+.icon-cloud_download:before       { content: "\f015"; }
+.icon-data_science:before         { content: "\f016"; }
+.icon-data_science_black:before   { content: "\f017"; }
+.icon-globe:before                { content: "\f018"; }
+.icon-globe_black:before          { content: "\f019"; }
+.icon-math_ico:before             { content: "\f01a"; }
+.icon-math:before                 { content: "\f01b"; }
+.icon-math_black:before           { content: "\f01c"; }
+.icon-paperplane_ico:before       { content: "\f01d"; }
+.icon-paperplane:before           { content: "\f01e"; }
+.icon-paperplane_black:before     { content: "\f01f"; }
+
+/* \f020 doesn't work in Safari. all shifted one down */
+.icon-color_balance:before        { content: "\f020"; }
+.icon-star:before                 { content: "\2605"; }
+.icon-star_half:before            { content: "\f022"; }
+.icon-star_empty:before           { content: "\2606"; }
+.icon-star_half_empty:before      { content: "\f024"; }
+.icon-reload:before               { content: "\f025"; }
+
+.icon-heart:before                { content: "\2665"; }
+.icon-heart_broken:before         { content: "\f028"; }
+.icon-hashtag:before              { content: "\f029"; }
+.icon-reply:before                { content: "\f02a"; }
+.icon-retweet:before              { content: "\f02b"; }
+.icon-signin:before               { content: "\f02c"; }
+.icon-signout:before              { content: "\f02d"; }
+.icon-download:before             { content: "\f02e"; }
+.icon-upload:before               { content: "\f02f"; }
+
+
+.icon-placepin:before             { content: "\f031"; }
+.icon-display_screen:before       { content: "\f032"; }
+.icon-tablet:before               { content: "\f033"; }
+.icon-smartphone:before           { content: "\f034"; }
+.icon-connected_object:before     { content: "\f035"; }
+.icon-lock:before                 { content: "\F512"; }
+.icon-unlock:before               { content: "\F513"; }
+.icon-camera:before               { content: "\F4F7"; }
+.icon-isight:before               { content: "\f039"; }
+.icon-video_camera:before         { content: "\f03a"; }
+.icon-random:before               { content: "\f03b"; }
+.icon-message:before              { content: "\F4AC"; }
+.icon-discussion:before           { content: "\f03d"; }
+.icon-calendar:before             { content: "\F4C5"; }
+.icon-ringbell:before             { content: "\f03f"; }
+
+.icon-movie:before                { content: "\f040"; }
+.icon-mail:before                 { content: "\2709"; }
+.icon-pen:before                  { content: "\270F"; }
+.icon-settings:before             { content: "\9881"; }
+.icon-measure:before              { content: "\f044"; }
+.icon-vector:before               { content: "\f045"; }
+.icon-vector_pen:before           { content: "\2712"; }
+.icon-mute_on:before              { content: "\f047"; }
+.icon-mute_off:before             { content: "\f048"; }
+.icon-home:before                 { content: "\2302"; }
+.icon-sheet:before                { content: "\f04a"; }
+.icon-arrow_big_right:before      { content: "\21C9"; }
+.icon-arrow_big_left:before       { content: "\21C7"; }
+.icon-arrow_big_down:before       { content: "\21CA"; }
+.icon-arrow_big_up:before         { content: "\21C8"; }
+.icon-dribbble_circle:before      { content: "\f04f"; }
+
+.icon-dribbble:before             { content: "\f050"; }
+.icon-facebook_circle:before      { content: "\f051"; }
+.icon-facebook:before             { content: "\f052"; }
+.icon-git_circle_alt:before       { content: "\f053"; }
+.icon-git_circle:before           { content: "\f054"; }
+.icon-git:before                  { content: "\f055"; }
+.icon-octopus:before              { content: "\f056"; }
+.icon-twitter_circle:before       { content: "\f057"; }
+.icon-twitter:before              { content: "\f058"; }
+.icon-google_plus_circle:before   { content: "\f059"; }
+.icon-google_plus:before          { content: "\f05a"; }
+.icon-linked_in_circle:before     { content: "\f05b"; }
+.icon-linked_in:before            { content: "\f05c"; }
+.icon-instagram:before            { content: "\f05d"; }
+.icon-instagram_circle:before     { content: "\f05e"; }
+.icon-mfg_icon:before             { content: "\f05f"; }
+.icon-xing:before                 { content: "\F532"; }
+.icon-xing_circle:before          { content: "\F533"; }
+
+.icon-mfg_icon_circle:before      { content: "\f060"; }
+.icon-user:before                 { content: "\f061"; }
+.icon-user_male:before            { content: "\f062"; }
+.icon-user_female:before          { content: "\f063"; }
+.icon-users:before                { content: "\f064"; }
+
+.icon-file_open:before            { content: "\F4C2"; }
+.icon-file_close:before           { content: "\f067"; }
+.icon-file_alt:before             { content: "\f068"; }
+.icon-file_close_alt:before       { content: "\f069"; }
+.icon-attachment:before           { content: "\f06a"; }
+.icon-check:before                { content: "\2713"; }
+.icon-cross_mark:before           { content: "\274C"; }
+.icon-cancel_circle:before        { content: "\F06E"; }
+.icon-check_circle:before         { content: "\f06d"; }
+.icon-magnifying:before           { content: "\F50D"; }
+
+.icon-inbox:before                { content: "\f070"; }
+.icon-clock:before                { content: "\23F2"; }
+.icon-stopwatch:before            { content: "\23F1"; }
+.icon-hourglass:before            { content: "\231B"; }
+.icon-trophy:before               { content: "\f074"; }
+.icon-unlock_alt:before           { content: "\F075"; }
+.icon-lock_alt:before             { content: "\F510"; }
+.icon-arrow_doubled_right:before  { content: "\21D2"; }
+.icon-arrow_doubled_left:before   { content: "\21D0"; }
+.icon-arrow_doubled_down:before   { content: "\21D3"; }
+.icon-arrow_doubled_up:before     { content: "\21D1"; }
+.icon-link:before                 { content: "\f07B"; }
+.icon-warning:before              { content: "\2757"; }
+.icon-warning_alt:before          { content: "\2755"; }
+.icon-magnifying_plus:before      { content: "\f07E"; }
+.icon-magnifying_minus:before     { content: "\f07F"; }
+
+.icon-white_question:before       { content: "\2754"; }
+.icon-black_question:before       { content: "\2753"; }
+.icon-stop:before                 { content: "\f080"; }
+.icon-share:before                { content: "\f081"; }
+.icon-eye:before                  { content: "\f082"; }
+.icon-trash_can:before            { content: "\f083"; }
+.icon-hard_drive:before           { content: "\f084"; }
+.icon-information_black:before    { content: "\f085"; }
+.icon-information_white:before    { content: "\f086"; }
+.icon-printer:before              { content: "\f087"; }
+.icon-letter:before               { content: "\f088"; }
+.icon-soundcloud:before           { content: "\f089"; }
+.icon-soundcloud_circle:before    { content: "\f08A"; }
+.icon-anchor:before               { content: "\2693"; }
+
+.icon-female_sign:before          { content: "\2640"; }
+.icon-male_sign:before            { content: "\2642"; }
+.icon-joystick:before             { content: "\F514"; }
+.icon-high_voltage:before         { content: "\26A1"; }
+.icon-fire:before                 { content: "\F525"; }
+.icon-newspaper:before            { content: "\F4F0"; }
+.icon-chart:before                { content: "\F526"; }
+.icon-spread:before               { content: "\F527"; }
+
+.icon-spinner_1:before            { content: "\F528"; }
+.icon-spinner_2:before            { content: "\F529"; }
+
+.icon-chart_alt:before            { content: "\F530"; }
+.icon-label:before                { content: "\F531"; }
+
+.icon-brush:before                { content: "\E000"; }
+.icon-refresh:before              { content: "\E001"; }
+
+.icon-node:before                 { content: "\E002"; }
+.icon-node_2:before               { content: "\E003"; }
+.icon-node_3:before               { content: "\E004"; }
+.icon-link_2_nodes:before         { content: "\E005"; }
+.icon-link_3_nodes:before         { content: "\E006"; }
+.icon-link_loop_nodes:before      { content: "\E007"; }
+.icon-node_size:before            { content: "\E008"; }
+.icon-node_color:before           { content: "\E009"; }
+.icon-layout_directed:before      { content: "\E010"; }
+.icon-layout_radial:before        { content: "\E011"; }
+.icon-layout_hierarchical:before  { content: "\E012"; }
+.icon-node_link_direction:before  { content: "\E013"; }
+.icon-node_link_short_path:before { content: "\E014"; }
+.icon-node_cluster:before         { content: "\E015"; }
+.icon-display_graph:before        { content: "\E016"; }
+.icon-node_link_weight:before     { content: "\E017"; }
+.icon-more_node_links:before      { content: "\E018"; }
+.icon-node_shape:before           { content: "\E00A"; }
+.icon-node_icon:before            { content: "\E00B"; }
+.icon-node_text:before            { content: "\E00C"; }
+.icon-node_link_text:before       { content: "\E00D"; }
+.icon-node_link_color:before      { content: "\E00E"; }
+.icon-node_link_shape:before      { content: "\E00F"; }
