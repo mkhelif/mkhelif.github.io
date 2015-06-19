@@ -64,7 +64,7 @@ a:hover {
     color: #f64744;
 }
 .section {
-    padding: 3% 0 5% 0; 
+    padding: 5% 0 10% 0; 
 }
 
 /* Cover */
@@ -156,71 +156,75 @@ a:hover {
 }
 
 /* Experiences */
-#experiences {
+.experience {
+    border-bottom: 1px solid #ddd;
+}
+.experience.even {
     background-color: #ffffff;
-    border-bottom: 1px solid #eee;
 }
-#experiences li {
-    position: relative;
+.experience.odd {
+    background-color: #f8f8f8;
 }
-#experiences h3 {
-    font-size: 38px;
-    margin: 10px 0 0;
+.experience h2 {
+    margin-bottom: 3%;
     transition: color 0.2s linear;
 }
-#experiences li:hover h3 {
+.experience:hover h2 {
     color: #f64744;
 }
-#experiences .dates {
+.experience div.logo {
+    text-align: center;
+}
+.experience div.logo img {
+    width: 75%;
+}
+.experience .metadata {
+    padding-bottom: 3%;
+    text-align: center;
     font-size: 18px;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 200;
     margin: 0;
-    color: #ccc;
+    color: #aaa;
 }
-#experiences .description {
+.experience .description {
     margin-top: 20px;
     padding: 20px;
-    background: #f5f5f5;
-    border-left: 5px solid #eee;
 }
-#experiences li:hover .description {
-    border-left-color: rgba(246, 71, 68, 0.5);
-    transition: border-left-color 0.2s linear;
-}
-#experiences .description em {
+.experience .description em {
     color: #f64744;
     font-style: normal;
 }
-#experiences .technologies {
-    font-size: 13px;
+.experience .technologies {
+    font-size: 17px;
     color: #282b32;
     padding-top: 20px;
+    text-align: center;
 }
-#experiences .technologies span {
+.experience .technologies span {
     color: #f64744;
-    padding: 0 5px;
+    padding: 5px 20px;
 }
-#experiences .technologies em {
-    font-size: 10px;
+.experience .technologies em {
+    font-size: 15px;
     font-style: normal;
     color: #bbb; 
 }
-#experiences .actions {
+.experience .actions {
     position: absolute;
     right: 50px;
     top: 30px;
     font-size: 2em;
 }
-#experiences .actions span {
+.experience .actions span {
     color: #ddd;
 }
-#experiences .actions span:hover {
+.experience .actions span:hover {
     color: #999;
 }
 
 @media screen and (max-width: 650px) {
-    #experiences .actions {
+    .experience .actions {
         right: 15px;
     }
 }
