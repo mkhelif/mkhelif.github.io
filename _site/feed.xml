@@ -1,0 +1,921 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Marwan Khelif</title>
+    <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</description>
+    <link>http://www.mkhelif.fr//blog//</link>
+    <atom:link href="http://www.mkhelif.fr//blog//feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Fri, 19 Jun 2015 13:36:06 +0200</pubDate>
+    <lastBuildDate>Fri, 19 Jun 2015 13:36:06 +0200</lastBuildDate>
+    <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Welcome to Jekyll!</title>
+        <description>&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;def print_hi(name)
+  puts &amp;quot;Hi, #{name}&amp;quot;
+end
+print_hi(&amp;#39;Tom&amp;#39;)
+#=&amp;gt; prints &amp;#39;Hi, Tom&amp;#39; to STDOUT.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 19 Jun 2015 15:30:59 +0200</pubDate>
+        <link>http://www.mkhelif.fr//blog//jekyll/update/2015/06/19/welcome-to-jekyll.html</link>
+        <guid isPermaLink="true">http://www.mkhelif.fr//blog//jekyll/update/2015/06/19/welcome-to-jekyll.html</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>NoSQL : premiers pas avec Cassandra</title>
+        <description>&lt;p&gt;Je reviens après ce long silence pour vous présenter une “nouvelle” technologie qui se développe de plus en plus : les bases de données NoSQL, et principalement Cassandra, la solution de la fondation Apache.&lt;/p&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;Pour commencer, une base de données NoSQL qu’est-ce que c’est ?&lt;/p&gt;
+
+&lt;p&gt;C’est une base de données &lt;strong&gt;non&lt;/strong&gt; relationnelle. La plupart des bases de données relationnelles (MySQL, Oracle, PostgreSQL…) utilisent le langage SQL pour fournir un accès aux données. Pour les bases de données NoSQL, il n’y a donc pas de requête SQL.&lt;/p&gt;
+
+&lt;p&gt;Le stockage utilise alors différentes représentations :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bases orientées clé ? valeur : représentation la plus simple. Comme pour une table de hashage, chaque clé est associée à une seule valeur.&lt;/li&gt;
+  &lt;li&gt;Bases orientées colonnes : les bases de données relationnelles structures les données en colonnes, chaque ligne comporte toutes les colonnes définies. Pour les bases orientées colonnes, c’est un peu l’inverse, les données sont structurées par lignes, identifiées par une clé, et chaque ligne comporte uniquement les colonnes qui la concernent.&lt;/li&gt;
+  &lt;li&gt;Bases orientées documents : à chaque clé correspond un document qui a une structure particulière. Un document contient des données organisées hiérarchiquement.&lt;/li&gt;
+  &lt;li&gt;Bases orientées graphes : permettent d’adresser des problèmes complexes grâce à une schématisation très souple. La représentation est intuitive, car elle décrit directement la réalité.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Regardez cet article pour en savoir plus sur &lt;a href=&quot;http://blog.xebia.fr/2010/04/21/nosql-europe-tour-dhorizon-des-bases-de-donnees-nosql/&quot; target=&quot;_blank&quot;&gt;les différentes bases de données NoSQL&lt;/a&gt;. N’hésitez pas à regarder les articles spécifiques à chaque famille de bases de données.&lt;/p&gt;
+
+&lt;p&gt;Ce type de base de données connait un succès grandissant, car des acteurs majeurs du Web ont choisi ce type de solutions : Facebook, Twitter, Digg, LinkedIn….&lt;/p&gt;
+
+&lt;p&gt;Il existe de nombreuses solutions de bases de données NoSQL : &lt;a href=&quot;http://cassandra.apache.org/&quot; target=&quot;_blank&quot;&gt;Cassandra&lt;/a&gt; (de la fondation Apache), &lt;a href=&quot;http://www.hypertable.org/&quot; target=&quot;_blank&quot;&gt;Hypertable&lt;/a&gt;, &lt;a href=&quot;http://www.mongodb.org/&quot; target=&quot;_blank&quot;&gt;MongoDB&lt;/a&gt;, &lt;a href=&quot;http://project-voldemort.com/&quot; target=&quot;_blank&quot;&gt;Projet Voldemort&lt;/a&gt;…&lt;/p&gt;
+
+&lt;h2 id=&quot;prsentation-de-cassandra&quot;&gt;Présentation de Cassandra&lt;/h2&gt;
+
+&lt;p&gt;Cassandra est la solution NoSQL d’Apache. C’est une base de données orientée colonnes &lt;font color=&quot;#000000&quot;&gt;qui se veut être hautement extensible. C’est-à-dire qu’il est très simple d’ajouter ou d’enlever (c’est plus rare) un nœud du cluster. D’abord développé par Facebook, le code source est devenu Open-Source et repris par la fondation Apache.&lt;/font&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;modle-de-donnes&quot;&gt;Modèle de données&lt;/h3&gt;
+
+&lt;p&gt;Il existe quatre types de données dans Cassandra : les colonnes (&lt;em&gt;Column&lt;/em&gt;), les supercolonnes (&lt;em&gt;SuperColumn&lt;/em&gt;), les familles de colonnes (&lt;em&gt;ColumnFamily&lt;/em&gt;) et le &lt;em&gt;KeySpace&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;column&quot;&gt;Column&lt;/h4&gt;
+
+&lt;p&gt;Objet de plus bas niveau, il est composé d’une clé (le nom de la colonne), d’une valeur et d’un timestamp.&lt;/p&gt;
+
+&lt;p&gt;Les timestamps des colonnes sont utilisés pour résoudre les conflits entre plusieurs nœuds de l’infrastructure, pour savoir si un nœud à une version plus récente. Il est donc important que tous les nœuds de l’infrastructure soient synchronisés sur la même horloge.&lt;/p&gt;
+
+&lt;h4 id=&quot;supercolumn&quot;&gt;SuperColumn&lt;/h4&gt;
+
+&lt;p&gt;Une supercolonne représente une colonne dont les valeurs sont d’autres colonnes. C’est le moyen le plus simple pour représenter une relation entre deux objets.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;a href=&quot;http://www.mkhelif.fr/wp-content/uploads/2010/10/SuperColumn.png&quot;&gt;&lt;img style=&quot;display: inline;&quot; title=&quot;SuperColumn&quot; border=&quot;0&quot; alt=&quot;SuperColumn&quot; src=&quot;http://www.mkhelif.fr/wp-content/uploads/2010/10/SuperColumn_thumb.png&quot; width=&quot;299&quot; height=&quot;234&quot; /&gt;&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;h4 id=&quot;columnfamily&quot;&gt;ColumnFamily&lt;/h4&gt;
+
+&lt;p&gt;Les familles de colonnes sont similaires aux tables des bases de données relationnelles. Elles contiennent les données organisées en lignes, chaque ligne est identifiée par une clé unique (correspondant à la clé primaire pour les bases de données relationnelles). Chaque ligne contient alors un ensemble de (super-)colonnes.&lt;/p&gt;
+
+&lt;p&gt;À l’intérieur des ColumnFamily, les clés sont toujours triées. La façon de trier dépend de la clé utilisée : nombre, chaîne de caractère, &lt;a href=&quot;http://fr.wikipedia.org/wiki/UUID&quot; target=&quot;_blank&quot;&gt;UUID&lt;/a&gt;…&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;a href=&quot;http://www.mkhelif.fr/wp-content/uploads/2010/10/ColumnFamily.png&quot;&gt;&lt;img style=&quot;display: inline;&quot; title=&quot;ColumnFamily&quot; border=&quot;0&quot; alt=&quot;ColumnFamily&quot; src=&quot;http://www.mkhelif.fr/wp-content/uploads/2010/10/ColumnFamily_thumb.png&quot; width=&quot;594&quot; height=&quot;215&quot; /&gt;&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;h4 id=&quot;keyspace&quot;&gt;KeySpace&lt;/h4&gt;
+
+&lt;p&gt;L’espace de clés est l’équivalent d’une base de données pour les systèmes relationnels. Il a un nom et contient l’ensemble des familles de colonnes (l’ensemble des tables pour un système relationnel).&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;a href=&quot;http://www.mkhelif.fr/wp-content/uploads/2010/10/KeySpace.png&quot;&gt;&lt;img style=&quot;display: inline;&quot; title=&quot;KeySpace&quot; border=&quot;0&quot; alt=&quot;KeySpace&quot; src=&quot;http://www.mkhelif.fr/wp-content/uploads/2010/10/KeySpace_thumb.png&quot; width=&quot;460&quot; height=&quot;258&quot; /&gt;&lt;/a&gt;&amp;#160;
+&lt;/p&gt;
+
+&lt;h3 id=&quot;configuration-du-serveur&quot;&gt;Configuration du serveur&lt;/h3&gt;
+
+&lt;p&gt;La configuration d’un serveur Cassandra est extrêmement simple, il n’y à qu’un seul fichier de configuration : &lt;em&gt;conf/storage-conf.xml&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Ce fichier contient à la fois les paramètres du serveur (mémoire, chemins des fichiers…), les paramètres du cluster et la définition des KeySpace.&lt;/p&gt;
+
+&lt;h4 id=&quot;paramtres-du-cluster&quot;&gt;Paramètres du cluster&lt;/h4&gt;
+
+&lt;p&gt;Cassandra utilise le protocole &lt;a href=&quot;http://en.wikipedia.org/wiki/Apache_Thrift&quot; target=&quot;_blank&quot;&gt;Thrift&lt;/a&gt; pour faire communiquer les différents nœuds du cluster entre eux. C’est d’ailleurs ce protocole qui est utilisé par les clients qui se connectent au serveur Cassandra.&lt;/p&gt;
+
+&lt;p&gt;La configuration de Thrift est assez simple, vous spécifiez un port d’écoute (&lt;em&gt;ThriftPort&lt;/em&gt;) et un nom d’hôte (&lt;em&gt;ThriftAddress&lt;/em&gt;) qui doit être accessible par les différents clients. Au niveau du cluster, il faut définir le nom d’hôte (&lt;em&gt;ListenAddress&lt;/em&gt;) et le port (&lt;em&gt;StoragePort&lt;/em&gt;) accessible par les différents nœuds du cluster.&lt;/p&gt;
+
+&lt;p&gt;Lors du démarrage du cluster, les nœuds qui le composent doivent se découvrir, pour cela, certains des nœuds doivent être définis comme des racines (&lt;em&gt;Seeds&lt;/em&gt;). Lors du démarrage d’un nœud, il va s’enregistrer auprès des *Seeds *qui sont configurés et récupérer ainsi la liste des nœuds du cluster.&lt;/p&gt;
+
+&lt;h4 id=&quot;configuration-des-keyspaces&quot;&gt;Configuration des KeySpaces&lt;/h4&gt;
+
+&lt;p&gt;Le principal problème que je trouve à Cassandra c’est que les KeySpaces doivent être définis avant le démarrage du serveur afin que tous les nœuds possèdent le même schéma.&lt;/p&gt;
+
+&lt;p&gt;Pour définir les &lt;em&gt;KeySpaces&lt;/em&gt;, c’est dans le fichier &lt;em&gt;conf/storage-conf.xml&lt;/em&gt; :&lt;/p&gt;
+
+&lt;pre lang=&quot;xml&quot;&gt;&amp;lt;keyspaces&amp;gt;
+    &amp;lt;keyspace name=&quot;Keyspace1&quot;&amp;gt;
+        &amp;lt;columnfamily name=&quot;Standard1&quot; comparewith=&quot;BytesType&quot; /&amp;gt;
+
+        &amp;lt;columnfamily name=&quot;Standard2&quot; comparewith=&quot;UTF8Type&quot; keyscached=&quot;100%&quot; /&amp;gt;
+        &amp;lt;columnfamily name=&quot;StandardByUUID1&quot; comparewith=&quot;TimeUUIDType&quot; /&amp;gt;
+        &amp;lt;columnfamily name=&quot;Super1&quot; comparewith=&quot;BytesType&quot; comparesubcolumnswith=&quot;BytesType&quot; columntype=&quot;Super&quot; /&amp;gt;
+
+        &amp;lt;columnfamily name=&quot;Super2&quot; comparewith=&quot;UTF8Type&quot; keyscached=&quot;50%&quot; comparesubcolumnswith=&quot;UTF8Type&quot; columntype=&quot;Super&quot; comment=&quot;A column family with supercolumns, whose column and subcolumn names are UTF8 strings&quot; rowscached=&quot;10000&quot; /&amp;gt;
+    &amp;lt;/keyspace&amp;gt;
+&amp;lt;/keyspaces&amp;gt;&lt;/pre&gt;
+
+&lt;p&gt;La définition est très simple et les paramètres des &lt;em&gt;ColumnFamily&lt;/em&gt; permettent de gérer le cache de la base de données (&lt;em&gt;KeysCached&lt;/em&gt; et &lt;em&gt;RowsCached&lt;/em&gt;) ainsi que le tri des clés (&lt;em&gt;CompareWith&lt;/em&gt; et &lt;em&gt;CompareSubcolumnsWith&lt;/em&gt;).&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;Pour avoir testé Cassandra, les performances sont impressionnantes par rapport à des bases de données comme MySQL. Par contre, ce type de bases de données n’est pas à utiliser pour tous les types d’applications.&lt;/p&gt;
+
+&lt;p&gt;Le seul point noir de Cassandra c’est le protocole Thrift utilisé pour la communication entre le client et le serveur. Heureusement qu’il existe quelques (mais très peu) librairies d’abstraction de cette couche.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 01 Oct 2010 00:00:00 +0200</pubDate>
+        <link>http://www.mkhelif.fr//blog//nosql-premiers-pas-avec-cassandra/</link>
+        <guid isPermaLink="true">http://www.mkhelif.fr//blog//nosql-premiers-pas-avec-cassandra/</guid>
+        
+        <category>Cassandra</category>
+        
+        <category>Java</category>
+        
+        <category>NoSQL</category>
+        
+        <category>Web</category>
+        
+        
+        <category>java</category>
+        
+        <category>nosql</category>
+        
+      </item>
+    
+      <item>
+        <title>GWT 2.0 : les nouvelles fonctionnalités</title>
+        <description>&lt;p&gt;La version 2.0 de GWT (&lt;a href=&quot;http://www.mkhelif.fr/2008/07/03/gwt-introduction-au-framework.html&quot;&gt;Google Web Toolkit&lt;/a&gt;) est sortie (j’ai un peu de retard à cause du boulot &lt;img src=&quot;http://www.mkhelif.fr/wp-includes/images/smilies/icon_smile.gif&quot; alt=&quot;:)&quot; class=&quot;wp-smiley&quot; /&gt; ) et avec elle de nombreuses améliorations, principalement pour améliorer le développement des applications. Cette nouvelle version est accompagnée d’un outil d’analyse des performances des sites : &lt;em&gt;Speed Tracer&lt;/em&gt;, qui donne des pistes d’amélioration de l’application.&lt;/p&gt;
+
+&lt;h3 id=&quot;development-mode&quot;&gt;Development Mode&lt;/h3&gt;
+
+&lt;p&gt;Dans les versions précédentes de GWT, pour tester une application en cours de développement, il y avait le Hosted Mode. C’est une application que l’on lançait depuis son IDE, qui démarrait un serveur Tomcat et qui permettait de tester “rapidement” sont application Web.&lt;/p&gt;
+
+&lt;p&gt;En GWT 2.0 le Hosted Mode est remplacé par le In-Browser Development Mode. On installe un plugin (le GWT Developer Plugin) dans son navigateur pour lui permettre de communiquer avec la JVM. Cela permet de bénéficier des différents plugins de son navigateur (Firebug, …) tout en permettant de modifier le code Java en live en rafraichissant la page Web.&lt;/p&gt;
+
+&lt;h3 id=&quot;ui-binder&quot;&gt;UI Binder&lt;/h3&gt;
+
+&lt;p&gt;Un des problèmes majeurs de GWT dans ses versions précédentes est la gestion de l’interface graphique depuis le code Java. La manipulation des Widgets (composants graphiques dans GWT) depuis le code Java pour leurs appliquer des styles CSS ou gérer des événements finit par donner du code difficile à maintenir.&lt;/p&gt;
+
+&lt;p&gt;GWT 2.0 apporte une solution plutôt élégante avec l’UI Binder, ça permet de lier un template XML à une classe Java. Au passage, les fichiers CSS et JavaScripts (librairies externes) référençaient depuis le template sont compressées par le compilateur GWT afin d’en réduire la taille finale.&lt;/p&gt;
+
+&lt;p&gt;Ainsi, on sépare l’interface graphique (dans les template &lt;em&gt;.ui.xml&lt;/em&gt;) et la logique de l’application dans le code Java.&lt;/p&gt;
+
+&lt;h3 id=&quot;code-splitting&quot;&gt;Code Splitting&lt;/h3&gt;
+
+&lt;p&gt;Voilà une fonctionnalité attendue par beaucoup de développeurs GWT. Lorsque l’on développe une application GWT, on se rend vite compte que le fichier JavaScript généré prend vite du poids. Cette fonctionnalité découpe l’application en plusieurs fichiers JavaScript qui seront chargés uniquement lorsque c’est nécessaire en rajoutant quelques lignes de codes.&lt;/p&gt;
+
+&lt;h3 id=&quot;layout-par-contraintes&quot;&gt;Layout par contraintes&lt;/h3&gt;
+
+&lt;p&gt;Beaucoup d’applications Web qui se basent sur JavaScript utilisent des widgets qui sont positionnées dans la page grâce à des calculs qui peuvent ralentir l’affichage de l’application.&lt;/p&gt;
+
+&lt;p&gt;À l’inverse, GWT 2.0 génère le rendu final en utilisant le CSS de la page, celui-ci est généré à la compilation et non plus pendant l’affichage de la page ce qui réduit considérablement le temps de chargement. &lt;/p&gt;
+
+&lt;h3 id=&quot;clientbundle&quot;&gt;ClientBundle&lt;/h3&gt;
+
+&lt;p&gt;Je présentais dans mon billet : &lt;a href=&quot;http://www.mkhelif.fr/2009/10/20/guide-doptimisation-de-vos-applications-web.html&quot;&gt;Guide d’optimisation de vos applications Web&lt;/a&gt; une méthode pour réduire le temps de chargement d’une page en utilisant des images sprites.&lt;/p&gt;
+
+&lt;p&gt;GWT est capable depuis la version 1.4 de faire tout cela automatiquement grâce aux ImageBundle. Toutes les images référencées sur disque étaient réunies en une seule est GWT utilisé la technique des sprites pour afficher les images convenablement. Avec GWT 1.5/1.6, un projet de l’incubateur permettait de faire la même chose avec à peu près n’importe quels fichiers.&lt;/p&gt;
+
+&lt;p&gt;GWT 2.0 introduit cette notion avec les ClientBundle. Par exemple, vous pouvez références tous vos fichiers CSS, GWT va alors les regrouper en un seul fichier, le minimiser et le rendre disponible pour être mis en cache. GWT gère aussi l’internationalisation ainsi vous pouvez gérer vos ClientBundle pour chaque locale.&lt;/p&gt;
+
+&lt;h3 id=&quot;speed-tracer&quot;&gt;Speed Tracer&lt;/h3&gt;
+
+&lt;p&gt;Cette nouvelle version sort avec une extension pour Google Chrome : Speed Tracer. Cette extension analyse l’exécution de l’application Web en cours. Plutôt que de longues explications, voilà la vidéo de présentation de Speed Tracer.&lt;/p&gt;
+
+&lt;p class=&quot;align-center&quot;&gt;
+  &lt;em&gt;Présentation de Speed Tracer&lt;/em&gt;
+&lt;/p&gt;
+
+&lt;p class=&quot;align-center&quot;&gt;
+&lt;/p&gt;
+
+&lt;h3 id=&quot;story-of-your-compile&quot;&gt;Story of Your Compile&lt;/h3&gt;
+
+&lt;p&gt;SOYC fournit de nombreux détails sur la compilation de chaque partie de l’application GWT : la taille, les dépendances, temps de compilation… Cela permet d’orienter ses efforts pour diviser le code grâce Code Splitting&lt;/p&gt;
+
+&lt;h3 id=&quot;traces-dans-ie-6&quot;&gt;Traces dans IE 6&lt;/h3&gt;
+
+&lt;p&gt;Internet Explorer ne fournit pas les traces lorsqu’une exception JavaScript est levée, ce qui peut être très embêtant lors d’une phase de debug sur ce navigateur…&lt;/p&gt;
+
+&lt;p&gt;Avec GWT 2.0 vous obtenez maintenant la trace obfusquée (ou non en fonction de la compilation choisie) JavaScript qui peut être convertie en trace Java avec nom de classe et numéro de ligne.&lt;/p&gt;
+
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;Ce billet ne présente que les améliorations les plus importantes, mais il y à de très nombreuses évolutions : optimisation du compilateur, évaluation directe des réponses RPC (réduction du temps de déserialisation), propriété de deffered binding conditionnelles, …&lt;/p&gt;
+
+&lt;p&gt;GWT devient de plus en plus un framework “productif” : la plupart des problèmes qu’un développeur rencontre lors du développement d’une application Web qui utilise JavaScript, sont résolus très simplement.&lt;/p&gt;
+
+&lt;p&gt;Pensez-vous que cette version 2.0 de GWT va permettre au framework de gagner des parts de marché face à ses concurrents comme Flex?&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 14 Jan 2010 00:00:00 +0100</pubDate>
+        <link>http://www.mkhelif.fr//blog//gwt-2-0-les-nouvelles-fonctionnalits/</link>
+        <guid isPermaLink="true">http://www.mkhelif.fr//blog//gwt-2-0-les-nouvelles-fonctionnalits/</guid>
+        
+        <category>Google</category>
+        
+        <category>GWT</category>
+        
+        <category>J2EE</category>
+        
+        <category>Java</category>
+        
+        <category>RIA</category>
+        
+        <category>Web</category>
+        
+        
+        <category>google</category>
+        
+        <category>gwt</category>
+        
+        <category>j2ee</category>
+        
+        <category>java</category>
+        
+        <category>ria</category>
+        
+        <category>web</category>
+        
+      </item>
+    
+      <item>
+        <title>Goo.gl : le raccourcisseur d’URL by Google</title>
+        <description>&lt;p&gt;Google vient de lancer son &lt;em&gt;raccourcisseur&lt;/em&gt; d’URL : &lt;a href=&quot;http://goo.gl/&quot;&gt;goo.gl&lt;/a&gt;. Un &lt;em&gt;raccourcisseur&lt;/em&gt; d’URL permet simplement de lier une URL de quelques caractères à une URL complète d’un article ou d’une page.&lt;/p&gt;
+
+&lt;p&gt;Voulant profiter de l’utilisation croissante de ce type de services, surtout grâce à Twitter et Facebook (qui vient d’ailleurs de lancer &lt;a href=&quot;http://fb.me/&quot;&gt;fb.me&lt;/a&gt; pour les URL internes), Google veut récupérer une part du marché.&lt;/p&gt;
+
+&lt;p&gt;Bientôt intégrer dans FeedBurner et la barre d’outils Google il sera très facile de tweeter un article que l’on trouve intéressant. À savoir que Google à aussi intégrer la publication de tweets directement depuis FeedBurner. Ainsi la publication de tweets directement après la publication d’un article devient automatique si son blog est configuré sur FeedBurner, l’URL étant raccourcie par &lt;em&gt;goog.gl&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;En lançant son service, Google souhaite sûrement avoir une main mise sur les liens les plus partagés (et donc les plus intéressants) pour obtenir des résultats de recherche en temps réel les plus pertinents.&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 15 Dec 2009 00:00:00 +0100</pubDate>
+        <link>http://www.mkhelif.fr//blog//goo-gl-le-raccourcisseur-durl-by-google/</link>
+        <guid isPermaLink="true">http://www.mkhelif.fr//blog//goo-gl-le-raccourcisseur-durl-by-google/</guid>
+        
+        <category>Google</category>
+        
+        <category>Web</category>
+        
+        
+        <category>actualités</category>
+        
+        <category>google</category>
+        
+        <category>web</category>
+        
+      </item>
+    
+      <item>
+        <title>Chrome OS : première présentation</title>
+        <description>&lt;p class=&quot;align-center&quot;&gt;
+  &lt;a href=&quot;http://www.mkhelif.fr/wp-content/uploads/2009/11/sdres_0000_Basic.png&quot;&gt;&lt;img style=&quot;border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px&quot; title=&quot;sdres_0000_Basic&quot; border=&quot;0&quot; alt=&quot;sdres_0000_Basic&quot; src=&quot;http://www.mkhelif.fr/wp-content/uploads/2009/11/sdres_0000_Basic_thumb.png&quot; width=&quot;496&quot; height=&quot;281&quot; /&gt;&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Google avait annoncé, le 7 juillet 2009, le développement du système d’exploitation Chrome OS : un système orienté Web. Aujourd’hui a eu lieu à 19h une conférence de présentation du système d’exploitation OS. En attendant des articles plus techniques qui vont surement voir le jour d’ici peu sur la toile, voici une présentation du système d’exploitation vu par Google. Le &lt;a href=&quot;http://sites.google.com/a/chromium.org/dev/chromium-os/building-chromium-os/getting-the-chromium-os-source-code&quot;&gt;code source du système d’exploitation&lt;/a&gt; est déjà disponible.&lt;/p&gt;
+
+&lt;p&gt;Voici la vidéo officielle de Google Chrome OS :&lt;/p&gt;
+
+&lt;p class=&quot;align-center&quot;&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Le système d’exploitation est basé sur une distribution Debian allégée et est en fait un simple navigateur Web, Chrome bien entendu. L’objectif est clairement de faire un système d’exploitation rapide, on peut ainsi le voir démarrer en &lt;a href=&quot;http://www.youtube.com/watch?v=mTFfl7AjNfI&quot;&gt;3 secondes&lt;/a&gt;…, et orienté pour le Web.&lt;/p&gt;
+
+&lt;p&gt;Ainsi après s’être connecté a votre compte utilisateur vous êtes directement sur Internet avec des onglet servant : de menu “Démarrer” avec la liste de vos applications Web, de client mail (GMail), … Chrome OS mise sur le développement des applications Web basées sur &lt;a href=&quot;http://www.mkhelif.fr/2009/02/18/html-5-deux-nouveaux-documents.html&quot;&gt;HTML 5&lt;/a&gt; pour offrir toutes les nouveautés et améliorations de la nouvelle spécification (gestion de contenu hors-ligne particulièrement).&lt;/p&gt;
+
+&lt;p class=&quot;align-center&quot;&gt;
+  &lt;a href=&quot;http://www.mkhelif.fr/wp-content/uploads/2009/11/sdres_0001_AppMenu.png&quot;&gt;&lt;img style=&quot;border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px&quot; title=&quot;sdres_0001_App-Menu&quot; border=&quot;0&quot; alt=&quot;sdres_0001_App-Menu&quot; src=&quot;http://www.mkhelif.fr/wp-content/uploads/2009/11/sdres_0001_AppMenu_thumb.png&quot; width=&quot;496&quot; height=&quot;281&quot; /&gt;&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Au niveau de la sécurité, toutes les applications s’exécutent par défaut dans une sandbox n’ayant ainsi pas accès à l’ensemble des ressources de la machine. Étant basé sur Chrome, tous les onglets (donc les applications) s’exécutent dans des processus différents et sont donc indépendants les uns des autres.&lt;/p&gt;
+
+&lt;p&gt;L’authentification se fera soit grâce à votre compte Google si vous êtes connecté, soit grâce à des comptes configurés en local, soit grâce à un fournisseur supportant OpenID.&lt;/p&gt;
+
+&lt;p&gt;Lors de l’ouverture/téléchargement d’un fichier, si le type est reconnu et associé à une application celle ci s’ouvre pour afficher le fichier.&lt;/p&gt;
+
+&lt;p class=&quot;align-center&quot;&gt;
+  &lt;a href=&quot;http://www.mkhelif.fr/wp-content/uploads/2009/11/sdres_0002_Panels.png&quot;&gt;&lt;img style=&quot;border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px&quot; title=&quot;sdres_0002_Panels&quot; border=&quot;0&quot; alt=&quot;sdres_0002_Panels&quot; src=&quot;http://www.mkhelif.fr/wp-content/uploads/2009/11/sdres_0002_Panels_thumb.png&quot; width=&quot;496&quot; height=&quot;281&quot; /&gt;&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Annoncé pour 2010, le matériel devra être certifié par Google… Certes ce n’est pas un système d’exploitation fait pour un poste de travail, par contre la cible est clairement pour les mini-netbooks (EeePc ou autre).&lt;/p&gt;
+
+&lt;p&gt;Pensez-vous que Google va réussir à s’immiscer directement au cœur de nos machines maintenant?&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 19 Nov 2009 00:00:00 +0100</pubDate>
+        <link>http://www.mkhelif.fr//blog//chrome-os-premire-prsentation/</link>
+        <guid isPermaLink="true">http://www.mkhelif.fr//blog//chrome-os-premire-prsentation/</guid>
+        
+        <category>Chrome</category>
+        
+        <category>Google</category>
+        
+        <category>Linux</category>
+        
+        <category>Web</category>
+        
+        
+        <category>actualités</category>
+        
+        <category>chrome</category>
+        
+        <category>google</category>
+        
+        <category>linux</category>
+        
+        <category>web</category>
+        
+      </item>
+    
+      <item>
+        <title>Twitter : intérêts des listes</title>
+        <description>&lt;p class=&quot;align-center&quot;&gt;
+  &lt;a href=&quot;http://www.mkhelif.fr/wp-content/uploads/2009/10/twitterbeta.png&quot;&gt;&lt;img style=&quot;border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px&quot; title=&quot;twitter-beta&quot; border=&quot;0&quot; alt=&quot;twitter-beta&quot; src=&quot;http://www.mkhelif.fr/wp-content/uploads/2009/10/twitterbeta_thumb.png&quot; width=&quot;504&quot; height=&quot;101&quot; /&gt;&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Depuis quelques jours, Twitter a ouvert à certains comptes une nouvelle fonctionnalité : la possibilité de créer des listes. À première vue cette fonctionnalité à l’air bien pratique pour organiser un peu les personnes que l’on suit par thématique : blogueur, marketing, entrepreneur, high-tech, amis, collègues, …&lt;/p&gt;
+
+&lt;p&gt;Après un côté pratique qui est plus que relatif, on peut depuis très longtemps créer des listes depuis des clients Twitter comme &lt;a href=&quot;http://www.tweetdeck.com/&quot;&gt;TweetDeck&lt;/a&gt; ou &lt;a href=&quot;http://seesmic.com/&quot;&gt;Seesmic&lt;/a&gt;, cette fonctionnalité permet surtout de classer tous les comptes Twitter. Avant cela lorsque vous arrivez sur une page d’un profile, vous regardez en premier : la photo (est-ce une vraie personne ou encore un simple bot?), le nombre de &lt;em&gt;following&lt;/em&gt;/&lt;em&gt;followers&lt;/em&gt; (cette personne semble t’elle intéressante?), puis la description écrite par cette même personne (parle t’elle de choses qui m’intéressent?).&lt;/p&gt;
+
+&lt;p class=&quot;align-center&quot;&gt;
+  &lt;a href=&quot;http://www.mkhelif.fr/wp-content/uploads/2009/10/twitterlisted.png&quot;&gt;&lt;img style=&quot;border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px&quot; title=&quot;twitter-listed&quot; border=&quot;0&quot; alt=&quot;twitter-listed&quot; src=&quot;http://www.mkhelif.fr/wp-content/uploads/2009/10/twitterlisted_thumb.png&quot; width=&quot;156&quot; height=&quot;43&quot; /&gt;&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Maintenant avec les listes un nouveau compteur est apparu : &lt;em&gt;listed&lt;/em&gt;, il représente le nombre de listes qui font référence au profil. Si l’on clique dessus on peut voir le nom des listes (avec le nom de leur créateur), le nombre de personnes listées (&lt;em&gt;following&lt;/em&gt;) et le nombre de personnes qui suivent cette liste (&lt;em&gt;followers&lt;/em&gt;).&lt;/p&gt;
+
+&lt;p class=&quot;align-center&quot;&gt;
+  &lt;a href=&quot;http://www.mkhelif.fr/wp-content/uploads/2009/10/twitterlist.png&quot;&gt;&lt;img style=&quot;border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px&quot; title=&quot;twitter-list&quot; border=&quot;0&quot; alt=&quot;twitter-list&quot; src=&quot;http://www.mkhelif.fr/wp-content/uploads/2009/10/twitterlist_thumb.png&quot; width=&quot;504&quot; height=&quot;215&quot; /&gt;&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Cela permet de savoir pourquoi les gens vous suivent et l’information qu’ils trouvent sur votre compte. Les listes apportent un aspect qualitatif aux comptes alors que le nombre de &lt;em&gt;followers&lt;/em&gt; affichait uniquement un aspect quantitatif.&lt;/p&gt;
+
+&lt;p&gt;Je pense par contre que l’on risque de très vite se retrouver avec des listes qui ont le même nom avec plusieurs comptes communs. De plus pour remplir une liste on doit passer en revue toutes les personnes que l’on suit, se qui peut se montrer fastidieux en fonction du nombre de &lt;em&gt;following&lt;/em&gt; que l’on a.&lt;/p&gt;
+
+&lt;p&gt;Et vous que pensez-vous que les listes vont ajouter à Twitter?&lt;/p&gt;
+
+&lt;p&gt;PS : merci &lt;a href=&quot;http://twitter.com/jeanlucr&quot;&gt;@jeanlucr&lt;/a&gt;, &lt;a href=&quot;http://twitter.com/ChauffeurDeBuzz&quot;&gt;@ChauffeurDeBuzz&lt;/a&gt;, &lt;a href=&quot;http://twitter.com/vansnick&quot;&gt;@vansnick&lt;/a&gt; et &lt;a href=&quot;http://twitter.com/mary1in&quot;&gt;@mary1in&lt;/a&gt; pour être les premiers à me lister.&lt;/p&gt;
+
+</description>
+        <pubDate>Sat, 31 Oct 2009 00:00:00 +0100</pubDate>
+        <link>http://www.mkhelif.fr//blog//twitter-interets-des-listes/</link>
+        <guid isPermaLink="true">http://www.mkhelif.fr//blog//twitter-interets-des-listes/</guid>
+        
+        <category>Social</category>
+        
+        <category>Twitter</category>
+        
+        
+        <category>social</category>
+        
+        <category>twitter</category>
+        
+      </item>
+    
+      <item>
+        <title>Guide d’optimisation de vos applications Web</title>
+        <description>&lt;p&gt;Bon ça fait un moment que je prépare cet article (j’en ai encore en préparation) mais je ne trouvai pas le temps pour finir de le rédiger. Cet article est une liste de conseils  afin d’optimiser vos applications Web.&lt;/p&gt;
+
+&lt;h3 id=&quot;optimisation-du-serveur&quot;&gt;Optimisation du serveur&lt;/h3&gt;
+
+&lt;p&gt;La première chose à faire lorsque vous êtes dans une démarche d’optimisation de vos applications Web est d’optimiser au maximum le serveur qui va héberger les applications. Car vous aurez beau passer tout votre temps à optimiser vos applications, si le serveur met du temps à servir les requêtes ça n’aura servi à rien.&lt;/p&gt;
+
+&lt;h4 id=&quot;serveur-priv&quot;&gt;Serveur privé&lt;/h4&gt;
+
+&lt;p&gt;Si vous développez une application Web dans un but professionnel il est nécessaire d’avoir un serveur privé avec une adresse IP dédiée et un accès SSH. Cela permet d’avoir un accès complet à l’ensemble de la configuration du serveur et d’installer de nouveaux programmes : comment faites-vous si votre hébergement mutualisé ne contient pas l’extension cURL de PHP et que votre application ne peut être exécuté sans?&lt;/p&gt;
+
+&lt;p&gt;Si c’est une application personnelle (un blog par exemple) il est toujours bon d’avoir un accès complet à la configuration du serveur. Aujourd’hui il existe de nombreuses solutions de serveurs dédiés pour 30€ / mois ou moins.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Bénéfices :&lt;/strong&gt; configuration, sécurité et stabilité.&lt;/p&gt;
+
+&lt;h4 id=&quot;activer-la-compression&quot;&gt;Activer la compression&lt;/h4&gt;
+
+&lt;p&gt;Le serveur Web reçoit des requêtes et envoi en réponse des contenus (HTML, CSS, images, …). Le temps de chargement complet d’une page Web représente le temps de chargements de toutes les ressources : le client demande d’abord la page HTML puis charge au fur et à mesure toutes les ressources référencées par la page.&lt;/p&gt;
+
+&lt;p&gt;L’objectif est donc de diminuer le temps réseau du téléchargement des ressources en compressant les données envoyées par le serveur avec gZIP. Compresser les données textuelles (HTML, JavaScript, CSS) est extrêmement efficace : environ 50% de gain (donc deux fois moins de temps de téléchargement pour le client).&lt;/p&gt;
+
+&lt;p&gt;Pour Apache il faut activer le module “&lt;em&gt;deflate&lt;/em&gt;” ou “&lt;em&gt;gzip&lt;/em&gt;” pour les anciennes versions (jusqu’à 1.3).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Bénéfices :&lt;/strong&gt; gain important sur le temps de téléchargement du client.&lt;/p&gt;
+
+&lt;h4 id=&quot;activer-le-cache&quot;&gt;Activer le cache&lt;/h4&gt;
+
+&lt;p&gt;Lorsqu’un utilisateur se connecte à un serveur Web il télécharge toutes les ressources associées à la page Web qu’il consulte. Cependant sur la page, très peu de ressources ne sont modifiées au cours du temps : vous ne changez pas le logo de votre site tous les quatre matins. Quel est alors l’intérêt de forcer l’utilisateur à re-télécharger ces ressources?&lt;/p&gt;
+
+&lt;p&gt;Pour cela le protocole HTTP propose un système de cache des ressources qui permet au navigateur d’utiliser des ressources dont la version n’a pas changé. Par défaut les serveurs Web sont configurés avec le cache activé et vous n’avez donc rien à faire, mais il vaut mieux rappeler les bons conseils.&lt;/p&gt;
+
+&lt;p&gt;Pour Apache, il faut activer le module “&lt;em&gt;expires&lt;/em&gt;” qui utilise l’en-tête “&lt;em&gt;Expires&lt;/em&gt;” pour donner une date de péremption à la réponse, le client peut dont la mettre en cache et ainsi réduire considérablement le nombre de requêtes au serveur.&lt;/p&gt;
+
+&lt;p&gt;Pour ajouter le mode “&lt;em&gt;expires&lt;/em&gt;” :&lt;/p&gt;
+
+&lt;pre&gt;a2enmod expires&lt;/pre&gt;
+
+&lt;p&gt;Ensuite vous devez modifier le fichier “&lt;em&gt;expires.conf&lt;/em&gt;” pour référencer les fichiers pour lesquels vous souhaitez ajouter le header.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Bénéfices :&lt;/strong&gt; réduction du nombre de requêtes au serveur Web et réduction des accès disques et de temps processeur.&lt;/p&gt;
+
+&lt;h4 id=&quot;amliorer-la-configuration&quot;&gt;Améliorer la configuration&lt;/h4&gt;
+
+&lt;p&gt;Tous les serveurs Web ont une configuration par défaut : nombre de Threads maximum à démarrer, durée maximum de temps de traitement, mémoire allouée à chaque Thread, …&lt;/p&gt;
+
+&lt;font color=&quot;#ff0000&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Vous devez modifier la configuration afin que le serveur Web réponde au niveau de qualité souhaité. Parmi toutes les propriétés que vous pouvez configurer, voici les plus courantes :&lt;/font&gt;&lt;/font&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Désactiver le &lt;em&gt;reverse DNS&lt;/em&gt;&lt;/strong&gt; &lt;strong&gt;:&lt;/strong&gt; lorsqu’un client se connecte à votre application Web, sa requête est enregistrée dans les logs du serveur. Le serveur va effectuer une requête DNS afin de récupérer le nom de domaine correspondant à l’adresse IP du client. En désactivant cette option vous économiserez de nombreuses requêtes inutiles.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Keep-Alive :&lt;/strong&gt; cette option permet au serveur Web de ne pas fermer la connexion du client lorsque la requête a été servie. Cela économise de nombreuses ouvertures de connexions au client.&lt;/p&gt;
+
+    &lt;p&gt;Au niveau de cette option il y a quelques paramètres à modifier : &lt;em&gt;KeepAliveTimeout&lt;/em&gt; et &lt;em&gt;Timeout&lt;/em&gt;. Le paramètre &lt;em&gt;KeepAliveTimeout&lt;/em&gt; représente le temps maximum entre deux requêtes sur la même connexion. Le paramètre &lt;em&gt;Timeout&lt;/em&gt; représente le temps maximum entre la connexion et la première requête. Ces deux paramètres étant à modifier en fonction de votre application.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;optimisation-des-ressources&quot;&gt;Optimisation des ressources&lt;/h3&gt;
+
+&lt;p&gt;Une fois que votre serveur Web est prêt avec une configuration optimale, vous pouvez optimiser les ressources que vous utilisez dans votre application : CSS, JavaScript, images.&lt;/p&gt;
+
+&lt;h4 id=&quot;sprite-css&quot;&gt;Sprite CSS&lt;/h4&gt;
+
+&lt;p&gt;Lors du chargement d’une page HTML, le navigateur Web va récupérer l’ensemble des ressources : CSS, JavaScript et souvent beaucoup d’images. Pour récupérer toutes les ressources, le navigateur utilise par défaut deux connexions au serveur Web et va attendre que l’une des connexions soit disponible pour récupérer la ressource suivante.&lt;/p&gt;
+
+&lt;p&gt;Les sprites CSS permettent de regrouper toutes ou une grande partie des images en une seule image. Il y a deux intérêts à cette technique : beaucoup moins de requêtes faîtes au serveur Web et l’image sera moins volumineuse (les informations de format et de compression ne sont stoquées qu’une seule fois).&lt;/p&gt;
+
+&lt;p&gt;Au niveau des feuilles de style CSS, il faut mettre la grande image en arrière-plan du composant et positionner le sprite (la parcelle de l’image) souhaité grâce à l’instruction &lt;em&gt;background-position&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Au niveau du gain de volume de l’image voilà des statistiques :&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+  &lt;table&gt;
+    &lt;tr&gt;
+      &lt;th&gt;
+        Format
+      &lt;/th&gt;
+      
+      &lt;th&gt;
+        Taille six images
+      &lt;/th&gt;
+      
+      &lt;th&gt;
+        Taille image sprite
+      &lt;/th&gt;
+      
+      &lt;th&gt;
+        Différence
+      &lt;/th&gt;
+    &lt;/tr&gt;
+    
+    &lt;tr&gt;
+      &lt;td&gt;
+        GIF
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        6046 b
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        1894 b
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;font color=&quot;#1db002&quot;&gt;-69%&lt;/font&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    
+    &lt;tr&gt;
+      &lt;td&gt;
+        JPEG
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        5916 b
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        2187 b
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;font color=&quot;#1db002&quot;&gt;-63%&lt;/font&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    
+    &lt;tr&gt;
+      &lt;td&gt;
+        PNG
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        4479 b
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        3844 b
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;font color=&quot;#1db002&quot;&gt;-14%&lt;/font&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;rduction-des-css&quot;&gt;Réduction des CSS&lt;/h4&gt;
+
+&lt;p&gt;Les feuilles de styles sont les éléments principaux du design d’une application Web et peuvent rapidement devenir des ressources volumineuses. Le principal problème des feuilles de styles est quelles contiennent énormément de caractères inutiles : espaces, sauts de lignes, commentaires. Le navigateur Web quand il reçoit une feuille de style ignore c’est caractère, ils ne sont utilisés que par le designer afin de facilement comprendre les instructions.&lt;/p&gt;
+
+&lt;p&gt;Afin d’économiser de la bande passante et du temps de téléchargement d’une page Web il est possible de réduire considérablement la taille des feuilles de styles grâce à des services Web comme : &lt;a href=&quot;http://www.cssoptimiser.com/&quot;&gt;CSS Optimizer&lt;/a&gt;, &lt;a href=&quot;http://iceyboard.no-ip.org/projects/css_compressor&quot;&gt;Icey’s CSS Compressor&lt;/a&gt;, &lt;a href=&quot;http://flumpcakes.co.uk/css/optimiser/&quot;&gt;Flumpcake CSS Optimizer&lt;/a&gt;, &lt;a href=&quot;http://www.cleancss.com/&quot;&gt;Clean CSS&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Si on regarde la différence sur certains sites avec un certain nombre de visiteurs :&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+  &lt;table&gt;
+    &lt;tr&gt;
+      &lt;th&gt;
+        Site Web
+      &lt;/th&gt;
+      
+      &lt;th&gt;
+        Feuille de styles
+      &lt;/th&gt;
+      
+      &lt;th&gt;
+        Feuille de styles optimisée
+      &lt;/th&gt;
+      
+      &lt;th&gt;
+        Différence
+      &lt;/th&gt;
+    &lt;/tr&gt;
+    
+    &lt;tr&gt;
+      &lt;td&gt;
+        Free.fr
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        35.19 Kb
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        19.09 Kb
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;font color=&quot;#1db002&quot;&gt;-46%&lt;/font&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    
+    &lt;tr&gt;
+      &lt;td&gt;
+        PC Inpact
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        37.14 Kb
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        27.31 Kb
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;font color=&quot;#1db002&quot;&gt;-26%&lt;/font&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    
+    &lt;tr&gt;
+      &lt;td&gt;
+        Microsoft.com
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        30.7 Kb
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        22.41 Kb
+      &lt;/td&gt;
+      
+      &lt;td&gt;
+        &lt;font color=&quot;#1db002&quot;&gt;-27%&lt;/font&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Oui Twitter n’est pas présent, leur feuille de styles est déjà optimisée &lt;img src=&quot;http://www.mkhelif.fr/wp-includes/images/smilies/icon_smile.gif&quot; alt=&quot;:)&quot; class=&quot;wp-smiley&quot; /&gt; .&lt;/p&gt;
+
+&lt;p&gt;Afin d’économiser en nombre de requêtes, vous pouvez regrouper tous vos styles dans un seul fichier CSS.&lt;/p&gt;
+
+&lt;h4 id=&quot;rduction-des-javascripts&quot;&gt;Réduction des JavaScripts&lt;/h4&gt;
+
+&lt;p&gt;De la même façon que pour les feuilles de styles, les fichiers JavaScript peuvent être optimisés afin de diminuer le temps de téléchargements de ces fichiers. Voici les services Web qui proposent de réduire vos JavaScripts : &lt;a href=&quot;http://shrinksafe.dojotoolkit.org/&quot;&gt;Dojo Shrinksafe&lt;/a&gt;, &lt;a href=&quot;http://javascriptcompressor.com/&quot;&gt;JavaScript Compressor&lt;/a&gt;&lt;font color=&quot;#000000&quot;&gt;. Il existe de très nombreuses applications qui font le même travaille.&lt;/font&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;stockage-des-ressources&quot;&gt;Stockage des ressources&lt;/h4&gt;
+
+&lt;p&gt;Lorsqu’un utilisateur arrive sur une page Web, il télécharge le HTML puis il récupère les ressources référencées par la page. Les ressources sont téléchargées en utilisant par défaut deux connexions par serveur. L’idée est donc de séparée le stockage des ressources statiques des données dynamiques : le HTML généré sur un serveur, les CSS et JavaScripts sur un autre serveur.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;a href=&quot;http://www.mkhelif.fr/wp-content/uploads/2009/10/server.png&quot;&gt;&lt;img title=&quot;server&quot; border=&quot;0&quot; alt=&quot;server&quot; src=&quot;http://www.mkhelif.fr/wp-content/uploads/2009/10/server.png&quot; width=&quot;504&quot; height=&quot;281&quot; /&gt;&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;font color=&quot;#000000&quot;&gt;&lt;strong&gt;Bénéfices :&lt;/strong&gt; le client va utiliser deux connexions pour récupérer uniquement des ressources statiques et ne va pas surcharger le serveur de traitement avec des requêtes “statiques”.&lt;/font&gt;
+
+&lt;h3 id=&quot;optimisation-de-lapplication&quot;&gt;Optimisation de l’application&lt;/h3&gt;
+
+&lt;p&gt;Voilà à partir d’ici vous devez avoir bien amélioré le temps de chargement de votre application. Les conseils suivants sont plus des conseils&lt;/p&gt;
+
+&lt;h4 id=&quot;landing-page&quot;&gt;Landing page&lt;/h4&gt;
+
+&lt;p&gt;Une “landing page” est une page sur laquelle vous souhaitez que vos visiteurs arrivent depuis les moteurs de recherches et autres. L’objectif de cette page est que l’utilisateur n’arrive pas sur une page d’accueil mais directement sur l’information qu’il cherche. Il faut donc que cette page soit rapide et présente l’information de façon simple et concise.&lt;/p&gt;
+
+&lt;p&gt;Pour cela évitez au maximum d’effectuer de long traitement ou d’effectuer des appels à une base de données si ce n’est pas nécessaire. Préférez une version statique d’une landing page qui sera servie très rapidement.&lt;/p&gt;
+
+&lt;h4 id=&quot;viter-les-redirections&quot;&gt;Éviter les redirections&lt;/h4&gt;
+
+&lt;p&gt;Évitez au maximum le nombre de redirections, à chaque fois que le serveur renvoie une redirection (301, 302, …), le client effectue une nouvelle requête. Si en plus vous n’avez pas activé le &lt;em&gt;Keep-Alive&lt;/em&gt;, il va faire une nouvelle connexion.&lt;/p&gt;
+
+&lt;p&gt;Ne garder les redirections que pour du SEO afin de ne pas perdre le référencement d’une page dont vous changez l’URL.&lt;/p&gt;
+
+&lt;h4 id=&quot;plugins-wordpress&quot;&gt;Plugins WordPress&lt;/h4&gt;
+
+&lt;font color=&quot;#000000&quot;&gt;Si vous utilisez WordPress il existe de nombreux plugins qui permettent d’améliorer la vitesse de chargement de votre blog.&lt;/font&gt;
+
+&lt;h5 id=&quot;wp-super-cache&quot;&gt;WP Super Cache&lt;/h5&gt;
+
+&lt;font color=&quot;#000000&quot;&gt;&lt;a href=&quot;http://wordpress.org/extend/plugins/wp-super-cache/&quot;&gt;WP Super Cache&lt;/a&gt; est un plugin qui va générer une version statique de vos pages (billets, pages, …). Ainsi votre blog servira la version statique au lieu de re-générer la page HTML pour chaque visiteur. La version statique est re-générée à chaque nouveaux commentaires, billets ou pages.&lt;/font&gt;
+
+&lt;h5 id=&quot;rduire-son-nombre-de-plugins&quot;&gt;Réduire son nombre de plugins&lt;/h5&gt;
+
+&lt;font color=&quot;#000000&quot;&gt;À chaque fois qu’un utilisateur effectue une action sur un blog wordpress, le serveur appelle les plugins nécessaires pour servir la page. Si vous avez beaucoup de plugins, cela peut ralentir radicalement votre blog.&lt;/font&gt;
+
+&lt;font color=&quot;#000000&quot;&gt;Faîtes le ménage dans vos plugins et ne garder que les essentiels.&lt;/font&gt;
+
+&lt;h3 id=&quot;outils-danalyse&quot;&gt;Outils d’analyse&lt;/h3&gt;
+
+&lt;p&gt;Afin de voir les différences de temps de chargement d’une page il faut avoir de bons outils d’analyse. Que ce soit un outils spécialisé ou un module du navigateur Web, il est nécessaire de mesurer les différences entre deux configurations.&lt;/p&gt;
+
+&lt;h4 id=&quot;firebug&quot;&gt;Firebug&lt;/h4&gt;
+
+&lt;p&gt;Pour les développeurs Web qui ont l’habitude de tester leurs applications avec Firefox, la plupart utilisent le plugin Firebug qui permet entre autres d’analyser en détail (et de modifier en direct) le contenu HTML, le CSS, le JavaScript et de visualiser les requêtes/réponses avec l’application Web.&lt;/p&gt;
+
+&lt;p&gt;De nombreux plugins ont été développés sur Firebug pour fournir des informations sur le chargement de la page.&lt;/p&gt;
+
+&lt;h5 id=&quot;page-speed&quot;&gt;Page Speed&lt;/h5&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;a href=&quot;http://www.mkhelif.fr/wp-content/uploads/2009/10/pagespeed.png&quot;&gt;&lt;img title=&quot;pagespeed&quot; border=&quot;0&quot; alt=&quot;pagespeed&quot; src=&quot;http://www.mkhelif.fr/wp-content/uploads/2009/10/pagespeed.png&quot; width=&quot;504&quot; height=&quot;202&quot; /&gt;&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://code.google.com/intl/fr/speed/page-speed/&quot;&gt;Page Speed&lt;/a&gt; est une extension pour Firebug, réalisée par Google, qui analyse la page Web qui vient d’être chargée et vous informe des améliorations que vous pouvez apporter à votre serveur / configuration /  application pour diminuer le temps de chargement de votre page.&lt;/p&gt;
+
+&lt;h5 id=&quot;yslow&quot;&gt;YSlow&lt;/h5&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;a href=&quot;http://www.mkhelif.fr/wp-content/uploads/2009/10/yslow.png&quot;&gt;&lt;img title=&quot;yslow&quot; border=&quot;0&quot; alt=&quot;yslow&quot; src=&quot;http://www.mkhelif.fr/wp-content/uploads/2009/10/yslow.png&quot; width=&quot;504&quot; height=&quot;221&quot; /&gt;&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://developer.yahoo.com/yslow/&quot;&gt;YSlow&lt;/a&gt; a été développé par Yahoo est analyse aussi les points à améliorer.&lt;/p&gt;
+
+&lt;h4 id=&quot;tests-de-charge&quot;&gt;Tests de charge&lt;/h4&gt;
+
+&lt;p&gt;Enfin une fois que vous avez optimisé votre application Web il est bon de savoir si elle va tenir la charge face au nombre d’utilisateurs prévus. Pour cela il existe de nombreux outils de test en charge d’application Web, mais je n’en conseillerai qu’un : &lt;a href=&quot;http://neotys.fr/test-en-charge/how-it-works.html&quot;&gt;NeoLoad&lt;/a&gt;, par la société &lt;strike&gt;où je bosse&lt;/strike&gt; &lt;a href=&quot;http://www.neotys.fr/&quot;&gt;Neotys&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;L’objectif est de faire simuler par le logiciel un nombre d’utilisateurs virtuels qui vont exécuter un scénario sur l’application et d’analyser les résultats (temps de réponses, erreurs, …) afin de corriger ou d’optimiser l’application.&lt;/p&gt;
+
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;Le secret pour avoir une application Web rapide et efficace est de tester votre configuration, d’analyser les points à améliorer et de les optimiser puis de re-tester, … et ainsi de suite jusqu’à ce que vous atteignez la qualité de service souhaitée.&lt;/p&gt;
+
+&lt;p&gt;Et vous comment faîtes vous pour optimiser vos applications Web? Quels outils utilisez-vous?&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 20 Oct 2009 00:00:00 +0200</pubDate>
+        <link>http://www.mkhelif.fr//blog//guide-doptimisation-de-vos-applications-web/</link>
+        <guid isPermaLink="true">http://www.mkhelif.fr//blog//guide-doptimisation-de-vos-applications-web/</guid>
+        
+        <category>Web</category>
+        
+        
+        <category>tutoriel</category>
+        
+        <category>web</category>
+        
+      </item>
+    
+      <item>
+        <title>Twitter : la VoIP disponible grâce à Jajah</title>
+        <description>&lt;p&gt;Le service Web de téléphonie &lt;a href=&quot;http://www.jajah.com/&quot; target=&quot;_blank&quot;&gt;Jajah&lt;/a&gt; vient de livrer un nouveau service basé sur Twitter. En utilisant la “commande” suivante il est possible d’appeler un correspondant :&lt;/p&gt;
+
+&lt;pre lang=&quot;&quot;&gt;@call @username&lt;/pre&gt;
+
+&lt;p&gt;En utilisant les comptes configurés sur Jajah : appelant et appelé, vous pourrez appelez vos contacts depuis n’importe quel endroit et avec n’importe quel client Twitter. L’intérêt est ainsi de cacher les numéros de téléphones en utilisant les noms d’utilisateurs Twitter.&lt;/p&gt;
+
+&lt;p&gt;Actuellement en béta, le service limite la communication à deux minutes et ne vous permet d’appeler que les personnes que vous suivez. Pour Jajah, deux minutes de communication téléphonique représentent approximativement la longueur d’un tweet.&lt;/p&gt;
+
+&lt;p&gt;Avec le développement des services de ce genre qui utilise Twitter comme service Web, on peut facilement imaginer que &lt;a href=&quot;http://www.fredcavazza.net/2009/09/07/quels-scenarios-devolution-pour-twitter/&quot; target=&quot;_blank&quot;&gt;Twitter va devenir la ligne de commande du Web&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 18 Sep 2009 00:00:00 +0200</pubDate>
+        <link>http://www.mkhelif.fr//blog//twitter-la-voip-disponible-grce-jajah/</link>
+        <guid isPermaLink="true">http://www.mkhelif.fr//blog//twitter-la-voip-disponible-grce-jajah/</guid>
+        
+        <category>Social</category>
+        
+        <category>Twitter</category>
+        
+        <category>Web</category>
+        
+        
+        <category>actualités</category>
+        
+        <category>social</category>
+        
+        <category>twitter</category>
+        
+        <category>web</category>
+        
+      </item>
+    
+      <item>
+        <title>Cinq moyens pour gérer son identité virtuelle</title>
+        <description>&lt;p align=&quot;center&quot;&gt;
+  &lt;a href=&quot;http://www.mkhelif.fr/wp-content/uploads/2009/08/personas.png&quot;&gt;&lt;img style=&quot;border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px&quot; title=&quot;personas&quot; border=&quot;0&quot; alt=&quot;personas&quot; src=&quot;http://www.mkhelif.fr/wp-content/uploads/2009/08/personas_thumb.png&quot; width=&quot;510&quot; height=&quot;137&quot; /&gt;&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;L’identité virtuelle d’une personne est sa présence sur le Web, l’image qu’elle renvoie aux travers des différentes informations que l’on peut retrouver sur Internet. Le fait de vouloir la gérer afin qu’elle soit conforme à ce que vous voulez montrer s’appelle du “personal branding”. Il s’agit simplement de faire du marketing sur son nom, vous êtes le produit.&lt;/p&gt;
+
+&lt;p&gt;Fred Cavazza a présenté, dans un article de 2006, ce qu’est en détail l’identité numérique : &lt;a href=&quot;http://www.fredcavazza.net/2006/10/22/qu-est-ce-que-l-identite-numerique/&quot; target=&quot;_blank&quot;&gt;Qu’est ce que l’identité numérique ?&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;La première chose à faire pour gérer son identité virtuelle c’est de voir les résultats qui apparaissent sur Google. C’est généralement la première chose que fera une personne qui recherche des informations sur vous (recruteur, patron, clients).&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code&gt;L’objectif étant de vérifier les premiers résultats qui apparaissent en première page du moteur de recherche. Vous pouvez ensuite mettre en place des &amp;lt;a href=&quot;http://www.google.fr/alerts&quot; target=&quot;_blank&quot;&amp;gt;Google Alerts&amp;lt;/a&amp;gt; pour vérifier les nouvelles pages qui parlent de vous.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Le service &lt;a href=&quot;http://www.webmii.com/&quot; target=&quot;_blank&quot;&gt;WebMii&lt;/a&gt; va chercher sur les réseaux sociaux les plus utilisés (Facebook, LinkedIn, Viadeo, Twitter, blog) afin de trouver toutes les informations sur une personne. Cela permet de vérifier le contenu (vidéos, images, articles) que vous avez posté ou qui vous concerne (en tout cas votre nom et prénom).&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code&gt;Attention donc aux éventuelles photos ou vidéos qui pourraient vous décrédibiliser devant un recruteur/client.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Twitter est devenu en peu de temps un outil de veille technologique indispensable. Il est donc nécessaire de savoir bien l’utiliser afin de se positionner et de gérer son identité numérique. N’utilisez pas Twitter pour dire tout ce qui vous passe par la tête, au mieux vous n’intéresserez personne, au pire vous risquez de renvoyer une image négative.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code&gt;Par contre vous pouvez utiliser Twitter de façon à être une ressource importante pour vos “followers” : donnez des liens utiles, tweetez des informations qui vous intéressent (et donc intéresseront vos “followers”), … Je suis en train de rédiger un article sur comment utiliser Twitter pour se démarquer, pour faire du référencement : Social Media Optimization (SMO).
+
+Les services &amp;lt;a href=&quot;http://topsy.com/&quot; target=&quot;_blank&quot;&amp;gt;Topsy&amp;lt;/a&amp;gt; ou &amp;lt;a href=&quot;http://backtweets.com/&quot; target=&quot;_blank&quot;&amp;gt;BackTweets&amp;lt;/a&amp;gt; offrent un moteur de recherche avec des statistiques détaillées sur certains mots clés.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Une fois que vous avez réussi à gérer les informations vous concernant sur Facebook (images, commentaires et autres) ou Twitter, vous remarquerez surement qu’il reste des informations vous concernant sur lesquelles vous n’avez aucun pouvoir (certains commentaires sur des forums). &amp;lt;/p&amp;gt; 
+    La solution est alors de reléguer ces informations très loin dans les résultats des moteurs de recherche. Pour cela vous devez référencer le contenu que vous souhaitez faire apparaître dans les premières pages, le plus simple étant de créer un blog.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://personas.media.mit.edu/personasWeb.html&quot; target=&quot;_blank&quot;&gt;Personas&lt;/a&gt; : c’est un service développé par le MIT qui génère une vue simplifiée de votre identité virtuelle. L’algorithme utilisé est découpé en deux étapes : recherche sur Yahoo puis analyse des résultats. Le recherche sur le moteur de recherche se fait grâce à des requêtes discriminantes (on n’en sais pas plus la dessus). Puis l’analyse des résultats se fait par mots clés séparés dans différentes catégories. Ainsi plus vous avez de mots clés dans une catégorie plus elle prend de l’espace dans le résultat.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code&gt;Malgré un aspect simpliste, ce service fourni rapidement une vue globale de votre identité numérique.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Cet article a pour but principal de vous donnez des pistes pour gérer votre identité numérique. Et vous comment gérez-vous votre identité numérique?&lt;/p&gt;
+</description>
+        <pubDate>Sat, 12 Sep 2009 00:00:00 +0200</pubDate>
+        <link>http://www.mkhelif.fr//blog//cinq-moyens-pour-grer-son-identit-virtuelle/</link>
+        <guid isPermaLink="true">http://www.mkhelif.fr//blog//cinq-moyens-pour-grer-son-identit-virtuelle/</guid>
+        
+        <category>Google</category>
+        
+        <category>Social</category>
+        
+        <category>Web</category>
+        
+        
+        <category>google</category>
+        
+        <category>référencement</category>
+        
+        <category>social</category>
+        
+        <category>web</category>
+        
+      </item>
+    
+      <item>
+        <title>Ruby on Rails : déployer une application sur Tomcat avec JRuby</title>
+        <description>&lt;p&gt;&lt;a href=&quot;http://www.mkhelif.fr/wp-content/uploads/2009/09/rails.png&quot;&gt;&lt;img style=&quot;border-right-width: 0px; margin: 0px 10px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px&quot; title=&quot;rails&quot; src=&quot;http://www.mkhelif.fr/wp-content/uploads/2009/09/rails_thumb.png&quot; border=&quot;0&quot; alt=&quot;rails&quot; width=&quot;87&quot; height=&quot;111&quot; align=&quot;left&quot; /&gt;&lt;/a&gt; Ruby on Rails est un framework qui permet de développer très rapidement des applications Web en suivant le modèle MVC.&lt;/p&gt;
+
+&lt;p&gt;Le problème de ce framework est qu’il se base sur le langage Ruby et qu’il embarque un serveur Web. Les applications ainsi créées ne peuvent pas être déployées comme des applications Web dans Tomcat ou autres serveurs d’applications.&lt;/p&gt;
+
+&lt;p&gt;Le but de ce tutoriel est de vous permettre de déployer les applications Ruby on Rails (RoR) sur un serveur Tomcat en utilisant la librairie &lt;a href=&quot;http://jruby.org/&quot; target=&quot;_blank&quot;&gt;JRuby&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;installation-tomcat&quot;&gt;Installation Tomcat&lt;/h3&gt;
+
+&lt;p&gt;On commence par &lt;a href=&quot;http://mirror.mkhelif.fr/apache/tomcat/&quot; target=&quot;_blank&quot;&gt;télécharger la dernière version de Tomcat&lt;/a&gt; (en ce moment c’est la version 6.0.20) :&lt;/p&gt;
+
+&lt;pre lang=&quot;sh&quot;&gt;wget http://mirror.mkhelif.fr/apache/tomcat/tomcat-6/v6.0.20/bin/apache-tomcat-6.0.20.tar.gz
+tar –xzf apache-tomcat-6.0.20.tar.gz&lt;/pre&gt;
+
+&lt;p&gt;Voilà Tomcat est installé, je passerai ici la configuration du serveur. Si vous souhaitez, suivez mon &lt;a href=&quot;http://www.mkhelif.fr/2008/06/18/passerelle-entre-apache-et-tomcat.html&quot;&gt;tutoriel pour connecter Apache avec Tomcat&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;installation-jruby&quot;&gt;Installation JRuby&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://jruby.org/download&quot;&gt;Télécharger JRuby&lt;/a&gt; et placez le là où vous souhaitez :&lt;/p&gt;
+
+&lt;pre lang=&quot;sh&quot;&gt;wget http://dist.codehaus.org/jruby/1.3.1/jruby-bin-1.3.1.tar.gz
+tar –xzf jruby-bin-1.3.1.tar.gz
+mv jruby-1.3.1 /usr/local/jruby&lt;/pre&gt;
+
+&lt;p&gt;Ajouter ensuite le chemin vers JRuby dans votre environnement en éditant votre fichier &lt;em&gt;~/.profile&lt;/em&gt; :&lt;/p&gt;
+
+&lt;pre lang=&quot;sh&quot;&gt;export PATH=$PATH:/usr/local/jruby/bin&lt;/pre&gt;
+
+&lt;p&gt;Vous pouvez vérifier l’installation de JRuby en exécutant la commande suivante :&lt;/p&gt;
+
+&lt;pre lang=&quot;sh&quot;&gt;$ jruby -v
+jruby 1.3.1 (ruby 1.8.6p287) (2009-06-15 2fd6c3d) (Java HotSpot(TM) Client VM 1.5.0_16) [i386-java]&lt;/pre&gt;
+
+&lt;h3 id=&quot;installation-de-ruby-on-rails&quot;&gt;Installation de Ruby on Rails&lt;/h3&gt;
+
+&lt;p&gt;À partir de là nous allons installer les gems pour : rails (le coeur de ROR), mysql et surtout warbler (qui crée un WAR à partir de l’application rails).&lt;/p&gt;
+
+&lt;pre lang=&quot;sh&quot;&gt;$ jruby -S gem install rails
+$ jruby -S gem install activerecord-jdbcmysql-adapter
+$ jruby -S gem install warbler&lt;/pre&gt;
+
+&lt;h3 id=&quot;dploiement-de-votre-application&quot;&gt;Déploiement de votre application&lt;/h3&gt;
+
+&lt;p&gt;Pour déployer votre application dans Tomcat, il faut commencer par la convertir en WAR. Placez vous dans le dossier de votre application et lancez la commande suivante :&lt;/p&gt;
+
+&lt;pre lang=&quot;sh&quot;&gt;$ warble config&lt;/pre&gt;
+
+&lt;p&gt;Cela va créer un fichier *&lt;application&gt;/config/warble.rb* pour configurer votre application pour la convertir en fichier WAR, ouvrez le fichier et dé-commentez la ligne :&lt;/application&gt;&lt;/p&gt;
+
+&lt;pre lang=&quot;sh&quot;&gt;config.gems += [&quot;activerecord-jdbcmysql-adapter&quot;]&lt;/pre&gt;
+
+&lt;p&gt;Cela pour inclure dans votre fichiers WAR la gem MySQL (ajoutez les gems que votre application utilise ici).&lt;/p&gt;
+
+&lt;p&gt;Maintenant nous allons créer le fichier WAR de votre application, lancez simplement la commande :&lt;/p&gt;
+
+&lt;pre lang=&quot;sh&quot;&gt;$ warble&lt;/pre&gt;
+
+&lt;p&gt;Et voilà votre fichier WAR est créé, vous pouvez alors le déployer sur Tomcat (je passerai sur cette étape).&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 07 Sep 2009 00:00:00 +0200</pubDate>
+        <link>http://www.mkhelif.fr//blog//ruby-on-rails-dployer-une-application-sur-tomcat-avec-jruby/</link>
+        <guid isPermaLink="true">http://www.mkhelif.fr//blog//ruby-on-rails-dployer-une-application-sur-tomcat-avec-jruby/</guid>
+        
+        <category>J2EE</category>
+        
+        <category>Java</category>
+        
+        <category>Linux</category>
+        
+        <category>Rails</category>
+        
+        <category>Web</category>
+        
+        
+        <category>j2ee</category>
+        
+        <category>java</category>
+        
+        <category>linux</category>
+        
+        <category>ruby on rails</category>
+        
+        <category>tutoriel</category>
+        
+        <category>web</category>
+        
+      </item>
+    
+  </channel>
+</rss>

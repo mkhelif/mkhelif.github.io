@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Nouveautés Java 7 &#8211; Dolphin</title>
+  <meta name="description" content="Il n’y à toujours pas de JSR officiel décrivant l’ensemble des nouvelles fonctionnalités de Java 7. Cette dernière version porte toujours le nom d’un animal ...">
+
+  <link rel="stylesheet" href="/blog//css/main.css">
+  <link rel="canonical" href="http://www.mkhelif.fr//blog//nouveautes-java-7-dolphin/">
+  <link rel="alternate" type="application/rss+xml" title="Marwan Khelif" href="http://www.mkhelif.fr//blog//feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/blog//">Marwan Khelif</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/blog//about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/blog//about/index.html">About me</a>
+          
+        
+          
+          <a class="page-link" href="/blog//projects/index.html">Projects</a>
+          
+        
+          
+          <a class="page-link" href="/blog//jsassert/index.html">jsassert</a>
+          
+        
+          
+          <a class="page-link" href="/blog//spring-social-amazon/index.html">spring-social-amazon</a>
+          
+        
+          
+          <a class="page-link" href="/blog//blog/index.html">Blog</a>
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Nouveautés Java 7 &#8211; Dolphin</h1>
+    <p class="post-meta">Mar 17, 2008 • mkhelif</p>
+  </header>
+
+  <article class="post-content">
+    <p>Il n’y à toujours pas de JSR officiel décrivant l’ensemble des nouvelles fonctionnalités de Java 7. Cette dernière version porte toujours le nom d’un animal : Dolphin.</p>
+
+<p>Pour cette nouvelle version il devrait y avoir des évolutions dans le langages Java, un nouveau format d’archive (remplaçant du fichier jar) : Java Module System (<a href="http://jcp.org/en/jsr/detail?id=277" title="JSR 277" target="_blank">JSR 277</a>), de nouvelles API et des améliorations de la JVM (support natif de language de script : Javascript, Ruby, PHP).</p>
+
+<!--more-->
+
+<h2 id="nouveauts-du-langage">Nouveautés du langage</h2>
+
+<ul>
+  <li><strong>Support natif du XML :</strong></li>
+</ul>
+
+<p>Un exemple vaut mieux que plusieurs lignes d’explications :</p>
+
+<pre lang="java">Document d = &lt;collection&gt;&lt;/collection&gt;;
+element.appendChild ();</pre>
+
+<ul>
+  <li><strong>Propriétés JavaBeans :</strong></li>
+</ul>
+
+<p>Possibilité de définir un membre d’une classe en tant que propriété : les accesseurs seront alors générés à la compilation. Actuellement la syntaxe permettant d’accèder aux accesseurs n’est pas encore certaines : <strong>.</strong>, <strong>=&gt;</strong>, <strong>-&lt;</strong>, <strong>#</strong>.</p>
+
+<pre lang="java">public class MyObject {
+    private property String member;
+}
+...
+MyObject obj = new MyObject ();
+obj.member = "NewValue"; // setMember
+String str = obj=&gt;member; // getMember
+obj-&gt;member = "New Value"; // setMember
+str = obj#member; // getMember</pre>
+
+<ul>
+  <li><strong>Redéfinition des opérateurs :</strong></li>
+</ul>
+
+<p>Le langage permettrait alors de redéfinir les opérateurs grâce à des annotations.</p>
+
+<pre lang="java">String str = "first";
+switch (str) {
+    case "first": doThis (); break;
+    case "second": doThat (); break;
+    default: throw new IllegalArgumentException ("Unknown: " + str);
+}</pre>
+
+<p>Autre exemple avec les énumérations :</p>
+
+<pre lang="java">enum MyColor {
+    EMPTY,
+    BLACK, WHITE,
+    RED, YELLOW, BLUE,
+    PINK, PURPLE, ORANGE, GREY;
+}
+
+public boolean isPrimary (MyColor c) {
+    return c &gt;= MyColor.RED &#038;&#038; c &lt; = MyColor.BLUE;
+}</pre>
+
+<ul>
+  <li><strong>Chaînage des appels de méthodes :</strong></li>
+</ul>
+
+<pre lang="java">class MyObject {
+     void doSomething () { ... }
+     void doOther () { ... }
+     boolean validate () { ... }
+}
+
+MyObjet myObject = new MyObject ();
+boolean validate = myObject.doSomething ().doOther ().validate ();</pre>
+
+<ul>
+  <li><strong>Amélioration des blocs <em>catch</em> :</strong></li>
+</ul>
+
+<pre lang="java">try {
+     doSomething ();
+} catch (IllegalStateException | IllegalAccessException e) {
+     // Traitement de l'exception...
+}
+
+try {
+    doOther (); // Lance des types différences d'exceptions
+} catch (final Throwable t) {
+    throw t; // Lance les mêmes types d'exceptions
+}</pre>
+
+<ul>
+  <li><strong>Gestion automatique des ressources :</strong> les ressources qui sont initialisées dans un bloc sont automatiquement nettoyées à la fin du bloc. Le bloc <em>finally</em> n’est alors plus nécessaire.</li>
+  <li><strong>Simplification des templates et des List/Map :</strong></li>
+</ul>
+
+<pre lang="java">Map&lt;string , Object&gt; myMap = new HashMap&lt;&gt; ();
+
+List&lt;/string&gt;&lt;string&gt; list = new ArrayList&lt;&gt; ();
+list.add[0] = "First";
+list.add[1] = "Second";
+&lt;/string&gt;</pre>
+
+<ul>
+  <li><strong>Les <em>Closures</em> (ou méthodes anonymes) :</strong></li>
+</ul>
+
+<pre lang="java">// Sans Closures :
+lock.lock ();
+try {
+    ++counter;
+} finally {
+    lock.unlock ();
+}
+
+// Avec Closures :
+withLock (lock) {
+    ++counter;
+}
+
+public static &lt;t&gt; T withLock (Lock lock, {=&gt; T throws E}) block) throws E {
+    lock.lock ();
+    try {
+        // Exécution du 'bloc' de code block
+        return block.invoke ();
+    } finally {
+        lock.unlock ();
+    }
+}
+&lt;/t&gt;</pre>
+
+<h2 id="modularit">Modularité</h2>
+
+<ul>
+  <li><strong>Gestion des Super packages.</strong></li>
+  <li><strong>JA</strong>va <strong>M</strong>odule System : remplaçant du fichier JAR (<strong>J</strong>ava <strong>AR</strong>chive) : gestion des versions, des dépendances, …</li>
+</ul>
+
+<h4 id="gestion-du-versionning">Gestion du versionning</h4>
+
+<p style="text-align: left">
+  Lorsque l&#8217;on développe une application, celle ci à généralement besoins d&#8217;une ou plusieurs librairies de classes. Cependant si cette librairie ne peut être fourni avec l&#8217;application (problème de license) ou qu&#8217;une version spécifique est nécessaire, il n&#8217;y à actuellement aucun moyen simple de vérifier la librairie. Les fichiers JAM vont permettrent ceci grâce à une gestion avancée du versionning :
+</p>
+
+<pre>major[.minor[.micro[.update]]][-qualifier]</pre>
+
+<p>Par exemple :</p>
+
+<table style="border: 1px solid #444444; text-align: left" cellpadding="0" cellspacing="0">
+  <tr>
+    <td style="border-bottom: 1px solid #444444">
+      1+
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      Version 1 ou supérieur
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      (1 &lt; = x)
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="border-bottom: 1px solid #444444">
+      1.5+
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      Version 1.5 ou supérieur
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      (1.5 &lt; = x)
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="border-bottom: 1px solid #444444">
+      1.5.2+
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      Version 1.5.2 ou supérieur
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      (1.5.2 &lt; = x)
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="border-bottom: 1px solid #444444">
+      1*
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      Toutes les versions de la branche 1.
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      (1 &lt; = x &lt; 2)
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="border-bottom: 1px solid #444444">
+      1.5*
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      Toutes les versions de la branche 1.5.
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      (1.5 &lt; = x &lt; 1.6)
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="border-bottom: 1px solid #444444">
+      1.5.2*
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      Toutes les versions de la branche 1.5.2.
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      (1.5.2 &lt; = x &lt; 1.5.3)
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="border-bottom: 1px solid #444444">
+      1.[5+]
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      Version 1.5 ou supérieur dans la branche 1.
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      (1.5 &lt; = x &lt; 2)
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="border-bottom: 1px solid #444444">
+      1.5.[2+]
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      Version 1.5.2 ou supérieur dans la branche 1.5.
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      (1.5.2 &lt; = x &lt; 1.6)
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="border-bottom: 1px solid #444444">
+      1.[5.2+]
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      Version 1.5.2 ou supérieur dans la branche 1.
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      (1.5.2 &lt; = x &lt; 2)
+    </td>
+  </tr>
+</table>
+
+<h4 id="modules">Modules</h4>
+
+<p style="text-align: left">
+  Un fichier JAM est en fait une simple archive (tout comme le fichier JAR) qui peut contenir d&#8217;autres JAR (les modules), des ressources (images, &#8230;), du code natif (nouvelle gestion : <em>/META-INF/bin/ <platform>/<arch>/</arch></platform></em>), des métas-données : <em>MODULE-INF/METADATA.module</em> (version, classe principale, modules nécessaires, attributs, superpackages).
+</p>
+
+<p style="text-align: left">
+  Chaque application aura une bibliothèque de modules (locaux ou distants) permettant la recherche, le chargement (au démarrage ou à l&#8217;exécution).
+</p>
+
+<p>Exemple :</p>
+
+<pre code="java">// Déclaration du superpackage :
+@Version("1.0")
+superpackage com.site.pack {
+
+    // Import de modules
+    @VersionConstraint("1.0+")
+    import com.site.name;
+    @VersionConstraint("1.5*")
+    import com.site.xml;
+
+    // Liste des packages
+    member package com.site.pack, com.site.pack.impl;
+
+    // Types exportés
+    export com.site.pack.*;
+}</pre>
+
+<h2 id="nouvelles-api">Nouvelles API</h2>
+
+<ul style="text-align: left">
+  <li>
+    <strong>NIO 2</strong> : gestion avancée du système de fichiers (permissions, attributs de fichier), API I/O asynchrone pour les sockets et fichiers.
+  </li>
+  <li>
+    <strong>JSR 275</strong> (gestion des unités, ex: Km, m, cm, &#8230;) : expression d&#8217;une valeur dans plusieurs unités, conversion d&#8217;unités, parsing des unités dans une String.
+  </li>
+  <li>
+    <strong>JSR 310</strong> (date and time API) : amélioration de l&#8217;API actuelle afin de permettre de gérer des durées, des intervalles.
+  </li>
+  <li>
+    <strong>JSR 166y</strong> : amélioration de la concurrence.
+  </li>
+  <li>
+    <strong>JSR 225</strong> : Xquery API for Java.
+  </li>
+  <li>
+    <strong>JSR 284</strong> : gestion de la consommation des ressources (CPU, mémoire, connexions JDBC, &#8230;).
+  </li>
+  <li>
+    <strong>JSR 308</strong> : annotations sur les types Java.
+  </li>
+  <li>
+    <strong>JSR 260</strong> (amélioration de la Javadoc) : tri des méthodes et champs en fonction de leur utilité, un index sémantique, distinction des méthodes/objets <em>static</em>, <em>factory</em>, <em>deprecated</em>, distinction des méthodes de propriétés (accesseurs), ajout d&#8217;exemples d&#8217;utilisation des méthodes.
+  </li>
+  <li>
+    <strong>JSR 296</strong> (framework pour Swing) : sauvegarde de l&#8217;état entre chaque session, gestion simplifiée des actions (arrière-plan), génération des textes dans des fichiers <em>.properties</em> (localisation).
+  </li>
+  <li>
+    <strong>JSR 303</strong> : validation des Beans (contraintes de schéma de base de données, du niveau business/service, du niveau présentation, du côté client).
+  </li>
+  <li>
+    <strong>JSR 295</strong> : liaison des Beans.
+  </li>
+</ul>
+
+<h2 id="jvm">JVM</h2>
+
+<ul>
+  <li><strong>Amélioration du byte-code</strong> (gestion dynamique) afin de supporter des langages de scripts : Javascript, PHP, Ruby.</li>
+  <li><strong>Modification du Garbage Collector</strong> : plus de gestion d’ancienne et nouvelle génération.</li>
+</ul>
+
+<p>Article écrit à partir de : <a href="http://blog.xebia.fr/2008/02/20/nagez-avec-les-dauphins-jdk-7-proposals-overview/" title="Xebia" target="_blank">Xebia</a>.</p>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Marwan Khelif</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>Marwan Khelif</li>
+          <li><a href="mailto:mkhelif@gmail.com">mkhelif@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/mkhelif">
+              <span class="icon  icon--github">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+                </svg>
+              </span>
+
+              <span class="username">mkhelif</span>
+            </a>
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/mkhelif">
+              <span class="icon  icon--twitter">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                  c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+                </svg>
+              </span>
+
+              <span class="username">mkhelif</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text">Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
