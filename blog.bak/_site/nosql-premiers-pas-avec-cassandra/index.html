@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title> - NoSQL : premiers pas avec Cassandra</title>
+  <link rel="shortcut icon" href="/assets/images/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="alternate" type="application/rss+xml" title="My Blog" href="/rss.xml">
+  <link rel="stylesheet" href="/assets/css/highlight.css">
+</head>
+<body>
+
+  <nav class="main-nav">
+    
+        <a href='/blog'> <span class="arrow">←</span> Home </a>
+    
+
+    
+        
+    
+    <a class="cta" href="/blogfeed.xml">Subscribe</a>
+</nav>
+
+  
+
+  <section id="wrapper" class="">
+    <article class="post">
+    <header>
+        <h1>NoSQL : premiers pas avec Cassandra</h1>
+        <h2 class="headline">October 1, 2010</h2>
+    </header>
+    <section id="post-body">
+        <p>Je reviens après ce long silence pour vous présenter une “nouvelle” technologie qui se développe de plus en plus : les bases de données NoSQL, et principalement Cassandra, la solution de la fondation Apache.</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Pour commencer, une base de données NoSQL qu’est-ce que c’est ?</p>
+
+<p>C’est une base de données <strong>non</strong> relationnelle. La plupart des bases de données relationnelles (MySQL, Oracle, PostgreSQL…) utilisent le langage SQL pour fournir un accès aux données. Pour les bases de données NoSQL, il n’y a donc pas de requête SQL.</p>
+
+<p>Le stockage utilise alors différentes représentations :</p>
+
+<ul>
+  <li>Bases orientées clé ? valeur : représentation la plus simple. Comme pour une table de hashage, chaque clé est associée à une seule valeur.</li>
+  <li>Bases orientées colonnes : les bases de données relationnelles structures les données en colonnes, chaque ligne comporte toutes les colonnes définies. Pour les bases orientées colonnes, c’est un peu l’inverse, les données sont structurées par lignes, identifiées par une clé, et chaque ligne comporte uniquement les colonnes qui la concernent.</li>
+  <li>Bases orientées documents : à chaque clé correspond un document qui a une structure particulière. Un document contient des données organisées hiérarchiquement.</li>
+  <li>Bases orientées graphes : permettent d’adresser des problèmes complexes grâce à une schématisation très souple. La représentation est intuitive, car elle décrit directement la réalité.</li>
+</ul>
+
+<p>Regardez cet article pour en savoir plus sur <a href="http://blog.xebia.fr/2010/04/21/nosql-europe-tour-dhorizon-des-bases-de-donnees-nosql/" target="_blank">les différentes bases de données NoSQL</a>. N’hésitez pas à regarder les articles spécifiques à chaque famille de bases de données.</p>
+
+<p>Ce type de base de données connait un succès grandissant, car des acteurs majeurs du Web ont choisi ce type de solutions : Facebook, Twitter, Digg, LinkedIn….</p>
+
+<p>Il existe de nombreuses solutions de bases de données NoSQL : <a href="http://cassandra.apache.org/" target="_blank">Cassandra</a> (de la fondation Apache), <a href="http://www.hypertable.org/" target="_blank">Hypertable</a>, <a href="http://www.mongodb.org/" target="_blank">MongoDB</a>, <a href="http://project-voldemort.com/" target="_blank">Projet Voldemort</a>…</p>
+
+<h2 id="prsentation-de-cassandra">Présentation de Cassandra</h2>
+
+<p>Cassandra est la solution NoSQL d’Apache. C’est une base de données orientée colonnes <font color="#000000">qui se veut être hautement extensible. C’est-à-dire qu’il est très simple d’ajouter ou d’enlever (c’est plus rare) un nœud du cluster. D’abord développé par Facebook, le code source est devenu Open-Source et repris par la fondation Apache.</font></p>
+
+<h3 id="modle-de-donnes">Modèle de données</h3>
+
+<p>Il existe quatre types de données dans Cassandra : les colonnes (<em>Column</em>), les supercolonnes (<em>SuperColumn</em>), les familles de colonnes (<em>ColumnFamily</em>) et le <em>KeySpace</em>.</p>
+
+<h4 id="column">Column</h4>
+
+<p>Objet de plus bas niveau, il est composé d’une clé (le nom de la colonne), d’une valeur et d’un timestamp.</p>
+
+<p>Les timestamps des colonnes sont utilisés pour résoudre les conflits entre plusieurs nœuds de l’infrastructure, pour savoir si un nœud à une version plus récente. Il est donc important que tous les nœuds de l’infrastructure soient synchronisés sur la même horloge.</p>
+
+<h4 id="supercolumn">SuperColumn</h4>
+
+<p>Une supercolonne représente une colonne dont les valeurs sont d’autres colonnes. C’est le moyen le plus simple pour représenter une relation entre deux objets.</p>
+
+<p align="center">
+  <a href="http://www.mkhelif.fr/wp-content/uploads/2010/10/SuperColumn.png"><img style="display: inline;" title="SuperColumn" border="0" alt="SuperColumn" src="http://www.mkhelif.fr/wp-content/uploads/2010/10/SuperColumn_thumb.png" width="299" height="234" /></a>
+</p>
+
+<h4 id="columnfamily">ColumnFamily</h4>
+
+<p>Les familles de colonnes sont similaires aux tables des bases de données relationnelles. Elles contiennent les données organisées en lignes, chaque ligne est identifiée par une clé unique (correspondant à la clé primaire pour les bases de données relationnelles). Chaque ligne contient alors un ensemble de (super-)colonnes.</p>
+
+<p>À l’intérieur des ColumnFamily, les clés sont toujours triées. La façon de trier dépend de la clé utilisée : nombre, chaîne de caractère, <a href="http://fr.wikipedia.org/wiki/UUID" target="_blank">UUID</a>…</p>
+
+<p align="center">
+  <a href="http://www.mkhelif.fr/wp-content/uploads/2010/10/ColumnFamily.png"><img style="display: inline;" title="ColumnFamily" border="0" alt="ColumnFamily" src="http://www.mkhelif.fr/wp-content/uploads/2010/10/ColumnFamily_thumb.png" width="594" height="215" /></a>
+</p>
+
+<h4 id="keyspace">KeySpace</h4>
+
+<p>L’espace de clés est l’équivalent d’une base de données pour les systèmes relationnels. Il a un nom et contient l’ensemble des familles de colonnes (l’ensemble des tables pour un système relationnel).</p>
+
+<p align="center">
+  <a href="http://www.mkhelif.fr/wp-content/uploads/2010/10/KeySpace.png"><img style="display: inline;" title="KeySpace" border="0" alt="KeySpace" src="http://www.mkhelif.fr/wp-content/uploads/2010/10/KeySpace_thumb.png" width="460" height="258" /></a>&#160;
+</p>
+
+<h3 id="configuration-du-serveur">Configuration du serveur</h3>
+
+<p>La configuration d’un serveur Cassandra est extrêmement simple, il n’y à qu’un seul fichier de configuration : <em>conf/storage-conf.xml</em></p>
+
+<p>Ce fichier contient à la fois les paramètres du serveur (mémoire, chemins des fichiers…), les paramètres du cluster et la définition des KeySpace.</p>
+
+<h4 id="paramtres-du-cluster">Paramètres du cluster</h4>
+
+<p>Cassandra utilise le protocole <a href="http://en.wikipedia.org/wiki/Apache_Thrift" target="_blank">Thrift</a> pour faire communiquer les différents nœuds du cluster entre eux. C’est d’ailleurs ce protocole qui est utilisé par les clients qui se connectent au serveur Cassandra.</p>
+
+<p>La configuration de Thrift est assez simple, vous spécifiez un port d’écoute (<em>ThriftPort</em>) et un nom d’hôte (<em>ThriftAddress</em>) qui doit être accessible par les différents clients. Au niveau du cluster, il faut définir le nom d’hôte (<em>ListenAddress</em>) et le port (<em>StoragePort</em>) accessible par les différents nœuds du cluster.</p>
+
+<p>Lors du démarrage du cluster, les nœuds qui le composent doivent se découvrir, pour cela, certains des nœuds doivent être définis comme des racines (<em>Seeds</em>). Lors du démarrage d’un nœud, il va s’enregistrer auprès des *Seeds *qui sont configurés et récupérer ainsi la liste des nœuds du cluster.</p>
+
+<h4 id="configuration-des-keyspaces">Configuration des KeySpaces</h4>
+
+<p>Le principal problème que je trouve à Cassandra c’est que les KeySpaces doivent être définis avant le démarrage du serveur afin que tous les nœuds possèdent le même schéma.</p>
+
+<p>Pour définir les <em>KeySpaces</em>, c’est dans le fichier <em>conf/storage-conf.xml</em> :</p>
+
+<pre lang="xml">&lt;keyspaces&gt;
+    &lt;keyspace name="Keyspace1"&gt;
+        &lt;columnfamily name="Standard1" comparewith="BytesType" /&gt;
+
+        &lt;columnfamily name="Standard2" comparewith="UTF8Type" keyscached="100%" /&gt;
+        &lt;columnfamily name="StandardByUUID1" comparewith="TimeUUIDType" /&gt;
+        &lt;columnfamily name="Super1" comparewith="BytesType" comparesubcolumnswith="BytesType" columntype="Super" /&gt;
+
+        &lt;columnfamily name="Super2" comparewith="UTF8Type" keyscached="50%" comparesubcolumnswith="UTF8Type" columntype="Super" comment="A column family with supercolumns, whose column and subcolumn names are UTF8 strings" rowscached="10000" /&gt;
+    &lt;/keyspace&gt;
+&lt;/keyspaces&gt;</pre>
+
+<p>La définition est très simple et les paramètres des <em>ColumnFamily</em> permettent de gérer le cache de la base de données (<em>KeysCached</em> et <em>RowsCached</em>) ainsi que le tri des clés (<em>CompareWith</em> et <em>CompareSubcolumnsWith</em>).</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Pour avoir testé Cassandra, les performances sont impressionnantes par rapport à des bases de données comme MySQL. Par contre, ce type de bases de données n’est pas à utiliser pour tous les types d’applications.</p>
+
+<p>Le seul point noir de Cassandra c’est le protocole Thrift utilisé pour la communication entre le client et le serveur. Heureusement qu’il existe quelques (mais très peu) librairies d’abstraction de cette couche.</p>
+
+    </section>
+</article>
+<footer id="post-meta" class="clearfix">
+    <a href="http://twitter.com/mkhelif">
+        <img class="avatar" src="/assets/images/avatar.png">
+        <div>
+            <span class="dark">Marwan Khelif</span>
+            <span>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</span>
+        </div>
+    </a>
+
+    <section id="sharing">
+        <a class="twitter" href="https://twitter.com/intent/tweet?text=/blog/nosql-premiers-pas-avec-cassandra/ - NoSQL : premiers pas avec Cassandra by @mkhelif"><span class="icon-twitter"> Tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+    </section>
+</footer>
+
+<!-- Disqus comments -->
+
+
+<!-- Archive post list -->
+
+    <ul id="post-list" class="archive readmore">
+        <h3>Read more</h3>
+        
+            <li>
+                <a href="/2015/welcome-to-jekyll/">Welcome to Jekyll!<aside class="dates">Jun 19</aside></a>
+            </li>
+        
+            <li>
+                <a href="/nosql-premiers-pas-avec-cassandra/">NoSQL : premiers pas avec Cassandra<aside class="dates">Oct 01</aside></a>
+            </li>
+        
+            <li>
+                <a href="/gwt-2-0-les-nouvelles-fonctionnalits/">GWT 2.0 : les nouvelles fonctionnalités<aside class="dates">Jan 14</aside></a>
+            </li>
+        
+            <li>
+                <a href="/goo-gl-le-raccourcisseur-durl-by-google/">Goo.gl : le raccourcisseur d’URL by Google<aside class="dates">Dec 15</aside></a>
+            </li>
+        
+            <li>
+                <a href="/chrome-os-premire-prsentation/">Chrome OS : première présentation<aside class="dates">Nov 19</aside></a>
+            </li>
+        
+            <li>
+                <a href="/twitter-interets-des-listes/">Twitter : intérêts des listes<aside class="dates">Oct 31</aside></a>
+            </li>
+        
+            <li>
+                <a href="/guide-doptimisation-de-vos-applications-web/">Guide d’optimisation de vos applications Web<aside class="dates">Oct 20</aside></a>
+            </li>
+        
+            <li>
+                <a href="/twitter-la-voip-disponible-grce-jajah/">Twitter : la VoIP disponible grâce à Jajah<aside class="dates">Sep 18</aside></a>
+            </li>
+        
+            <li>
+                <a href="/cinq-moyens-pour-grer-son-identit-virtuelle/">Cinq moyens pour gérer son identité virtuelle<aside class="dates">Sep 12</aside></a>
+            </li>
+        
+            <li>
+                <a href="/ruby-on-rails-dployer-une-application-sur-tomcat-avec-jruby/">Ruby on Rails : déployer une application sur Tomcat avec JRuby<aside class="dates">Sep 07</aside></a>
+            </li>
+        
+            <li>
+                <a href="/quest-ce-quun-community-manager-le-buzz-job-actuel/">Qu’est ce qu’un Community Manager, le “buzz-job” actuel ?<aside class="dates">Aug 28</aside></a>
+            </li>
+        
+            <li>
+                <a href="/tests-en-charge-dec2-gae-et-azure/">Tests en charge d’EC2, GAE et Azure<aside class="dates">Aug 21</aside></a>
+            </li>
+        
+            <li>
+                <a href="/google-vers-une-nouvelle-version-du-moteur-de-recherche/">Google : vers une nouvelle version du moteur de recherche<aside class="dates">Aug 11</aside></a>
+            </li>
+        
+            <li>
+                <a href="/chrome-des-thmes-et-de-la-synchronisation/">Chrome : des thèmes et de la synchronisation<aside class="dates">Aug 04</aside></a>
+            </li>
+        
+            <li>
+                <a href="/gwt-20-le-grand-nettoyage/">GWT 2.0 : le grand nettoyage<aside class="dates">Aug 03</aside></a>
+            </li>
+        
+            <li>
+                <a href="/google-annonce-chrome-os/">Google annonce Chrome OS<aside class="dates">Jul 08</aside></a>
+            </li>
+        
+            <li>
+                <a href="/ouverture-du-java-store/">Ouverture du Java Store<aside class="dates">Jun 03</aside></a>
+            </li>
+        
+            <li>
+                <a href="/un-fork-de-mysql-pour-contrer-oracle-2/">Un fork de MySQL pour contrer Oracle<aside class="dates">Jun 02</aside></a>
+            </li>
+        
+            <li>
+                <a href="/oracle-rachte-sun/">Oracle rachète Sun<aside class="dates">Apr 20</aside></a>
+            </li>
+        
+            <li>
+                <a href="/premire-utilisation-du-plugin-eclipse-gwt/">Première utilisation du plugin Eclipse GWT<aside class="dates">Apr 10</aside></a>
+            </li>
+        
+            <li>
+                <a href="/flex-builder-3-gratuit-pour-les-chmeurs/">Flex Builder 3 gratuit pour les chômeurs<aside class="dates">Apr 10</aside></a>
+            </li>
+        
+            <li>
+                <a href="/google-gwt-version-16-et-consorts/">Google : GWT version 1.6 et consorts<aside class="dates">Apr 08</aside></a>
+            </li>
+        
+            <li>
+                <a href="/google-lance-son-propre-fond-dinvestissements/">Google lance son propre fond d&#8217;investissements<aside class="dates">Apr 01</aside></a>
+            </li>
+        
+            <li>
+                <a href="/chrome-comment-crer-une-extension/">Chrome : comment créer une extension ?<aside class="dates">Mar 24</aside></a>
+            </li>
+        
+            <li>
+                <a href="/skype-le-codec-silk-disponible-gratuitement/">Skype : le codec SILK disponible gratuitement<aside class="dates">Mar 04</aside></a>
+            </li>
+        
+            <li>
+                <a href="/html-5-deux-nouveaux-documents/">HTML 5 : deux nouveaux documents<aside class="dates">Feb 18</aside></a>
+            </li>
+        
+            <li>
+                <a href="/java-jframe-transparentre/">Java : JFrame transparente<aside class="dates">Jan 23</aside></a>
+            </li>
+        
+            <li>
+                <a href="/gwt-16-quoi-de-neuf/">GWT 1.6 : quoi de neuf ?<aside class="dates">Dec 11</aside></a>
+            </li>
+        
+            <li>
+                <a href="/gwt-le-futur-hosted-mode/">GWT : le futur hosted mode<aside class="dates">Dec 09</aside></a>
+            </li>
+        
+            <li>
+                <a href="/authentification-ssh-par-cl-privecl-publique/">Authentification SSH par clé privée/clé publique<aside class="dates">Nov 24</aside></a>
+            </li>
+        
+            <li>
+                <a href="/gwt-librairie-open-flash-chart/">GWT : librairie Open Flash Chart<aside class="dates">Oct 23</aside></a>
+            </li>
+        
+            <li>
+                <a href="/gwt-153-amliore-le-support-dandroid/">GWT 1.5.3 : améliore le support d&#8217;Android<aside class="dates">Oct 22</aside></a>
+            </li>
+        
+            <li>
+                <a href="/gwt-16-tomcat-ou-jetty/">GWT 1.6 : Tomcat ou Jetty ?<aside class="dates">Oct 21</aside></a>
+            </li>
+        
+            <li>
+                <a href="/ria-quel-framework-choisir/">RIA : quel framework choisir?<aside class="dates">Oct 03</aside></a>
+            </li>
+        
+            <li>
+                <a href="/gwt-the-great-gwt-roundup/">GWT : &#8220;The Great GWT roundup&#8221;<aside class="dates">Oct 02</aside></a>
+            </li>
+        
+            <li>
+                <a href="/gwt-version-15-disponible/">GWT : version 1.5 disponible<aside class="dates">Sep 02</aside></a>
+            </li>
+        
+            <li>
+                <a href="/google-lancement-de-chrome/">Google : lancement de Chrome<aside class="dates">Sep 02</aside></a>
+            </li>
+        
+            <li>
+                <a href="/google-intgration-de-google-suggest/">Google : intégration de Google Suggest<aside class="dates">Aug 28</aside></a>
+            </li>
+        
+            <li>
+                <a href="/java-benchmark-jre/">Java : benchmark de la JRE<aside class="dates">Aug 05</aside></a>
+            </li>
+        
+            <li>
+                <a href="/oracle-faille-critique-dans-weblogic/">Oracle : faille critique dans WebLogic [corrigé]<aside class="dates">Jul 30</aside></a>
+            </li>
+        
+            <li>
+                <a href="/java-utilisation-de-protocol-buffers/">Java : Utilisation de Protocol Buffers<aside class="dates">Jul 29</aside></a>
+            </li>
+        
+            <li>
+                <a href="/google-lance-protocol-buffers/">Google lance Protocol Buffers<aside class="dates">Jul 10</aside></a>
+            </li>
+        
+            <li>
+                <a href="/gwt-crer-un-service-rpc/">GWT : Créer un service RPC<aside class="dates">Jul 07</aside></a>
+            </li>
+        
+            <li>
+                <a href="/gwt-introduction-au-framework/">GWT : Introduction au framework<aside class="dates">Jul 03</aside></a>
+            </li>
+        
+            <li>
+                <a href="/google-rfrencement-des-contenus-flash/">Google : référencement des contenus Flash<aside class="dates">Jul 01</aside></a>
+            </li>
+        
+            <li>
+                <a href="/apache2-systeme-de-blacklist/">Apache2 : système de blacklist<aside class="dates">Jun 23</aside></a>
+            </li>
+        
+            <li>
+                <a href="/passerelle-entre-apache-et-tomcat/">Passerelle entre Apache et Tomcat<aside class="dates">Jun 18</aside></a>
+            </li>
+        
+            <li>
+                <a href="/serveur-de-mails-multi-domaines/">Serveur de mails multi-domaines<aside class="dates">May 23</aside></a>
+            </li>
+        
+            <li>
+                <a href="/mysql-workbench/">MySQL Workbench<aside class="dates">May 02</aside></a>
+            </li>
+        
+            <li>
+                <a href="/javaone-2008/">JavaOne 2008<aside class="dates">Apr 25</aside></a>
+            </li>
+        
+            <li>
+                <a href="/nouveautes-java-7-dolphin/">Nouveautés Java 7 &#8211; Dolphin<aside class="dates">Mar 17</aside></a>
+            </li>
+        
+            <li>
+                <a href="/garbage-collector-ancienne-generation/">Garbage Collector ancienne génération<aside class="dates">Mar 15</aside></a>
+            </li>
+        
+            <li>
+                <a href="/java-sur-iphone/">Java sur iPhone<aside class="dates">Mar 10</aside></a>
+            </li>
+        
+            <li>
+                <a href="/chiffre-de-vigenere/">Chiffre de Vigénère<aside class="dates">Jan 17</aside></a>
+            </li>
+        
+            <li>
+                <a href="/chiffre-de-cesar/">Chiffre de César<aside class="dates">Jan 17</aside></a>
+            </li>
+        
+            <li>
+                <a href="/chiffre-de-beaufort/">Chiffre de Beaufort<aside class="dates">Jan 16</aside></a>
+            </li>
+        
+            <li>
+                <a href="/validation-xml/">Validation XML<aside class="dates">Jan 03</aside></a>
+            </li>
+        
+            <li>
+                <a href="/rome-telechargement-88/">ROME &#8211; Téléchargement (8/8)<aside class="dates">Jul 25</aside></a>
+            </li>
+        
+            <li>
+                <a href="/rome-integration-avec-une-servlet-78/">ROME &#8211; Intégration avec une Servlet (7/8)<aside class="dates">Jul 22</aside></a>
+            </li>
+        
+            <li>
+                <a href="/rome-ecriture-dun-flux-68/">ROME &#8211; Écriture d&#8217;un flux (6/8)<aside class="dates">Jul 21</aside></a>
+            </li>
+        
+            <li>
+                <a href="/rome-aggregation-de-plusieurs-flux-58/">ROME &#8211; Aggrégation de plusieurs flux (5/8)<aside class="dates">Jul 20</aside></a>
+            </li>
+        
+            <li>
+                <a href="/rome-conversion-dun-format-a-un-autre-48/">ROME &#8211; Conversion d&#8217;un format à un autre (4/8)<aside class="dates">Jul 19</aside></a>
+            </li>
+        
+            <li>
+                <a href="/rome-lecture-dun-flux-38/">ROME &#8211; Lecture d&#8217;un flux (3/8)<aside class="dates">Jul 18</aside></a>
+            </li>
+        
+            <li>
+                <a href="/rome-fonctionnement-28/">ROME &#8211; Fonctionnement (2/8)<aside class="dates">Jul 16</aside></a>
+            </li>
+        
+            <li>
+                <a href="/rome-presentation-18/">ROME &#8211; Présentation (1/8)<aside class="dates">Jul 15</aside></a>
+            </li>
+        
+    </ul>
+
+
+
+
+
+  </section>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/highlight.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-2859250-3', 'auto');
+    ga('send', 'pageview');
+  </script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title> - Nouveautés Java 7 &#8211; Dolphin</title>
+  <link rel="shortcut icon" href="/assets/images/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="alternate" type="application/rss+xml" title="My Blog" href="/rss.xml">
+  <link rel="stylesheet" href="/assets/css/highlight.css">
+</head>
+<body>
+
+  <nav class="main-nav">
+    
+        <a href='/blog'> <span class="arrow">←</span> Home </a>
+    
+
+    
+        
+    
+    <a class="cta" href="/blogfeed.xml">Subscribe</a>
+</nav>
+
+  
+
+  <section id="wrapper" class="">
+    <article class="post">
+    <header>
+        <h1>Nouveautés Java 7 &#8211; Dolphin</h1>
+        <h2 class="headline">March 17, 2008</h2>
+    </header>
+    <section id="post-body">
+        <p>Il n’y à toujours pas de JSR officiel décrivant l’ensemble des nouvelles fonctionnalités de Java 7. Cette dernière version porte toujours le nom d’un animal : Dolphin.</p>
+
+<p>Pour cette nouvelle version il devrait y avoir des évolutions dans le langages Java, un nouveau format d’archive (remplaçant du fichier jar) : Java Module System (<a href="http://jcp.org/en/jsr/detail?id=277" title="JSR 277" target="_blank">JSR 277</a>), de nouvelles API et des améliorations de la JVM (support natif de language de script : Javascript, Ruby, PHP).</p>
+
+<!--more-->
+
+<h2 id="nouveauts-du-langage">Nouveautés du langage</h2>
+
+<ul>
+  <li><strong>Support natif du XML :</strong></li>
+</ul>
+
+<p>Un exemple vaut mieux que plusieurs lignes d’explications :</p>
+
+<pre lang="java">Document d = &lt;collection&gt;&lt;/collection&gt;;
+element.appendChild ();</pre>
+
+<ul>
+  <li><strong>Propriétés JavaBeans :</strong></li>
+</ul>
+
+<p>Possibilité de définir un membre d’une classe en tant que propriété : les accesseurs seront alors générés à la compilation. Actuellement la syntaxe permettant d’accèder aux accesseurs n’est pas encore certaines : <strong>.</strong>, <strong>=&gt;</strong>, <strong>-&lt;</strong>, <strong>#</strong>.</p>
+
+<pre lang="java">public class MyObject {
+    private property String member;
+}
+...
+MyObject obj = new MyObject ();
+obj.member = "NewValue"; // setMember
+String str = obj=&gt;member; // getMember
+obj-&gt;member = "New Value"; // setMember
+str = obj#member; // getMember</pre>
+
+<ul>
+  <li><strong>Redéfinition des opérateurs :</strong></li>
+</ul>
+
+<p>Le langage permettrait alors de redéfinir les opérateurs grâce à des annotations.</p>
+
+<pre lang="java">String str = "first";
+switch (str) {
+    case "first": doThis (); break;
+    case "second": doThat (); break;
+    default: throw new IllegalArgumentException ("Unknown: " + str);
+}</pre>
+
+<p>Autre exemple avec les énumérations :</p>
+
+<pre lang="java">enum MyColor {
+    EMPTY,
+    BLACK, WHITE,
+    RED, YELLOW, BLUE,
+    PINK, PURPLE, ORANGE, GREY;
+}
+
+public boolean isPrimary (MyColor c) {
+    return c &gt;= MyColor.RED &#038;&#038; c &lt; = MyColor.BLUE;
+}</pre>
+
+<ul>
+  <li><strong>Chaînage des appels de méthodes :</strong></li>
+</ul>
+
+<pre lang="java">class MyObject {
+     void doSomething () { ... }
+     void doOther () { ... }
+     boolean validate () { ... }
+}
+
+MyObjet myObject = new MyObject ();
+boolean validate = myObject.doSomething ().doOther ().validate ();</pre>
+
+<ul>
+  <li><strong>Amélioration des blocs <em>catch</em> :</strong></li>
+</ul>
+
+<pre lang="java">try {
+     doSomething ();
+} catch (IllegalStateException | IllegalAccessException e) {
+     // Traitement de l'exception...
+}
+
+try {
+    doOther (); // Lance des types différences d'exceptions
+} catch (final Throwable t) {
+    throw t; // Lance les mêmes types d'exceptions
+}</pre>
+
+<ul>
+  <li><strong>Gestion automatique des ressources :</strong> les ressources qui sont initialisées dans un bloc sont automatiquement nettoyées à la fin du bloc. Le bloc <em>finally</em> n’est alors plus nécessaire.</li>
+  <li><strong>Simplification des templates et des List/Map :</strong></li>
+</ul>
+
+<pre lang="java">Map&lt;string , Object&gt; myMap = new HashMap&lt;&gt; ();
+
+List&lt;/string&gt;&lt;string&gt; list = new ArrayList&lt;&gt; ();
+list.add[0] = "First";
+list.add[1] = "Second";
+&lt;/string&gt;</pre>
+
+<ul>
+  <li><strong>Les <em>Closures</em> (ou méthodes anonymes) :</strong></li>
+</ul>
+
+<pre lang="java">// Sans Closures :
+lock.lock ();
+try {
+    ++counter;
+} finally {
+    lock.unlock ();
+}
+
+// Avec Closures :
+withLock (lock) {
+    ++counter;
+}
+
+public static &lt;t&gt; T withLock (Lock lock, {=&gt; T throws E}) block) throws E {
+    lock.lock ();
+    try {
+        // Exécution du 'bloc' de code block
+        return block.invoke ();
+    } finally {
+        lock.unlock ();
+    }
+}
+&lt;/t&gt;</pre>
+
+<h2 id="modularit">Modularité</h2>
+
+<ul>
+  <li><strong>Gestion des Super packages.</strong></li>
+  <li><strong>JA</strong>va <strong>M</strong>odule System : remplaçant du fichier JAR (<strong>J</strong>ava <strong>AR</strong>chive) : gestion des versions, des dépendances, …</li>
+</ul>
+
+<h4 id="gestion-du-versionning">Gestion du versionning</h4>
+
+<p style="text-align: left">
+  Lorsque l&#8217;on développe une application, celle ci à généralement besoins d&#8217;une ou plusieurs librairies de classes. Cependant si cette librairie ne peut être fourni avec l&#8217;application (problème de license) ou qu&#8217;une version spécifique est nécessaire, il n&#8217;y à actuellement aucun moyen simple de vérifier la librairie. Les fichiers JAM vont permettrent ceci grâce à une gestion avancée du versionning :
+</p>
+
+<pre>major[.minor[.micro[.update]]][-qualifier]</pre>
+
+<p>Par exemple :</p>
+
+<table style="border: 1px solid #444444; text-align: left" cellpadding="0" cellspacing="0">
+  <tr>
+    <td style="border-bottom: 1px solid #444444">
+      1+
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      Version 1 ou supérieur
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      (1 &lt; = x)
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="border-bottom: 1px solid #444444">
+      1.5+
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      Version 1.5 ou supérieur
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      (1.5 &lt; = x)
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="border-bottom: 1px solid #444444">
+      1.5.2+
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      Version 1.5.2 ou supérieur
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      (1.5.2 &lt; = x)
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="border-bottom: 1px solid #444444">
+      1*
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      Toutes les versions de la branche 1.
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      (1 &lt; = x &lt; 2)
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="border-bottom: 1px solid #444444">
+      1.5*
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      Toutes les versions de la branche 1.5.
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      (1.5 &lt; = x &lt; 1.6)
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="border-bottom: 1px solid #444444">
+      1.5.2*
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      Toutes les versions de la branche 1.5.2.
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      (1.5.2 &lt; = x &lt; 1.5.3)
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="border-bottom: 1px solid #444444">
+      1.[5+]
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      Version 1.5 ou supérieur dans la branche 1.
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      (1.5 &lt; = x &lt; 2)
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="border-bottom: 1px solid #444444">
+      1.5.[2+]
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      Version 1.5.2 ou supérieur dans la branche 1.5.
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      (1.5.2 &lt; = x &lt; 1.6)
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="border-bottom: 1px solid #444444">
+      1.[5.2+]
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      Version 1.5.2 ou supérieur dans la branche 1.
+    </td>
+    
+    <td style="border-bottom: 1px solid #444444">
+      (1.5.2 &lt; = x &lt; 2)
+    </td>
+  </tr>
+</table>
+
+<h4 id="modules">Modules</h4>
+
+<p style="text-align: left">
+  Un fichier JAM est en fait une simple archive (tout comme le fichier JAR) qui peut contenir d&#8217;autres JAR (les modules), des ressources (images, &#8230;), du code natif (nouvelle gestion : <em>/META-INF/bin/ <platform>/<arch>/</arch></platform></em>), des métas-données : <em>MODULE-INF/METADATA.module</em> (version, classe principale, modules nécessaires, attributs, superpackages).
+</p>
+
+<p style="text-align: left">
+  Chaque application aura une bibliothèque de modules (locaux ou distants) permettant la recherche, le chargement (au démarrage ou à l&#8217;exécution).
+</p>
+
+<p>Exemple :</p>
+
+<pre code="java">// Déclaration du superpackage :
+@Version("1.0")
+superpackage com.site.pack {
+
+    // Import de modules
+    @VersionConstraint("1.0+")
+    import com.site.name;
+    @VersionConstraint("1.5*")
+    import com.site.xml;
+
+    // Liste des packages
+    member package com.site.pack, com.site.pack.impl;
+
+    // Types exportés
+    export com.site.pack.*;
+}</pre>
+
+<h2 id="nouvelles-api">Nouvelles API</h2>
+
+<ul style="text-align: left">
+  <li>
+    <strong>NIO 2</strong> : gestion avancée du système de fichiers (permissions, attributs de fichier), API I/O asynchrone pour les sockets et fichiers.
+  </li>
+  <li>
+    <strong>JSR 275</strong> (gestion des unités, ex: Km, m, cm, &#8230;) : expression d&#8217;une valeur dans plusieurs unités, conversion d&#8217;unités, parsing des unités dans une String.
+  </li>
+  <li>
+    <strong>JSR 310</strong> (date and time API) : amélioration de l&#8217;API actuelle afin de permettre de gérer des durées, des intervalles.
+  </li>
+  <li>
+    <strong>JSR 166y</strong> : amélioration de la concurrence.
+  </li>
+  <li>
+    <strong>JSR 225</strong> : Xquery API for Java.
+  </li>
+  <li>
+    <strong>JSR 284</strong> : gestion de la consommation des ressources (CPU, mémoire, connexions JDBC, &#8230;).
+  </li>
+  <li>
+    <strong>JSR 308</strong> : annotations sur les types Java.
+  </li>
+  <li>
+    <strong>JSR 260</strong> (amélioration de la Javadoc) : tri des méthodes et champs en fonction de leur utilité, un index sémantique, distinction des méthodes/objets <em>static</em>, <em>factory</em>, <em>deprecated</em>, distinction des méthodes de propriétés (accesseurs), ajout d&#8217;exemples d&#8217;utilisation des méthodes.
+  </li>
+  <li>
+    <strong>JSR 296</strong> (framework pour Swing) : sauvegarde de l&#8217;état entre chaque session, gestion simplifiée des actions (arrière-plan), génération des textes dans des fichiers <em>.properties</em> (localisation).
+  </li>
+  <li>
+    <strong>JSR 303</strong> : validation des Beans (contraintes de schéma de base de données, du niveau business/service, du niveau présentation, du côté client).
+  </li>
+  <li>
+    <strong>JSR 295</strong> : liaison des Beans.
+  </li>
+</ul>
+
+<h2 id="jvm">JVM</h2>
+
+<ul>
+  <li><strong>Amélioration du byte-code</strong> (gestion dynamique) afin de supporter des langages de scripts : Javascript, PHP, Ruby.</li>
+  <li><strong>Modification du Garbage Collector</strong> : plus de gestion d’ancienne et nouvelle génération.</li>
+</ul>
+
+<p>Article écrit à partir de : <a href="http://blog.xebia.fr/2008/02/20/nagez-avec-les-dauphins-jdk-7-proposals-overview/" title="Xebia" target="_blank">Xebia</a>.</p>
+
+    </section>
+</article>
+<footer id="post-meta" class="clearfix">
+    <a href="http://twitter.com/mkhelif">
+        <img class="avatar" src="/assets/images/avatar.png">
+        <div>
+            <span class="dark">Marwan Khelif</span>
+            <span>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</span>
+        </div>
+    </a>
+
+    <section id="sharing">
+        <a class="twitter" href="https://twitter.com/intent/tweet?text=/blog/nouveautes-java-7-dolphin/ - Nouveautés Java 7 &#8211; Dolphin by @mkhelif"><span class="icon-twitter"> Tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+    </section>
+</footer>
+
+<!-- Disqus comments -->
+
+
+<!-- Archive post list -->
+
+    <ul id="post-list" class="archive readmore">
+        <h3>Read more</h3>
+        
+            <li>
+                <a href="/2015/welcome-to-jekyll/">Welcome to Jekyll!<aside class="dates">Jun 19</aside></a>
+            </li>
+        
+            <li>
+                <a href="/nosql-premiers-pas-avec-cassandra/">NoSQL : premiers pas avec Cassandra<aside class="dates">Oct 01</aside></a>
+            </li>
+        
+            <li>
+                <a href="/gwt-2-0-les-nouvelles-fonctionnalits/">GWT 2.0 : les nouvelles fonctionnalités<aside class="dates">Jan 14</aside></a>
+            </li>
+        
+            <li>
+                <a href="/goo-gl-le-raccourcisseur-durl-by-google/">Goo.gl : le raccourcisseur d’URL by Google<aside class="dates">Dec 15</aside></a>
+            </li>
+        
+            <li>
+                <a href="/chrome-os-premire-prsentation/">Chrome OS : première présentation<aside class="dates">Nov 19</aside></a>
+            </li>
+        
+            <li>
+                <a href="/twitter-interets-des-listes/">Twitter : intérêts des listes<aside class="dates">Oct 31</aside></a>
+            </li>
+        
+            <li>
+                <a href="/guide-doptimisation-de-vos-applications-web/">Guide d’optimisation de vos applications Web<aside class="dates">Oct 20</aside></a>
+            </li>
+        
+            <li>
+                <a href="/twitter-la-voip-disponible-grce-jajah/">Twitter : la VoIP disponible grâce à Jajah<aside class="dates">Sep 18</aside></a>
+            </li>
+        
+            <li>
+                <a href="/cinq-moyens-pour-grer-son-identit-virtuelle/">Cinq moyens pour gérer son identité virtuelle<aside class="dates">Sep 12</aside></a>
+            </li>
+        
+            <li>
+                <a href="/ruby-on-rails-dployer-une-application-sur-tomcat-avec-jruby/">Ruby on Rails : déployer une application sur Tomcat avec JRuby<aside class="dates">Sep 07</aside></a>
+            </li>
+        
+            <li>
+                <a href="/quest-ce-quun-community-manager-le-buzz-job-actuel/">Qu’est ce qu’un Community Manager, le “buzz-job” actuel ?<aside class="dates">Aug 28</aside></a>
+            </li>
+        
+            <li>
+                <a href="/tests-en-charge-dec2-gae-et-azure/">Tests en charge d’EC2, GAE et Azure<aside class="dates">Aug 21</aside></a>
+            </li>
+        
+            <li>
+                <a href="/google-vers-une-nouvelle-version-du-moteur-de-recherche/">Google : vers une nouvelle version du moteur de recherche<aside class="dates">Aug 11</aside></a>
+            </li>
+        
+            <li>
+                <a href="/chrome-des-thmes-et-de-la-synchronisation/">Chrome : des thèmes et de la synchronisation<aside class="dates">Aug 04</aside></a>
+            </li>
+        
+            <li>
+                <a href="/gwt-20-le-grand-nettoyage/">GWT 2.0 : le grand nettoyage<aside class="dates">Aug 03</aside></a>
+            </li>
+        
+            <li>
+                <a href="/google-annonce-chrome-os/">Google annonce Chrome OS<aside class="dates">Jul 08</aside></a>
+            </li>
+        
+            <li>
+                <a href="/ouverture-du-java-store/">Ouverture du Java Store<aside class="dates">Jun 03</aside></a>
+            </li>
+        
+            <li>
+                <a href="/un-fork-de-mysql-pour-contrer-oracle-2/">Un fork de MySQL pour contrer Oracle<aside class="dates">Jun 02</aside></a>
+            </li>
+        
+            <li>
+                <a href="/oracle-rachte-sun/">Oracle rachète Sun<aside class="dates">Apr 20</aside></a>
+            </li>
+        
+            <li>
+                <a href="/premire-utilisation-du-plugin-eclipse-gwt/">Première utilisation du plugin Eclipse GWT<aside class="dates">Apr 10</aside></a>
+            </li>
+        
+            <li>
+                <a href="/flex-builder-3-gratuit-pour-les-chmeurs/">Flex Builder 3 gratuit pour les chômeurs<aside class="dates">Apr 10</aside></a>
+            </li>
+        
+            <li>
+                <a href="/google-gwt-version-16-et-consorts/">Google : GWT version 1.6 et consorts<aside class="dates">Apr 08</aside></a>
+            </li>
+        
+            <li>
+                <a href="/google-lance-son-propre-fond-dinvestissements/">Google lance son propre fond d&#8217;investissements<aside class="dates">Apr 01</aside></a>
+            </li>
+        
+            <li>
+                <a href="/chrome-comment-crer-une-extension/">Chrome : comment créer une extension ?<aside class="dates">Mar 24</aside></a>
+            </li>
+        
+            <li>
+                <a href="/skype-le-codec-silk-disponible-gratuitement/">Skype : le codec SILK disponible gratuitement<aside class="dates">Mar 04</aside></a>
+            </li>
+        
+            <li>
+                <a href="/html-5-deux-nouveaux-documents/">HTML 5 : deux nouveaux documents<aside class="dates">Feb 18</aside></a>
+            </li>
+        
+            <li>
+                <a href="/java-jframe-transparentre/">Java : JFrame transparente<aside class="dates">Jan 23</aside></a>
+            </li>
+        
+            <li>
+                <a href="/gwt-16-quoi-de-neuf/">GWT 1.6 : quoi de neuf ?<aside class="dates">Dec 11</aside></a>
+            </li>
+        
+            <li>
+                <a href="/gwt-le-futur-hosted-mode/">GWT : le futur hosted mode<aside class="dates">Dec 09</aside></a>
+            </li>
+        
+            <li>
+                <a href="/authentification-ssh-par-cl-privecl-publique/">Authentification SSH par clé privée/clé publique<aside class="dates">Nov 24</aside></a>
+            </li>
+        
+            <li>
+                <a href="/gwt-librairie-open-flash-chart/">GWT : librairie Open Flash Chart<aside class="dates">Oct 23</aside></a>
+            </li>
+        
+            <li>
+                <a href="/gwt-153-amliore-le-support-dandroid/">GWT 1.5.3 : améliore le support d&#8217;Android<aside class="dates">Oct 22</aside></a>
+            </li>
+        
+            <li>
+                <a href="/gwt-16-tomcat-ou-jetty/">GWT 1.6 : Tomcat ou Jetty ?<aside class="dates">Oct 21</aside></a>
+            </li>
+        
+            <li>
+                <a href="/ria-quel-framework-choisir/">RIA : quel framework choisir?<aside class="dates">Oct 03</aside></a>
+            </li>
+        
+            <li>
+                <a href="/gwt-the-great-gwt-roundup/">GWT : &#8220;The Great GWT roundup&#8221;<aside class="dates">Oct 02</aside></a>
+            </li>
+        
+            <li>
+                <a href="/gwt-version-15-disponible/">GWT : version 1.5 disponible<aside class="dates">Sep 02</aside></a>
+            </li>
+        
+            <li>
+                <a href="/google-lancement-de-chrome/">Google : lancement de Chrome<aside class="dates">Sep 02</aside></a>
+            </li>
+        
+            <li>
+                <a href="/google-intgration-de-google-suggest/">Google : intégration de Google Suggest<aside class="dates">Aug 28</aside></a>
+            </li>
+        
+            <li>
+                <a href="/java-benchmark-jre/">Java : benchmark de la JRE<aside class="dates">Aug 05</aside></a>
+            </li>
+        
+            <li>
+                <a href="/oracle-faille-critique-dans-weblogic/">Oracle : faille critique dans WebLogic [corrigé]<aside class="dates">Jul 30</aside></a>
+            </li>
+        
+            <li>
+                <a href="/java-utilisation-de-protocol-buffers/">Java : Utilisation de Protocol Buffers<aside class="dates">Jul 29</aside></a>
+            </li>
+        
+            <li>
+                <a href="/google-lance-protocol-buffers/">Google lance Protocol Buffers<aside class="dates">Jul 10</aside></a>
+            </li>
+        
+            <li>
+                <a href="/gwt-crer-un-service-rpc/">GWT : Créer un service RPC<aside class="dates">Jul 07</aside></a>
+            </li>
+        
+            <li>
+                <a href="/gwt-introduction-au-framework/">GWT : Introduction au framework<aside class="dates">Jul 03</aside></a>
+            </li>
+        
+            <li>
+                <a href="/google-rfrencement-des-contenus-flash/">Google : référencement des contenus Flash<aside class="dates">Jul 01</aside></a>
+            </li>
+        
+            <li>
+                <a href="/apache2-systeme-de-blacklist/">Apache2 : système de blacklist<aside class="dates">Jun 23</aside></a>
+            </li>
+        
+            <li>
+                <a href="/passerelle-entre-apache-et-tomcat/">Passerelle entre Apache et Tomcat<aside class="dates">Jun 18</aside></a>
+            </li>
+        
+            <li>
+                <a href="/serveur-de-mails-multi-domaines/">Serveur de mails multi-domaines<aside class="dates">May 23</aside></a>
+            </li>
+        
+            <li>
+                <a href="/mysql-workbench/">MySQL Workbench<aside class="dates">May 02</aside></a>
+            </li>
+        
+            <li>
+                <a href="/javaone-2008/">JavaOne 2008<aside class="dates">Apr 25</aside></a>
+            </li>
+        
+            <li>
+                <a href="/nouveautes-java-7-dolphin/">Nouveautés Java 7 &#8211; Dolphin<aside class="dates">Mar 17</aside></a>
+            </li>
+        
+            <li>
+                <a href="/garbage-collector-ancienne-generation/">Garbage Collector ancienne génération<aside class="dates">Mar 15</aside></a>
+            </li>
+        
+            <li>
+                <a href="/java-sur-iphone/">Java sur iPhone<aside class="dates">Mar 10</aside></a>
+            </li>
+        
+            <li>
+                <a href="/chiffre-de-vigenere/">Chiffre de Vigénère<aside class="dates">Jan 17</aside></a>
+            </li>
+        
+            <li>
+                <a href="/chiffre-de-cesar/">Chiffre de César<aside class="dates">Jan 17</aside></a>
+            </li>
+        
+            <li>
+                <a href="/chiffre-de-beaufort/">Chiffre de Beaufort<aside class="dates">Jan 16</aside></a>
+            </li>
+        
+            <li>
+                <a href="/validation-xml/">Validation XML<aside class="dates">Jan 03</aside></a>
+            </li>
+        
+            <li>
+                <a href="/rome-telechargement-88/">ROME &#8211; Téléchargement (8/8)<aside class="dates">Jul 25</aside></a>
+            </li>
+        
+            <li>
+                <a href="/rome-integration-avec-une-servlet-78/">ROME &#8211; Intégration avec une Servlet (7/8)<aside class="dates">Jul 22</aside></a>
+            </li>
+        
+            <li>
+                <a href="/rome-ecriture-dun-flux-68/">ROME &#8211; Écriture d&#8217;un flux (6/8)<aside class="dates">Jul 21</aside></a>
+            </li>
+        
+            <li>
+                <a href="/rome-aggregation-de-plusieurs-flux-58/">ROME &#8211; Aggrégation de plusieurs flux (5/8)<aside class="dates">Jul 20</aside></a>
+            </li>
+        
+            <li>
+                <a href="/rome-conversion-dun-format-a-un-autre-48/">ROME &#8211; Conversion d&#8217;un format à un autre (4/8)<aside class="dates">Jul 19</aside></a>
+            </li>
+        
+            <li>
+                <a href="/rome-lecture-dun-flux-38/">ROME &#8211; Lecture d&#8217;un flux (3/8)<aside class="dates">Jul 18</aside></a>
+            </li>
+        
+            <li>
+                <a href="/rome-fonctionnement-28/">ROME &#8211; Fonctionnement (2/8)<aside class="dates">Jul 16</aside></a>
+            </li>
+        
+            <li>
+                <a href="/rome-presentation-18/">ROME &#8211; Présentation (1/8)<aside class="dates">Jul 15</aside></a>
+            </li>
+        
+    </ul>
+
+
+
+
+
+  </section>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/highlight.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-2859250-3', 'auto');
+    ga('send', 'pageview');
+  </script>
+</body>
+</html>
+
+
+

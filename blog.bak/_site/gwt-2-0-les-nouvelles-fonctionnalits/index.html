@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title> - GWT 2.0 : les nouvelles fonctionnalités</title>
+  <link rel="shortcut icon" href="/assets/images/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="alternate" type="application/rss+xml" title="My Blog" href="/rss.xml">
+  <link rel="stylesheet" href="/assets/css/highlight.css">
+</head>
+<body>
+
+  <nav class="main-nav">
+    
+        <a href='/blog'> <span class="arrow">←</span> Home </a>
+    
+
+    
+        
+    
+    <a class="cta" href="/blogfeed.xml">Subscribe</a>
+</nav>
+
+  
+
+  <section id="wrapper" class="">
+    <article class="post">
+    <header>
+        <h1>GWT 2.0 : les nouvelles fonctionnalités</h1>
+        <h2 class="headline">January 14, 2010</h2>
+    </header>
+    <section id="post-body">
+        <p>La version 2.0 de GWT (<a href="http://www.mkhelif.fr/2008/07/03/gwt-introduction-au-framework.html">Google Web Toolkit</a>) est sortie (j’ai un peu de retard à cause du boulot <img src="http://www.mkhelif.fr/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> ) et avec elle de nombreuses améliorations, principalement pour améliorer le développement des applications. Cette nouvelle version est accompagnée d’un outil d’analyse des performances des sites : <em>Speed Tracer</em>, qui donne des pistes d’amélioration de l’application.</p>
+
+<h3 id="development-mode">Development Mode</h3>
+
+<p>Dans les versions précédentes de GWT, pour tester une application en cours de développement, il y avait le Hosted Mode. C’est une application que l’on lançait depuis son IDE, qui démarrait un serveur Tomcat et qui permettait de tester “rapidement” sont application Web.</p>
+
+<p>En GWT 2.0 le Hosted Mode est remplacé par le In-Browser Development Mode. On installe un plugin (le GWT Developer Plugin) dans son navigateur pour lui permettre de communiquer avec la JVM. Cela permet de bénéficier des différents plugins de son navigateur (Firebug, …) tout en permettant de modifier le code Java en live en rafraichissant la page Web.</p>
+
+<h3 id="ui-binder">UI Binder</h3>
+
+<p>Un des problèmes majeurs de GWT dans ses versions précédentes est la gestion de l’interface graphique depuis le code Java. La manipulation des Widgets (composants graphiques dans GWT) depuis le code Java pour leurs appliquer des styles CSS ou gérer des événements finit par donner du code difficile à maintenir.</p>
+
+<p>GWT 2.0 apporte une solution plutôt élégante avec l’UI Binder, ça permet de lier un template XML à une classe Java. Au passage, les fichiers CSS et JavaScripts (librairies externes) référençaient depuis le template sont compressées par le compilateur GWT afin d’en réduire la taille finale.</p>
+
+<p>Ainsi, on sépare l’interface graphique (dans les template <em>.ui.xml</em>) et la logique de l’application dans le code Java.</p>
+
+<h3 id="code-splitting">Code Splitting</h3>
+
+<p>Voilà une fonctionnalité attendue par beaucoup de développeurs GWT. Lorsque l’on développe une application GWT, on se rend vite compte que le fichier JavaScript généré prend vite du poids. Cette fonctionnalité découpe l’application en plusieurs fichiers JavaScript qui seront chargés uniquement lorsque c’est nécessaire en rajoutant quelques lignes de codes.</p>
+
+<h3 id="layout-par-contraintes">Layout par contraintes</h3>
+
+<p>Beaucoup d’applications Web qui se basent sur JavaScript utilisent des widgets qui sont positionnées dans la page grâce à des calculs qui peuvent ralentir l’affichage de l’application.</p>
+
+<p>À l’inverse, GWT 2.0 génère le rendu final en utilisant le CSS de la page, celui-ci est généré à la compilation et non plus pendant l’affichage de la page ce qui réduit considérablement le temps de chargement. </p>
+
+<h3 id="clientbundle">ClientBundle</h3>
+
+<p>Je présentais dans mon billet : <a href="http://www.mkhelif.fr/2009/10/20/guide-doptimisation-de-vos-applications-web.html">Guide d’optimisation de vos applications Web</a> une méthode pour réduire le temps de chargement d’une page en utilisant des images sprites.</p>
+
+<p>GWT est capable depuis la version 1.4 de faire tout cela automatiquement grâce aux ImageBundle. Toutes les images référencées sur disque étaient réunies en une seule est GWT utilisé la technique des sprites pour afficher les images convenablement. Avec GWT 1.5/1.6, un projet de l’incubateur permettait de faire la même chose avec à peu près n’importe quels fichiers.</p>
+
+<p>GWT 2.0 introduit cette notion avec les ClientBundle. Par exemple, vous pouvez références tous vos fichiers CSS, GWT va alors les regrouper en un seul fichier, le minimiser et le rendre disponible pour être mis en cache. GWT gère aussi l’internationalisation ainsi vous pouvez gérer vos ClientBundle pour chaque locale.</p>
+
+<h3 id="speed-tracer">Speed Tracer</h3>
+
+<p>Cette nouvelle version sort avec une extension pour Google Chrome : Speed Tracer. Cette extension analyse l’exécution de l’application Web en cours. Plutôt que de longues explications, voilà la vidéo de présentation de Speed Tracer.</p>
+
+<p class="align-center">
+  <em>Présentation de Speed Tracer</em>
+</p>
+
+<p class="align-center">
+</p>
+
+<h3 id="story-of-your-compile">Story of Your Compile</h3>
+
+<p>SOYC fournit de nombreux détails sur la compilation de chaque partie de l’application GWT : la taille, les dépendances, temps de compilation… Cela permet d’orienter ses efforts pour diviser le code grâce Code Splitting</p>
+
+<h3 id="traces-dans-ie-6">Traces dans IE 6</h3>
+
+<p>Internet Explorer ne fournit pas les traces lorsqu’une exception JavaScript est levée, ce qui peut être très embêtant lors d’une phase de debug sur ce navigateur…</p>
+
+<p>Avec GWT 2.0 vous obtenez maintenant la trace obfusquée (ou non en fonction de la compilation choisie) JavaScript qui peut être convertie en trace Java avec nom de classe et numéro de ligne.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>Ce billet ne présente que les améliorations les plus importantes, mais il y à de très nombreuses évolutions : optimisation du compilateur, évaluation directe des réponses RPC (réduction du temps de déserialisation), propriété de deffered binding conditionnelles, …</p>
+
+<p>GWT devient de plus en plus un framework “productif” : la plupart des problèmes qu’un développeur rencontre lors du développement d’une application Web qui utilise JavaScript, sont résolus très simplement.</p>
+
+<p>Pensez-vous que cette version 2.0 de GWT va permettre au framework de gagner des parts de marché face à ses concurrents comme Flex?</p>
+
+
+    </section>
+</article>
+<footer id="post-meta" class="clearfix">
+    <a href="http://twitter.com/mkhelif">
+        <img class="avatar" src="/assets/images/avatar.png">
+        <div>
+            <span class="dark">Marwan Khelif</span>
+            <span>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</span>
+        </div>
+    </a>
+
+    <section id="sharing">
+        <a class="twitter" href="https://twitter.com/intent/tweet?text=/blog/gwt-2-0-les-nouvelles-fonctionnalits/ - GWT 2.0 : les nouvelles fonctionnalités by @mkhelif"><span class="icon-twitter"> Tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+    </section>
+</footer>
+
+<!-- Disqus comments -->
+
+
+<!-- Archive post list -->
+
+    <ul id="post-list" class="archive readmore">
+        <h3>Read more</h3>
+        
+            <li>
+                <a href="/2015/welcome-to-jekyll/">Welcome to Jekyll!<aside class="dates">Jun 19</aside></a>
+            </li>
+        
+            <li>
+                <a href="/nosql-premiers-pas-avec-cassandra/">NoSQL : premiers pas avec Cassandra<aside class="dates">Oct 01</aside></a>
+            </li>
+        
+            <li>
+                <a href="/gwt-2-0-les-nouvelles-fonctionnalits/">GWT 2.0 : les nouvelles fonctionnalités<aside class="dates">Jan 14</aside></a>
+            </li>
+        
+            <li>
+                <a href="/goo-gl-le-raccourcisseur-durl-by-google/">Goo.gl : le raccourcisseur d’URL by Google<aside class="dates">Dec 15</aside></a>
+            </li>
+        
+            <li>
+                <a href="/chrome-os-premire-prsentation/">Chrome OS : première présentation<aside class="dates">Nov 19</aside></a>
+            </li>
+        
+            <li>
+                <a href="/twitter-interets-des-listes/">Twitter : intérêts des listes<aside class="dates">Oct 31</aside></a>
+            </li>
+        
+            <li>
+                <a href="/guide-doptimisation-de-vos-applications-web/">Guide d’optimisation de vos applications Web<aside class="dates">Oct 20</aside></a>
+            </li>
+        
+            <li>
+                <a href="/twitter-la-voip-disponible-grce-jajah/">Twitter : la VoIP disponible grâce à Jajah<aside class="dates">Sep 18</aside></a>
+            </li>
+        
+            <li>
+                <a href="/cinq-moyens-pour-grer-son-identit-virtuelle/">Cinq moyens pour gérer son identité virtuelle<aside class="dates">Sep 12</aside></a>
+            </li>
+        
+            <li>
+                <a href="/ruby-on-rails-dployer-une-application-sur-tomcat-avec-jruby/">Ruby on Rails : déployer une application sur Tomcat avec JRuby<aside class="dates">Sep 07</aside></a>
+            </li>
+        
+            <li>
+                <a href="/quest-ce-quun-community-manager-le-buzz-job-actuel/">Qu’est ce qu’un Community Manager, le “buzz-job” actuel ?<aside class="dates">Aug 28</aside></a>
+            </li>
+        
+            <li>
+                <a href="/tests-en-charge-dec2-gae-et-azure/">Tests en charge d’EC2, GAE et Azure<aside class="dates">Aug 21</aside></a>
+            </li>
+        
+            <li>
+                <a href="/google-vers-une-nouvelle-version-du-moteur-de-recherche/">Google : vers une nouvelle version du moteur de recherche<aside class="dates">Aug 11</aside></a>
+            </li>
+        
+            <li>
+                <a href="/chrome-des-thmes-et-de-la-synchronisation/">Chrome : des thèmes et de la synchronisation<aside class="dates">Aug 04</aside></a>
+            </li>
+        
+            <li>
+                <a href="/gwt-20-le-grand-nettoyage/">GWT 2.0 : le grand nettoyage<aside class="dates">Aug 03</aside></a>
+            </li>
+        
+            <li>
+                <a href="/google-annonce-chrome-os/">Google annonce Chrome OS<aside class="dates">Jul 08</aside></a>
+            </li>
+        
+            <li>
+                <a href="/ouverture-du-java-store/">Ouverture du Java Store<aside class="dates">Jun 03</aside></a>
+            </li>
+        
+            <li>
+                <a href="/un-fork-de-mysql-pour-contrer-oracle-2/">Un fork de MySQL pour contrer Oracle<aside class="dates">Jun 02</aside></a>
+            </li>
+        
+            <li>
+                <a href="/oracle-rachte-sun/">Oracle rachète Sun<aside class="dates">Apr 20</aside></a>
+            </li>
+        
+            <li>
+                <a href="/premire-utilisation-du-plugin-eclipse-gwt/">Première utilisation du plugin Eclipse GWT<aside class="dates">Apr 10</aside></a>
+            </li>
+        
+            <li>
+                <a href="/flex-builder-3-gratuit-pour-les-chmeurs/">Flex Builder 3 gratuit pour les chômeurs<aside class="dates">Apr 10</aside></a>
+            </li>
+        
+            <li>
+                <a href="/google-gwt-version-16-et-consorts/">Google : GWT version 1.6 et consorts<aside class="dates">Apr 08</aside></a>
+            </li>
+        
+            <li>
+                <a href="/google-lance-son-propre-fond-dinvestissements/">Google lance son propre fond d&#8217;investissements<aside class="dates">Apr 01</aside></a>
+            </li>
+        
+            <li>
+                <a href="/chrome-comment-crer-une-extension/">Chrome : comment créer une extension ?<aside class="dates">Mar 24</aside></a>
+            </li>
+        
+            <li>
+                <a href="/skype-le-codec-silk-disponible-gratuitement/">Skype : le codec SILK disponible gratuitement<aside class="dates">Mar 04</aside></a>
+            </li>
+        
+            <li>
+                <a href="/html-5-deux-nouveaux-documents/">HTML 5 : deux nouveaux documents<aside class="dates">Feb 18</aside></a>
+            </li>
+        
+            <li>
+                <a href="/java-jframe-transparentre/">Java : JFrame transparente<aside class="dates">Jan 23</aside></a>
+            </li>
+        
+            <li>
+                <a href="/gwt-16-quoi-de-neuf/">GWT 1.6 : quoi de neuf ?<aside class="dates">Dec 11</aside></a>
+            </li>
+        
+            <li>
+                <a href="/gwt-le-futur-hosted-mode/">GWT : le futur hosted mode<aside class="dates">Dec 09</aside></a>
+            </li>
+        
+            <li>
+                <a href="/authentification-ssh-par-cl-privecl-publique/">Authentification SSH par clé privée/clé publique<aside class="dates">Nov 24</aside></a>
+            </li>
+        
+            <li>
+                <a href="/gwt-librairie-open-flash-chart/">GWT : librairie Open Flash Chart<aside class="dates">Oct 23</aside></a>
+            </li>
+        
+            <li>
+                <a href="/gwt-153-amliore-le-support-dandroid/">GWT 1.5.3 : améliore le support d&#8217;Android<aside class="dates">Oct 22</aside></a>
+            </li>
+        
+            <li>
+                <a href="/gwt-16-tomcat-ou-jetty/">GWT 1.6 : Tomcat ou Jetty ?<aside class="dates">Oct 21</aside></a>
+            </li>
+        
+            <li>
+                <a href="/ria-quel-framework-choisir/">RIA : quel framework choisir?<aside class="dates">Oct 03</aside></a>
+            </li>
+        
+            <li>
+                <a href="/gwt-the-great-gwt-roundup/">GWT : &#8220;The Great GWT roundup&#8221;<aside class="dates">Oct 02</aside></a>
+            </li>
+        
+            <li>
+                <a href="/gwt-version-15-disponible/">GWT : version 1.5 disponible<aside class="dates">Sep 02</aside></a>
+            </li>
+        
+            <li>
+                <a href="/google-lancement-de-chrome/">Google : lancement de Chrome<aside class="dates">Sep 02</aside></a>
+            </li>
+        
+            <li>
+                <a href="/google-intgration-de-google-suggest/">Google : intégration de Google Suggest<aside class="dates">Aug 28</aside></a>
+            </li>
+        
+            <li>
+                <a href="/java-benchmark-jre/">Java : benchmark de la JRE<aside class="dates">Aug 05</aside></a>
+            </li>
+        
+            <li>
+                <a href="/oracle-faille-critique-dans-weblogic/">Oracle : faille critique dans WebLogic [corrigé]<aside class="dates">Jul 30</aside></a>
+            </li>
+        
+            <li>
+                <a href="/java-utilisation-de-protocol-buffers/">Java : Utilisation de Protocol Buffers<aside class="dates">Jul 29</aside></a>
+            </li>
+        
+            <li>
+                <a href="/google-lance-protocol-buffers/">Google lance Protocol Buffers<aside class="dates">Jul 10</aside></a>
+            </li>
+        
+            <li>
+                <a href="/gwt-crer-un-service-rpc/">GWT : Créer un service RPC<aside class="dates">Jul 07</aside></a>
+            </li>
+        
+            <li>
+                <a href="/gwt-introduction-au-framework/">GWT : Introduction au framework<aside class="dates">Jul 03</aside></a>
+            </li>
+        
+            <li>
+                <a href="/google-rfrencement-des-contenus-flash/">Google : référencement des contenus Flash<aside class="dates">Jul 01</aside></a>
+            </li>
+        
+            <li>
+                <a href="/apache2-systeme-de-blacklist/">Apache2 : système de blacklist<aside class="dates">Jun 23</aside></a>
+            </li>
+        
+            <li>
+                <a href="/passerelle-entre-apache-et-tomcat/">Passerelle entre Apache et Tomcat<aside class="dates">Jun 18</aside></a>
+            </li>
+        
+            <li>
+                <a href="/serveur-de-mails-multi-domaines/">Serveur de mails multi-domaines<aside class="dates">May 23</aside></a>
+            </li>
+        
+            <li>
+                <a href="/mysql-workbench/">MySQL Workbench<aside class="dates">May 02</aside></a>
+            </li>
+        
+            <li>
+                <a href="/javaone-2008/">JavaOne 2008<aside class="dates">Apr 25</aside></a>
+            </li>
+        
+            <li>
+                <a href="/nouveautes-java-7-dolphin/">Nouveautés Java 7 &#8211; Dolphin<aside class="dates">Mar 17</aside></a>
+            </li>
+        
+            <li>
+                <a href="/garbage-collector-ancienne-generation/">Garbage Collector ancienne génération<aside class="dates">Mar 15</aside></a>
+            </li>
+        
+            <li>
+                <a href="/java-sur-iphone/">Java sur iPhone<aside class="dates">Mar 10</aside></a>
+            </li>
+        
+            <li>
+                <a href="/chiffre-de-vigenere/">Chiffre de Vigénère<aside class="dates">Jan 17</aside></a>
+            </li>
+        
+            <li>
+                <a href="/chiffre-de-cesar/">Chiffre de César<aside class="dates">Jan 17</aside></a>
+            </li>
+        
+            <li>
+                <a href="/chiffre-de-beaufort/">Chiffre de Beaufort<aside class="dates">Jan 16</aside></a>
+            </li>
+        
+            <li>
+                <a href="/validation-xml/">Validation XML<aside class="dates">Jan 03</aside></a>
+            </li>
+        
+            <li>
+                <a href="/rome-telechargement-88/">ROME &#8211; Téléchargement (8/8)<aside class="dates">Jul 25</aside></a>
+            </li>
+        
+            <li>
+                <a href="/rome-integration-avec-une-servlet-78/">ROME &#8211; Intégration avec une Servlet (7/8)<aside class="dates">Jul 22</aside></a>
+            </li>
+        
+            <li>
+                <a href="/rome-ecriture-dun-flux-68/">ROME &#8211; Écriture d&#8217;un flux (6/8)<aside class="dates">Jul 21</aside></a>
+            </li>
+        
+            <li>
+                <a href="/rome-aggregation-de-plusieurs-flux-58/">ROME &#8211; Aggrégation de plusieurs flux (5/8)<aside class="dates">Jul 20</aside></a>
+            </li>
+        
+            <li>
+                <a href="/rome-conversion-dun-format-a-un-autre-48/">ROME &#8211; Conversion d&#8217;un format à un autre (4/8)<aside class="dates">Jul 19</aside></a>
+            </li>
+        
+            <li>
+                <a href="/rome-lecture-dun-flux-38/">ROME &#8211; Lecture d&#8217;un flux (3/8)<aside class="dates">Jul 18</aside></a>
+            </li>
+        
+            <li>
+                <a href="/rome-fonctionnement-28/">ROME &#8211; Fonctionnement (2/8)<aside class="dates">Jul 16</aside></a>
+            </li>
+        
+            <li>
+                <a href="/rome-presentation-18/">ROME &#8211; Présentation (1/8)<aside class="dates">Jul 15</aside></a>
+            </li>
+        
+    </ul>
+
+
+
+
+
+  </section>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/highlight.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-2859250-3', 'auto');
+    ga('send', 'pageview');
+  </script>
+</body>
+</html>
+
+
+
