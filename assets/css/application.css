@@ -293,17 +293,49 @@ li {
     background-image: url(../images/background-location.png);
     background-repeat: no-repeat;
     background-position: right;
+    background-size: auto 100%;
     color: #ffffff;
+    height: 500px;
+    min-height: 500px;
+    max-height: 500px;
 }
 
 #contact h3 {
     color: #760704;
 }
 
+#contact form {
+    text-align: right;
+}
+#contact input, #contact textarea {
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid #760704;
+    padding: 10px;
+    margin-top: 20px;
+    outline: none;
+    resize: none;
+}
+#contact input[type="submit"] {
+    width: 100px;
+    border: none;
+    background-color: #760704;
+    color: #ffffff;
+    font-family: "Source Sans Pro", sans;
+    font-size: 20px;
+    font-weight: 200;
+    padding: 5px 0;
+    cursor: pointer;
+}
+#contact input[type="submit"]:hover {
+    background-color: #560000;
+}
+
 /* Blog */
 #blog {
     background-color: #ffffff;
     border-top: 1px solid #dddddd;
+    padding: 5% 0 7% 0;
 }
 #blog #post-list {
     max-width: 60%;
@@ -350,6 +382,14 @@ li {
     margin-bottom: 50px;
 }
 
+/* Footer */
+#footer {
+    padding: 40px;
+    text-align: right;
+    color: #999;
+    font-size: 12px;
+}
+
 /* Posts List */
 #navbar {
     margin: 0;
@@ -378,6 +418,7 @@ li {
     background-color: #f8f8f8;
     text-align: center;
     padding: 50px;
+    margin-top: -7%;
 }
 
 #post-nav span {
@@ -387,6 +428,67 @@ li {
     margin: 0 50px;
 }
 
+
+/* Post */
+article.post h1 {
+    color: #f64744;
+    font-size: 4em;
+    margin-top: 50px;
+    margin-bottom: 2%;
+}
+article.post h2 {
+    color: #999999;
+}
+article.post h2.headline {
+    text-align: center;
+}
+article.post #post-body {
+    max-width: 60%;
+    margin: 50px auto;
+}
+article.post #post-body h2 {
+    margin-top: 50px;
+    font-size: 38px;
+}
+article.post #post-body h3 {
+    margin-top: 30px;
+    font-size: 28px;
+    color: #aaaaaa;
+}
+article.post #post-body h4 {
+    color: #cccccc;
+}
+article.post #post-body pre {
+    margin: 15px -100px;
+    border: 1px solid #cccccc;
+    background-color: #f8f8f8;
+    padding: 10px;
+    border-radius: 3px;
+    overflow: auto;
+}
+
+#post-meta {
+    text-align :center;
+    margin-bottom: 50px;
+}
+#post-meta #sharing {
+    font-size: 12px;
+}
+#post-meta #sharing a {
+    margin: 0 5px;
+}
+
+.archive.readmore {
+    padding: 75px 25%;
+    background-color: #F8F8f8;
+    border-top: 1px solid #ddd;
+}
+.archive.readmore h3 {
+    color: #f64744;
+    font-size: 48px;
+    margin-bottom: 50px;
+    text-align: center;
+}
 
 /* Tooltipster Theme */
 .tooltipster-mk {

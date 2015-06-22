@@ -5,12 +5,12 @@
             <li>
                 <h4>
                     <span class="metadata">{{ post.date | date:"%b %d" }}</span>
-                    <a href="{{ site.baseurl }}/{{ post.url }}">{{ post.title }}</a>
+                    <a href="{{ post.url }}">{{ post.title }}</a>
                 </h4>
                 <p class="extract">{{ post.content | strip_html | truncatewords: 100 }}</p>
-                <p class="action"><a href="{{ site.baseurl }}/{{ post.url }}">Read more...</a></p>
+                <p class="action"><a href="{{ post.url }}">Read more...</a></p>
             </li>
         {% endfor %}
     </ul>
-    <p class="viewall"><a href="{{ site.baseurl }}/blog/">View all posts</a></p>
+    <p class="viewall"><a href="/blog/">View all posts</a></p>
 </div>
