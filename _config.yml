@@ -2,15 +2,17 @@ name: Marwan Khelif
 description: 
 meta_description: "Your New Jekyll Site, Blogging about stuffs"
 
-aboutPage: false
+baseurl: ''
+domain_name: 'http://mkhelif.fr'
 
+aboutPage: false
 markdown: redcarpet
 highlighter: pygments
+paginate: 5
+paginate_path: 'blog/page:num/'
 
-paginate: 20
-baseurl:
-domain_name: 'http://mkhelif.fr'
-google_analytics: 'UA-XXXXXXXX-X'
+# Third-parties
+google_analytics: 'UA-2859250-3'
 disqus_shortname: 'mkhelif'
 
 # Details for the RSS feed generator
@@ -18,7 +20,7 @@ url:            'http://mkhelif.fr/'
 author:         'Marwan Khelif'
 authorTwitter:  'mkhelif'
 
-permalink:       /:year/:title/
+permalink:       /blog/:year/:title/
 
 defaults:
     -

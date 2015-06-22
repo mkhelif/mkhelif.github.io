@@ -1,10 +1,10 @@
 <div id="experiences" class="experience even section">
     <div class="grid grid-pad">
 	<div class="col-2-3">
-            <h2>CERN</h3>
+            <h1><span>{</span>CERN<span>}</span></h1>
             <p class="metadata">Sept. 2012 - Today, Geneva Switzerland, <a href="http://www.cern.ch/">http://www.cern.ch</a></p>
             <div class="description">
-                <h4>Development of CERN network management tools</h4>
+                <h3>Development of CERN network management tools</h3>
                 <p>Description</p>
             </div>
 	</div>
@@ -40,19 +40,11 @@
             </p>
         </div>
         <div class="col-2-3">
-            <h2>Neotys</h3>
+            <h1><span>{</span>Neotys<span>}</span></h1>
             <p class="metadata">Sept. 2006 - Aug. 2012, Gémenos France, <a href="http://www.neotys.com/">http://www.neotys.com/</a></p>
             <div class="description">
-                <h4>Development of Neoload software</h4>
-                <p>
-                    NeoLoad is a load testing software solution designed for web and mobile applications
-                    to realistically simulate user activity and monitor infrastructure behavior.
-                </p>
-                <p>
-                    Developed in <em>Java</em>, Neoload is a heavy client using <em>Swing</em> for UI.
-                    To generate heavy load on tested servers it generates virtual users that replay a
-                    recorded scenario
-                </p>
+                {% capture description %}{% include _neotys.md  %}{% endcapture %}
+                {{ description | markdownify }}
             </div>
         </div>
     </div>

@@ -2,21 +2,15 @@
     {% if paginator.previous_page %}
         <span class="prev">
             {% if paginator.previous_page == 1 %}
-                <a href="{{ site.baseurl }}/" title="Previous Page">
-                    <span class="arrow">←</span> Newer Posts
-                </a>
+                <a href="{{ site.baseurl }}/blog/" title="Previous Page">Previous</a>
             {% else %}
-                <a href="{{ site.baseurl }}/page{{ paginator.previous_page }}/">
-                    <span class="arrow">←</span> Newer Posts
-                </a>
+                <a href="{{ site.baseurl }}/blog/page{{ paginator.previous_page }}/">Previous</a>
             {% endif %}
         </span>
     {% endif %}
     {% if paginator.next_page %}
         <span class="next">
-            <a href="{{ site.baseurl }}/page{{ paginator.next_page }}/">
-                Older Posts <span class="arrow">→</span>
-            </a>
+            <a href="{{ site.baseurl }}/blog/page{{ paginator.next_page }}/">Next</a>
         </span>
     {% endif %}
 </nav>

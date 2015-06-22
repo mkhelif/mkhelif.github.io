@@ -31,21 +31,30 @@ h1, h2, h3, h4, h5 {
     margin: 0;
 }
 
-h2 {
+h1 {
     font-size: 5em;
-    font-weight: 200;
     text-align: center;
-    margin-bottom: 5%;
+    margin-bottom: 3%;
 }
-h2 span {
+h1 span {
     margin: 0 20px;
     font-weight: 400;
     color: rgba(40, 43, 50, 0.25);
     transition: color 0.2s linear;
 }
 
+h3 {
+    font-size: 38px;
+}
+
 h4 {
-    font-size: 28px;
+    font-size: 24px;
+    margin-top: 30px;
+}
+
+h5 {
+    font-size: 20px;
+    color: #999999;
 }
 
 p {
@@ -60,7 +69,14 @@ a:hover {
     color: #ff514c;
 }
 
-.section:hover h2 span {
+ul {
+    list-style: none;
+}
+li {
+    margin-top: 20px;
+}
+
+.section:hover h1 span {
     color: #f64744;
 }
 .section {
@@ -81,9 +97,7 @@ a:hover {
     }
 }
 #cover h1 {
-    text-align: center;
     color: #cfcfcf;
-    font-size: 5em;
 }
 #cover p {
     text-align: center;
@@ -114,6 +128,9 @@ a:hover {
     background: url(../images/background-skills.png);
     border-bottom: 1px solid #282b32;
     box-shadow: inset 0 0 10px #282b32;
+}
+#skills h1 {
+    margin-bottom: 5%;
 }
 #skills .label {
     color: #ddd;
@@ -165,18 +182,23 @@ a:hover {
 .experience.odd {
     background-color: #f8f8f8;
 }
-.experience h2 {
+.experience h1 {
+    color: #0d4e96;
     margin-bottom: 3%;
-    transition: color 0.2s linear;
 }
-.experience:hover h2 {
-    color: #f64744;
+.experience:hover h1 span {
+    color: rgba(0, 0, 40, 0.5);
 }
 .experience div.logo {
     text-align: center;
+    opacity: 0.3;
+    transition: opacity ease-in 0.2s;
 }
 .experience div.logo img {
     width: 75%;
+}
+.experience:hover div.logo {
+    opacity: 1;
 }
 .experience .metadata {
     padding-bottom: 3%;
@@ -234,15 +256,15 @@ a:hover {
     background-image: url(../images/background-projects.png);
     background-attachment: fixed;
     padding-bottom: 75px;
+    box-shadow: inset 0 0 15px #000;
 }
-#projects h2 {
+#projects h1 {
     color: #fff;
 }
 
 #projects h3 {
     text-align: center;
     color: #ddd;
-    font-size: 38px;
     transition: color 0.2s linear;
 }
 #projects .col-1-3:hover h3 {
@@ -267,57 +289,104 @@ a:hover {
 
 /* Contact */
 #contact {
-    height: 450px;
-    background-color: #dfdfdf;
+    background-color: #f64744;
+    background-image: url(../images/background-location.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    color: #ffffff;
+}
+
+#contact h3 {
+    color: #760704;
+}
+
+/* Blog */
+#blog {
+    background-color: #ffffff;
+    border-top: 1px solid #dddddd;
+}
+#blog #post-list {
+    max-width: 60%;
+    margin: 0 auto;
+}
+#blog #post-list li {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+}
+
+#blog .metadata {
+    color: #999999;
+    font-size: 14px;
+    vertical-align: 3px;
+    padding-right: 10px;
+}
+#blog .extract {
+    text-align: justify;
+}
+#blog .action {
+    font-size: 16px;
+    text-align: right;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 200;
+}
+
+#blog .viewall {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 24px;
+    font-weight: 200;
+    text-align: center;
+    margin-top: 50px;
+}
+
+#blog .section {
+    border-bottom: 1px solid #dddddd;
+    background-color: #ffffff;
+    padding: 5% 20% 6%;
+}
+#blog .section.even {
+    background-color: #f8f8f8;
+}
+#blog .section h3 {
+    margin-bottom: 50px;
+}
+
+/* Posts List */
+#navbar {
+    margin: 0;
+    line-height: 85px;
+    background-color: #d9d9d9;
+    border-bottom: 1px solid #b9b9b9;
+
+    text-align: center;
+    font-size: 26px;
+    font-weight: 200;
+    font-family: 'Source Sans Pro';
+}
+#navbar a {
+    margin: 0 5%;
+    vertical-align: top;
+    color: #666;
+}
+#navbar a:hover {
+    color: #f64744;
 }
 
 
 
-
-
-
-
-/* Timeline */
-.timeline {
-    border-left: 2px solid #e3e3e3;
-    margin: 0 0 0 50px;
-    padding-left: 50px;
-    list-style: none;
-}
-.timeline li .logo {
-    float: left;
-    display: block;
-    margin-top: 15px;
-    margin-left: -90px;
-    width: 76px;
-    height: 76px;
-    overflow: hidden;
-    padding: 5px;
-    background: #fff;
-    border: 1px solid #a1a2a5;
-    border-radius: 65px;
-    box-shadow: 0 0 5px rgba(40, 43, 50, 0.15);
-}
-.timeline li .logo img {
-    border-radius: 65px;
-}
-.timeline li .content {
-    padding: 15px;
+/* Pagination */
+#post-nav {
+    background-color: #f8f8f8;
+    text-align: center;
+    padding: 50px;
 }
 
-@media screen and (max-width: 650px) {
-    .timeline {
-        border-left: 0;
-        margin: 0;
-        padding: 0;
-    }
-
-    .timeline li .logo {
-        margin-top: 25px;
-        margin-left: 20px;
-        margin-right: 20px;
-    }
+#post-nav span {
+    font-family: 'Source Sans Pro', sans;
+    font-size: 32px;
+    font-weight: 200;
+    margin: 0 50px;
 }
+
 
 /* Tooltipster Theme */
 .tooltipster-mk {
