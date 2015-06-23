@@ -1,6 +1,6 @@
 ### Development of Neoload software
 
-As member of a small development team (around 10 people), I was developping on NeoLoad software.  
+As member of a small development team (around 10 people), I was developing on NeoLoad software.  
 
 NeoLoad is a load testing solution designed for web and mobile applications to realistically simulate user activity and monitor infrastructure behavior.
 Developed in _Java_, Neoload is a heavy client using _Swing_ for UI.
@@ -29,7 +29,7 @@ they are used by more than _1500 threads_ simultaneously.
 * ##### Adobe RTMP (Real Time Messaging Protocol)
   Protocol developped by Adobe to communicate between a media server and a client (mostly Flash player).
   Detect and record RTMP traffic at TCP level (using _tcpdump_/_jNetPcap_).
-  This required not only to reverse-engineer the protocol but also to adapt the module to work with variety of media server (using their own retro-engineered protocol).
+  This required not only to reverse-engineer the protocol but also to adapt the module to work with a variety of media server (using their own retro-engineered protocol).
 
 * ##### Google Web Toolkit RPC
   Protocol developped by Google to ease communication between a _GWT_ client and the server. Text based protocol, it is used to serialize Java objects between client and server.
