@@ -221,7 +221,7 @@ li {
     margin-top: 0px;
 }
 .experience .description em {
-    color: #f64744;
+    color: #a60704;
     font-style: normal;
 }
 .experience .technologies {
@@ -231,7 +231,7 @@ li {
     text-align: center;
 }
 .experience .technologies span {
-    color: #f64744;
+    color: #a60704;
     padding: 5px 20px;
 }
 .experience .technologies em {
