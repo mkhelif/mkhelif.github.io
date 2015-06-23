@@ -1,4 +1,4 @@
-### Development of CERN network management tools
+### Network management software
 
 Member of the IT-CS group (Communication Systems) which is in charge of telephony (GSM, VOIP, analog), networks (from top-down: structured cabling, selection of switches/routers, installation, network engineering, network support, Wi-Fi) and central network services (DNS, DHCP, Radius, NTP, ...).
 
