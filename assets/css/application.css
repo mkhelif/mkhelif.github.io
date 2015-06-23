@@ -212,6 +212,13 @@ li {
 .experience .description {
     margin-top: 20px;
     padding: 20px;
+    text-align: justify;
+}
+.experience .description h3 {
+    margin-top: 50px;
+}
+.experience .description h3:first-child {
+    margin-top: 0px;
 }
 .experience .description em {
     color: #f64744;
@@ -315,6 +322,8 @@ li {
     margin-top: 20px;
     outline: none;
     resize: none;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 14px;
 }
 #contact input[type="submit"] {
     width: 100px;

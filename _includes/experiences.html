@@ -2,10 +2,11 @@
     <div class="grid grid-pad">
 	<div class="col-2-3">
             <h1><span>{</span>CERN<span>}</span></h1>
+            <p class="metadata">European Organization for Nuclear Research</p>
             <p class="metadata">Sept. 2012 - Today, Geneva Switzerland, <a href="http://www.cern.ch/">http://www.cern.ch</a></p>
             <div class="description">
-                <h3>Development of CERN network management tools</h3>
-                <p>Description</p>
+                {% capture description %}{% include _cern.md  %}{% endcapture %}
+                {{ description | markdownify }}
             </div>
 	</div>
         <div class="col-1-3">
