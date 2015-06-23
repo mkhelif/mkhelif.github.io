@@ -25,7 +25,7 @@ tags:
   - Rails
   - Web
 ---
-[<img style="border-right-width: 0px; margin: 0px 10px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="rails" src="http://www.mkhelif.fr/wp-content/uploads/2009/09/rails_thumb.png" border="0" alt="rails" width="87" height="111" align="left" />][1] Ruby on Rails est un framework qui permet de développer très rapidement des applications Web en suivant le modèle MVC.
+[<img style="border-right-width: 0px; margin: 0px 10px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="rails" src="http://www.mkhelif.fr/uploads/2009/09/rails_thumb.png" border="0" alt="rails" width="87" height="111" align="left" />][1] Ruby on Rails est un framework qui permet de développer très rapidement des applications Web en suivant le modèle MVC.
 
 Le problème de ce framework est qu’il se base sur le langage Ruby et qu’il embarque un serveur Web. Les applications ainsi créées ne peuvent pas être déployées comme des applications Web dans Tomcat ou autres serveurs d’applications.
 
@@ -83,6 +83,6 @@ Maintenant nous allons créer le fichier WAR de votre application, lancez simple
 
 Et voilà votre fichier WAR est créé, vous pouvez alors le déployer sur Tomcat (je passerai sur cette étape).
 
- [1]: http://www.mkhelif.fr/wp-content/uploads/2009/09/rails.png
+ [1]: http://www.mkhelif.fr/uploads/2009/09/rails.png
  [2]: http://www.mkhelif.fr/2008/06/18/passerelle-entre-apache-et-tomcat.html
  [3]: http://jruby.org/download

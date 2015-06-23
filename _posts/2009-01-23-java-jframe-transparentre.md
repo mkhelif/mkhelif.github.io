@@ -28,23 +28,23 @@ Voici quelques exemples de ce que permet de faire cette classe :
 ### JFrame standard
 
 <p align="center">
-  <a href="/wp-content/uploads/2009/01/transluent-1.png"><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" src="/wp-content/uploads/2009/01/transluent-1.png" border="0" alt="transluent-1" width="380" height="314" /></a>
+  <a href="/uploads/2009/01/transluent-1.png"><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" src="/uploads/2009/01/transluent-1.png" border="0" alt="transluent-1" width="380" height="314" /></a>
 </p>
 
 ### JFrame avec opacité à 0.8 (entre 0 et 1)
 
 <p align="center">
-  <a href="/wp-content/uploads/2009/01/transluent-08.png"><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" src="/wp-content/uploads/2009/01/transluent-08.png" border="0" alt="transluent-08" width="380" height="315" /></a>
+  <a href="/uploads/2009/01/transluent-08.png"><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" src="/uploads/2009/01/transluent-08.png" border="0" alt="transluent-08" width="380" height="315" /></a>
 </p>
 
 ### JFrame dont la forme est modifiée
 
 <p align="center">
-  <a href="/wp-content/uploads/2009/01/shapped.png"><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" src="/wp-content/uploads/2009/01/shapped.png" border="0" alt="shapped" width="380" height="315" /></a>
+  <a href="/uploads/2009/01/shapped.png"><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" src="/uploads/2009/01/shapped.png" border="0" alt="shapped" width="380" height="315" /></a>
 </p>
 
 ### JFrame avec une forme est une opacité modifiée
 
 <p align="center">
-  <a href="/wp-content/uploads/2009/01/shapped-transluent.png"><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" src="/wp-content/uploads/2009/01/shapped-transluent.png" border="0" alt="shapped-transluent" width="380" height="315" /></a>
+  <a href="/uploads/2009/01/shapped-transluent.png"><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" src="/uploads/2009/01/shapped-transluent.png" border="0" alt="shapped-transluent" width="380" height="315" /></a>
 </p>

@@ -30,7 +30,7 @@ Une fois Eclipse installé et démarré, il faut installer le plugin GWT/GAE de 
 Sélectionnez alors les éléments **Plugin** et **SDKs**, puis cliquez sur &#8220;*Install*&#8220;. Une fois l&#8217;installation terminée, vous devez redémarrer Eclipse. Là une nouvelle barre d&#8217;outils est apparue :
 
 <p align="center">
-  <a href="http://www.mkhelif.fr/wp-content/uploads/2009/04/gwt-toolbar.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" src="http://www.mkhelif.fr/wp-content/uploads/2009/04/gwt-toolbar-thumb.png" border="0" alt="gwt-toolbar" width="104" height="37" /></a>
+  <a href="http://www.mkhelif.fr/uploads/2009/04/gwt-toolbar.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" src="http://www.mkhelif.fr/uploads/2009/04/gwt-toolbar-thumb.png" border="0" alt="gwt-toolbar" width="104" height="37" /></a>
 </p>
 
 Le premier bouton sert à créer une nouvelle application Web GWT/GAE, le second à compiler une projet GWT et le troisième à déployer une application GAE dans le cloud Google.
@@ -39,10 +39,10 @@ Voilà votre environnement de développement est prêt à être utiliser.
 
 ## Création de mon premier projet
 
-Pour créer un nouveau projet cliquez sur le bouton [<img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" src="http://www.mkhelif.fr/wp-content/uploads/2009/04/gwt-button-new-thumb.png" border="0" alt="gwt-button-new" width="16" height="16" />][1]. Cela va démarrer l&#8217;assistant de création de projet :
+Pour créer un nouveau projet cliquez sur le bouton [<img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" src="http://www.mkhelif.fr/uploads/2009/04/gwt-button-new-thumb.png" border="0" alt="gwt-button-new" width="16" height="16" />][1]. Cela va démarrer l&#8217;assistant de création de projet :
 
 <p align="center">
-  <a href="http://www.mkhelif.fr/wp-content/uploads/2009/04/gwt-new-project.png"></a><a href="http://www.mkhelif.fr/wp-content/uploads/2009/04/gwt-new-project1.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" src="http://www.mkhelif.fr/wp-content/uploads/2009/04/gwt-new-project-thumb.png" border="0" alt="gwt-new-project" width="442" height="569" /></a>
+  <a href="http://www.mkhelif.fr/uploads/2009/04/gwt-new-project.png"></a><a href="http://www.mkhelif.fr/uploads/2009/04/gwt-new-project1.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" src="http://www.mkhelif.fr/uploads/2009/04/gwt-new-project-thumb.png" border="0" alt="gwt-new-project" width="442" height="569" /></a>
 </p>
 
 Les principaux champs à renseigner sont le nom du projet : **GWTDemo**, et le package racine de l&#8217;application : **fr.mkhelif.gwt.demo**. Pour l&#8217;exemple je n&#8217;ai sélectionné que GWT, je ferais un autre billet sur GAE.
@@ -52,7 +52,7 @@ Les principaux champs à renseigner sont le nom du projet : **GWTDemo**, et le p
 Une fois le projet créé, voilà la structure que l&#8217;on obtient :
 
 <p align="center">
-  <a href="http://www.mkhelif.fr/wp-content/uploads/2009/04/gwt-structure.png"></a><a href="http://www.mkhelif.fr/wp-content/uploads/2009/04/gwt-structure1.png"></a><a href="http://www.mkhelif.fr/wp-content/uploads/2009/04/gwt-structure2.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" src="http://www.mkhelif.fr/wp-content/uploads/2009/04/gwt-structure-thumb.png" border="0" alt="gwt-structure" width="362" height="319" /></a>
+  <a href="http://www.mkhelif.fr/uploads/2009/04/gwt-structure.png"></a><a href="http://www.mkhelif.fr/uploads/2009/04/gwt-structure1.png"></a><a href="http://www.mkhelif.fr/uploads/2009/04/gwt-structure2.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" src="http://www.mkhelif.fr/uploads/2009/04/gwt-structure-thumb.png" border="0" alt="gwt-structure" width="362" height="319" /></a>
 </p>
 
 On voit donc un nouveau dossier **war**, c&#8217;est celui-ci qui représente l&#8217;archive WAR qui sera exportée/déployée. Lors de la compilation du projet, les fichiers seront créés dans un sous-dossier de celui-là. Le répertoire **lib** du **WEB-INF** contient la librairie nécessaire au fonctionnement des service GWT-RPC sur le serveur.
@@ -86,10 +86,10 @@ Par contre il n&#8217;y a aucune différence au niveau de son implémentation et
 
 ## Compilation du projet
 
-Voilà le projet est créé, il faut maintenant le compiler en cliquant sur le bouton [<img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" src="http://www.mkhelif.fr/wp-content/uploads/2009/04/gwt-button-compile-thumb.png" border="0" alt="gwt-button-compile" width="16" height="16" />][2]. Le wizard suivant apparait :
+Voilà le projet est créé, il faut maintenant le compiler en cliquant sur le bouton [<img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" src="http://www.mkhelif.fr/uploads/2009/04/gwt-button-compile-thumb.png" border="0" alt="gwt-button-compile" width="16" height="16" />][2]. Le wizard suivant apparait :
 
 <p align="center">
-  <a href="http://www.mkhelif.fr/wp-content/uploads/2009/04/gwt-compile.png"></a><a href="http://www.mkhelif.fr/wp-content/uploads/2009/04/gwt-compile1.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" src="http://www.mkhelif.fr/wp-content/uploads/2009/04/gwt-compile-thumb.png" border="0" alt="gwt-compile" width="442" height="536" /></a>
+  <a href="http://www.mkhelif.fr/uploads/2009/04/gwt-compile.png"></a><a href="http://www.mkhelif.fr/uploads/2009/04/gwt-compile1.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" src="http://www.mkhelif.fr/uploads/2009/04/gwt-compile-thumb.png" border="0" alt="gwt-compile" width="442" height="536" /></a>
 </p>
 
 Il suffit de sélectionner le projet GWT, le niveau de log du compilateur et le style de sortie du JavaScript compilé. Sélectionnez ensuite les points d&#8217;entrées de votre application GWT, dans notre exemple il n&#8217;y en a qu&#8217;un.
@@ -108,5 +108,5 @@ On remarque un nouveau bouton **Restart Server** dans la fenêtre du hosted mode
 
 C&#8217;est un très beau coup de pub qu&#8217;à fait Google en nous servant en même temps le support de Java par Google App Engine, la version 1.6 de GWT et un plugin Eclipse pour gérer très facilement le tout. Cela va donner un coup de boost aux développeurs qui étaient encore hésitant sur la fiabilité de GWT.
 
- [1]: http://www.mkhelif.fr/wp-content/uploads/2009/04/gwt-button-new.png
- [2]: http://www.mkhelif.fr/wp-content/uploads/2009/04/gwt-button-compile.png
+ [1]: http://www.mkhelif.fr/uploads/2009/04/gwt-button-new.png
+ [2]: http://www.mkhelif.fr/uploads/2009/04/gwt-button-compile.png

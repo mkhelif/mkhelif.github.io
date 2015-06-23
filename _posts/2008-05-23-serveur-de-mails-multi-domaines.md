@@ -27,7 +27,7 @@ J&#8217;ai donc décidé de créer ce billet pour présenter le fonctionnement d
 Le serveur va se composer de quatre services : l&#8217;agent de livraison (<a href="http://www.postfix.org/" target="_blank">Postfix</a>), le serveur de mails IMAP (<a href="http://www.courier-mta.org/" target="_blank">Courier</a>) et le serveur web (<a href="http://www.apache.org/" target="_blank">Apache</a> + <a href="http://www.php.net/" target="_blank">PHP</a>) et la base de données (<a href="http://www.mysql.com/" target="_blank">MySQL</a>). Pour accéder au mails j&#8217;ai décidé d&#8217;utiliser <a title="RoundCube" href="http://www.roundcube.net/" target="_blank">RoundCube</a> et <a title="PostfixAdmin" href="http://postfixadmin.sourceforge.net/" target="_blank">PostfixAdmin</a> pour administrer les utilisateurs, les alias et les domaines.
 
 <p style="text-align: center">
-  <a href="http://www.mkhelif.fr/wp-content/uploads/2008/06/infrastructure.png"><img class="alignnone size-full wp-image-61" title="infrastructure" src="http://www.mkhelif.fr/wp-content/uploads/2008/06/infrastructure.png" alt="Infrastructure serveur de mails multi-domaines" width="500" height="330" /></a>
+  <a href="http://www.mkhelif.fr/uploads/2008/06/infrastructure.png"><img class="alignnone size-full wp-image-61" title="infrastructure" src="http://www.mkhelif.fr/uploads/2008/06/infrastructure.png" alt="Infrastructure serveur de mails multi-domaines" width="500" height="330" /></a>
 </p>
 
 <h2 name="creation_comptes">
@@ -331,4 +331,4 @@ J&#8217;ai rencontré ce problème dans le cas où Apache n&#8217;a pas accès p
 
 Voilà votre serveur de mails multi-domaines est prêt. Vous pouvez ajouter d&#8217;autres services : antispam (<a title="SpamAssassin" href="http://spamassassin.apache.org/" target="_blank">SpamAssassin</a>), antivirus (<a title="ClamAV" href="http://www.clamav.net/" target="_blank">ClamAV</a>), gestion de quotas, &#8230;Mais je n&#8217;aborderai pas ces points là dans ce tutoriel.
 
- [1]: http://www.mkhelif.fr/wp-content/uploads/2008/06/postfixmysql.sql
+ [1]: http://www.mkhelif.fr/uploads/2008/06/postfixmysql.sql

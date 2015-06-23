@@ -22,7 +22,7 @@ tags:
   - Web
 ---
 <p align="center">
-  <a href="http://www.mkhelif.fr/wp-content/uploads/2009/08/personas.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="personas" border="0" alt="personas" src="http://www.mkhelif.fr/wp-content/uploads/2009/08/personas_thumb.png" width="510" height="137" /></a>
+  <a href="http://www.mkhelif.fr/uploads/2009/08/personas.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="personas" border="0" alt="personas" src="http://www.mkhelif.fr/uploads/2009/08/personas_thumb.png" width="510" height="137" /></a>
 </p>
 
 L’identité virtuelle d’une personne est sa présence sur le Web, l’image qu’elle renvoie aux travers des différentes informations que l’on peut retrouver sur Internet. Le fait de vouloir la gérer afin qu’elle soit conforme à ce que vous voulez montrer s’appelle du “personal branding”. Il s’agit simplement de faire du marketing sur son nom, vous êtes le produit.

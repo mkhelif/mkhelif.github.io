@@ -255,7 +255,7 @@ De la même façon que pour les feuilles de styles, les fichiers JavaScript peuv
 Lorsqu’un utilisateur arrive sur une page Web, il télécharge le HTML puis il récupère les ressources référencées par la page. Les ressources sont téléchargées en utilisant par défaut deux connexions par serveur. L’idée est donc de séparée le stockage des ressources statiques des données dynamiques : le HTML généré sur un serveur, les CSS et JavaScripts sur un autre serveur.
 
 <p align="center">
-  <a href="http://www.mkhelif.fr/wp-content/uploads/2009/10/server.png"><img title="server" border="0" alt="server" src="http://www.mkhelif.fr/wp-content/uploads/2009/10/server.png" width="504" height="281" /></a>
+  <a href="http://www.mkhelif.fr/uploads/2009/10/server.png"><img title="server" border="0" alt="server" src="http://www.mkhelif.fr/uploads/2009/10/server.png" width="504" height="281" /></a>
 </p>
 
 <font color="#000000"><strong>Bénéfices :</strong> le client va utiliser deux connexions pour récupérer uniquement des ressources statiques et ne va pas surcharger le serveur de traitement avec des requêtes “statiques”.</font>
@@ -303,7 +303,7 @@ De nombreux plugins ont été développés sur Firebug pour fournir des informat
 ##### Page Speed
 
 <p align="center">
-  <a href="http://www.mkhelif.fr/wp-content/uploads/2009/10/pagespeed.png"><img title="pagespeed" border="0" alt="pagespeed" src="http://www.mkhelif.fr/wp-content/uploads/2009/10/pagespeed.png" width="504" height="202" /></a>
+  <a href="http://www.mkhelif.fr/uploads/2009/10/pagespeed.png"><img title="pagespeed" border="0" alt="pagespeed" src="http://www.mkhelif.fr/uploads/2009/10/pagespeed.png" width="504" height="202" /></a>
 </p>
 
 [Page Speed][7] est une extension pour Firebug, réalisée par Google, qui analyse la page Web qui vient d’être chargée et vous informe des améliorations que vous pouvez apporter à votre serveur / configuration /&#160; application pour diminuer le temps de chargement de votre page.
@@ -311,7 +311,7 @@ De nombreux plugins ont été développés sur Firebug pour fournir des informat
 ##### YSlow
 
 <p align="center">
-  <a href="http://www.mkhelif.fr/wp-content/uploads/2009/10/yslow.png"><img title="yslow" border="0" alt="yslow" src="http://www.mkhelif.fr/wp-content/uploads/2009/10/yslow.png" width="504" height="221" /></a>
+  <a href="http://www.mkhelif.fr/uploads/2009/10/yslow.png"><img title="yslow" border="0" alt="yslow" src="http://www.mkhelif.fr/uploads/2009/10/yslow.png" width="504" height="221" /></a>
 </p>
 
 [YSlow][8] a été développé par Yahoo est analyse aussi les points à améliorer.

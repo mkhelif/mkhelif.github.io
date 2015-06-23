@@ -17,7 +17,7 @@ Le GC actuel (Java 6) est appelé GC générationnel du fait qu&#8217;il tri les
 <!--more-->
 
 <p style="text-align: center">
-  <a href="http://www.mkhelif.fr/wp-content/uploads/2008/06/memory-heap.png"><img class="aligncenter size-full wp-image-64" title="memory-heap" src="http://www.mkhelif.fr/wp-content/uploads/2008/06/memory-heap.png" alt="Mémoire JVM" width="420" height="170" /></a>
+  <a href="http://www.mkhelif.fr/uploads/2008/06/memory-heap.png"><img class="aligncenter size-full wp-image-64" title="memory-heap" src="http://www.mkhelif.fr/uploads/2008/06/memory-heap.png" alt="Mémoire JVM" width="420" height="170" /></a>
 </p>
 
 > ### Zone Young

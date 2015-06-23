@@ -62,7 +62,7 @@ Les timestamps des colonnes sont utilisés pour résoudre les conflits entre plu
 Une supercolonne représente une colonne dont les valeurs sont d’autres colonnes. C’est le moyen le plus simple pour représenter une relation entre deux objets.
 
 <p align="center">
-  <a href="http://www.mkhelif.fr/wp-content/uploads/2010/10/SuperColumn.png"><img style="display: inline;" title="SuperColumn" border="0" alt="SuperColumn" src="http://www.mkhelif.fr/wp-content/uploads/2010/10/SuperColumn_thumb.png" width="299" height="234" /></a>
+  <a href="http://www.mkhelif.fr/uploads/2010/10/SuperColumn.png"><img style="display: inline;" title="SuperColumn" border="0" alt="SuperColumn" src="http://www.mkhelif.fr/uploads/2010/10/SuperColumn_thumb.png" width="299" height="234" /></a>
 </p>
 
 #### ColumnFamily
@@ -72,7 +72,7 @@ Les familles de colonnes sont similaires aux tables des bases de données relati
 À l’intérieur des ColumnFamily, les clés sont toujours triées. La façon de trier dépend de la clé utilisée : nombre, chaîne de caractère, <a href="http://fr.wikipedia.org/wiki/UUID" target="_blank">UUID</a>…
 
 <p align="center">
-  <a href="http://www.mkhelif.fr/wp-content/uploads/2010/10/ColumnFamily.png"><img style="display: inline;" title="ColumnFamily" border="0" alt="ColumnFamily" src="http://www.mkhelif.fr/wp-content/uploads/2010/10/ColumnFamily_thumb.png" width="594" height="215" /></a>
+  <a href="http://www.mkhelif.fr/uploads/2010/10/ColumnFamily.png"><img style="display: inline;" title="ColumnFamily" border="0" alt="ColumnFamily" src="http://www.mkhelif.fr/uploads/2010/10/ColumnFamily_thumb.png" width="594" height="215" /></a>
 </p>
 
 #### KeySpace
@@ -80,7 +80,7 @@ Les familles de colonnes sont similaires aux tables des bases de données relati
 L’espace de clés est l’équivalent d’une base de données pour les systèmes relationnels. Il a un nom et contient l’ensemble des familles de colonnes (l’ensemble des tables pour un système relationnel).
 
 <p align="center">
-  <a href="http://www.mkhelif.fr/wp-content/uploads/2010/10/KeySpace.png"><img style="display: inline;" title="KeySpace" border="0" alt="KeySpace" src="http://www.mkhelif.fr/wp-content/uploads/2010/10/KeySpace_thumb.png" width="460" height="258" /></a>&#160;
+  <a href="http://www.mkhelif.fr/uploads/2010/10/KeySpace.png"><img style="display: inline;" title="KeySpace" border="0" alt="KeySpace" src="http://www.mkhelif.fr/uploads/2010/10/KeySpace_thumb.png" width="460" height="258" /></a>&#160;
 </p>
 
 ### Configuration du serveur

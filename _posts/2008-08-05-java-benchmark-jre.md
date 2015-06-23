@@ -42,7 +42,7 @@ Tous les résultats sont en millisecondes, sauf pour la taille de la JRE qui ell
 La JRE n&#8217;a cessé de grossir au fur et à mesure des versions avec sans cesse de très nombreuses améliorations de l&#8217;API (le point fort de Java).
 
 <p align="center">
-  <a href="http://www.mkhelif.fr/wp-content/uploads/2008/08/jre-size1.png"><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" src="http://www.mkhelif.fr/wp-content/uploads/2008/08/jre-size-thumb1.png" border="0" alt="JRE-Size" width="483" height="210" /></a>
+  <a href="http://www.mkhelif.fr/uploads/2008/08/jre-size1.png"><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" src="http://www.mkhelif.fr/uploads/2008/08/jre-size-thumb1.png" border="0" alt="JRE-Size" width="483" height="210" /></a>
 </p>
 
 <p align="left">
@@ -52,7 +52,7 @@ La JRE n&#8217;a cessé de grossir au fur et à mesure des versions avec sans ce
 Dans ce bench je crée un tableau (la création du tableau n&#8217;est pas inclue dans les résultats) de 10Mo et je recopie ce même tableau dans un autre tableau grâce à la méthode *System.arrayCopy*.
 
 <p align="center">
-  <a href="http://www.mkhelif.fr/wp-content/uploads/2008/08/jre-arraycopy.png"></a><a href="http://www.mkhelif.fr/wp-content/uploads/2008/08/jre-arraycopy1.png"></a><a href="http://www.mkhelif.fr/wp-content/uploads/2008/08/jre-arraycopy1.png"><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" src="http://www.mkhelif.fr/wp-content/uploads/2008/08/jre-arraycopy-thumb.png" border="0" alt="JRE-ArrayCopy" width="483" height="211" /></a>
+  <a href="http://www.mkhelif.fr/uploads/2008/08/jre-arraycopy.png"></a><a href="http://www.mkhelif.fr/uploads/2008/08/jre-arraycopy1.png"></a><a href="http://www.mkhelif.fr/uploads/2008/08/jre-arraycopy1.png"><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" src="http://www.mkhelif.fr/uploads/2008/08/jre-arraycopy-thumb.png" border="0" alt="JRE-ArrayCopy" width="483" height="211" /></a>
 </p>
 
 <p align="left">
@@ -62,7 +62,7 @@ Dans ce bench je crée un tableau (la création du tableau n&#8217;est pas inclu
 Ce bench est très similaire au précédent sauf que le tableau est copié byte à byte par une boucle (ce qui est déjà beaucoup plus long).
 
 <p align="center">
-  <a href="http://www.mkhelif.fr/wp-content/uploads/2008/08/jre-rougharraycopy1.png"><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" src="http://www.mkhelif.fr/wp-content/uploads/2008/08/jre-rougharraycopy-thumb.png" border="0" alt="JRE-RoughArrayCopy" width="483" height="210" /></a>
+  <a href="http://www.mkhelif.fr/uploads/2008/08/jre-rougharraycopy1.png"><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" src="http://www.mkhelif.fr/uploads/2008/08/jre-rougharraycopy-thumb.png" border="0" alt="JRE-RoughArrayCopy" width="483" height="210" /></a>
 </p>
 
 <p align="left">
@@ -72,7 +72,7 @@ Ce bench est très similaire au précédent sauf que le tableau est copié byte 
 La suite de Fibonacci est un algorithme récursif qui est souvent utilisé pour effectuer des benchmarks. Cela dit les résultats sont très parlant quand à l&#8217;évolution de la récursivité dans la JVM.
 
 <p align="center">
-  <a href="http://www.mkhelif.fr/wp-content/uploads/2008/08/jre-fibonacci1.png"><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" src="http://www.mkhelif.fr/wp-content/uploads/2008/08/jre-fibonacci-thumb.png" border="0" alt="JRE-Fibonacci" width="483" height="210" /></a>
+  <a href="http://www.mkhelif.fr/uploads/2008/08/jre-fibonacci1.png"><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" src="http://www.mkhelif.fr/uploads/2008/08/jre-fibonacci-thumb.png" border="0" alt="JRE-Fibonacci" width="483" height="210" /></a>
 </p>
 
 <p align="left">
@@ -82,7 +82,7 @@ La suite de Fibonacci est un algorithme récursif qui est souvent utilisé pour 
 La fonction d&#8217;Ackermann est aussi un algorithme récursif un peu plus agressif que la suite de Fibonacci.
 
 <p align="center">
-  <a href="http://www.mkhelif.fr/wp-content/uploads/2008/08/jre-ackermann1.png"><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" src="http://www.mkhelif.fr/wp-content/uploads/2008/08/jre-ackermann-thumb.png" border="0" alt="JRE-Ackermann" width="483" height="210" /></a>
+  <a href="http://www.mkhelif.fr/uploads/2008/08/jre-ackermann1.png"><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" src="http://www.mkhelif.fr/uploads/2008/08/jre-ackermann-thumb.png" border="0" alt="JRE-Ackermann" width="483" height="210" /></a>
 </p>
 
 <p align="left">
@@ -92,11 +92,11 @@ La fonction d&#8217;Ackermann est aussi un algorithme récursif un peu plus agre
 Ce test va tout simplement exécuter plusieurs boucles imbriquées et utiliser la valeur des index des boucles.
 
 <p align="center">
-  <a href="http://www.mkhelif.fr/wp-content/uploads/2008/08/jre-loops1.png"><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" src="http://www.mkhelif.fr/wp-content/uploads/2008/08/jre-loops-thumb.png" border="0" alt="JRE-Loops" width="483" height="210" /></a>
+  <a href="http://www.mkhelif.fr/uploads/2008/08/jre-loops1.png"><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" src="http://www.mkhelif.fr/uploads/2008/08/jre-loops-thumb.png" border="0" alt="JRE-Loops" width="483" height="210" /></a>
 </p>
 
 <p align="center">
-  <a href="http://www.mkhelif.fr/wp-content/uploads/2008/08/jre-loops.png"></a>
+  <a href="http://www.mkhelif.fr/uploads/2008/08/jre-loops.png"></a>
 </p>
 
 <p align="left">
@@ -108,11 +108,11 @@ Ce test va tout simplement exécuter plusieurs boucles imbriquées et utiliser l
 Dans ce bench je crée un *StringBuffer *auquel je concaténe la chaîne &#8220;*azertyuiopqsdfghjklmwxcvbn0123456789*&#8221; un million de fois.
 
 <p align="center">
-  <a href="http://www.mkhelif.fr/wp-content/uploads/2008/08/jre-stringbuffer1.png"><img src="http://www.mkhelif.fr/wp-content/uploads/2008/08/jre-stringbuffer-thumb.png" border="0" alt="JRE-StringBuffer" width="483" height="210" /></a>
+  <a href="http://www.mkhelif.fr/uploads/2008/08/jre-stringbuffer1.png"><img src="http://www.mkhelif.fr/uploads/2008/08/jre-stringbuffer-thumb.png" border="0" alt="JRE-StringBuffer" width="483" height="210" /></a>
 </p>
 
 <p align="center">
-  <a href="http://www.mkhelif.fr/wp-content/uploads/2008/08/jre-stringbuffer.png"></a>
+  <a href="http://www.mkhelif.fr/uploads/2008/08/jre-stringbuffer.png"></a>
 </p>
 
 <p align="left">
@@ -124,7 +124,7 @@ Dans ce bench je crée un *StringBuffer *auquel je concaténe la chaîne &#8220;
 La multiplication de matrices permet de vérifier la vitesse de calcul de la JVM. Je teste ici 10000 multiplications de deux matrices 30&#215;30.
 
 <p align="center">
-  <a href="http://www.mkhelif.fr/wp-content/uploads/2008/08/jre-matrix1.png"><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" src="http://www.mkhelif.fr/wp-content/uploads/2008/08/jre-matrix-thumb.png" border="0" alt="JRE-Matrix" width="483" height="210" /></a>
+  <a href="http://www.mkhelif.fr/uploads/2008/08/jre-matrix1.png"><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" src="http://www.mkhelif.fr/uploads/2008/08/jre-matrix-thumb.png" border="0" alt="JRE-Matrix" width="483" height="210" /></a>
 </p>
 
 <p align="left">
@@ -134,7 +134,7 @@ La multiplication de matrices permet de vérifier la vitesse de calcul de la JVM
 Ce bench instancie deux objets très simples (objets à deux états) et appel leurs méthodes 100 millions de fois chacuns. L&#8217;instanciation des objets n&#8217;est pas inclue dans les résultats.
 
 <p align="center">
-  <a href="http://www.mkhelif.fr/wp-content/uploads/2008/08/jre-methodcall1.png"><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" src="http://www.mkhelif.fr/wp-content/uploads/2008/08/jre-methodcall-thumb.png" border="0" alt="JRE-MethodCall" width="483" height="210" /></a>
+  <a href="http://www.mkhelif.fr/uploads/2008/08/jre-methodcall1.png"><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" src="http://www.mkhelif.fr/uploads/2008/08/jre-methodcall-thumb.png" border="0" alt="JRE-MethodCall" width="483" height="210" /></a>
 </p>
 
 <p align="left">
@@ -146,7 +146,7 @@ Ce bench instancie deux objets très simples (objets à deux états) et appel le
 </p>
 
 <p align="center">
-  <a href="http://www.mkhelif.fr/wp-content/uploads/2008/08/jre-instanciation1.png"><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" src="http://www.mkhelif.fr/wp-content/uploads/2008/08/jre-instanciation-thumb.png" border="0" alt="JRE-Instanciation" width="483" height="210" /></a>
+  <a href="http://www.mkhelif.fr/uploads/2008/08/jre-instanciation1.png"><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" src="http://www.mkhelif.fr/uploads/2008/08/jre-instanciation-thumb.png" border="0" alt="JRE-Instanciation" width="483" height="210" /></a>
 </p>
 
 <p align="left">
@@ -156,12 +156,12 @@ Ce bench instancie deux objets très simples (objets à deux états) et appel le
 Ce test effectue 10 millions d&#8217;opérations mathématiques (modulo, division, &#8230;) en utilisant le résultat précédent comme paramètre de la fonction.
 
 <p align="center">
-  <a href="http://www.mkhelif.fr/wp-content/uploads/2008/08/jre-math1.png"><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" src="http://www.mkhelif.fr/wp-content/uploads/2008/08/jre-math-thumb.png" border="0" alt="JRE-Math" width="483" height="211" /></a>
+  <a href="http://www.mkhelif.fr/uploads/2008/08/jre-math1.png"><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" src="http://www.mkhelif.fr/uploads/2008/08/jre-math-thumb.png" border="0" alt="JRE-Math" width="483" height="211" /></a>
 </p>
 
 <p align="left">
   <p align="center">
-    <a href="http://www.mkhelif.fr/wp-content/uploads/2008/08/jre-math.png"></a>
+    <a href="http://www.mkhelif.fr/uploads/2008/08/jre-math.png"></a>
   </p>
   
   <h3>
@@ -173,15 +173,15 @@ Ce test effectue 10 millions d&#8217;opérations mathématiques (modulo, divisio
   </p>
   
   <p align="center">
-    <a href="http://www.mkhelif.fr/wp-content/uploads/2008/08/jre-conclusion1.png"><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" src="http://www.mkhelif.fr/wp-content/uploads/2008/08/jre-conclusion-thumb.png" border="0" alt="JRE-Conclusion" width="483" height="210" /></a>
+    <a href="http://www.mkhelif.fr/uploads/2008/08/jre-conclusion1.png"><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" src="http://www.mkhelif.fr/uploads/2008/08/jre-conclusion-thumb.png" border="0" alt="JRE-Conclusion" width="483" height="210" /></a>
   </p>
   
   <p align="center">
-    <a href="http://www.mkhelif.fr/wp-content/uploads/2008/08/jre-conclusion.png"></a>
+    <a href="http://www.mkhelif.fr/uploads/2008/08/jre-conclusion.png"></a>
   </p>
   
   <p align="left">
     Si vous avez des benchs a me soumettre je les ajouterais à ce billet.
   </p>
 
- [1]: http://www.mkhelif.fr/wp-content/uploads/2008/08/benchmark.jar "Benchmark"
+ [1]: http://www.mkhelif.fr/uploads/2008/08/benchmark.jar "Benchmark"

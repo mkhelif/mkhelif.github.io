@@ -19,7 +19,7 @@ tags:
 <!--more-->
 
 <p class="level1">
-  <a href="http://www.mkhelif.fr/wp-content/uploads/2008/06/rome.png"><img class="alignnone size-medium wp-image-56" title="Rome" src="http://www.mkhelif.fr/wp-content/uploads/2008/06/rome.png" alt="Rome API" width="200" height="144" /></a>
+  <a href="http://www.mkhelif.fr/uploads/2008/06/rome.png"><img class="alignnone size-medium wp-image-56" title="Rome" src="http://www.mkhelif.fr/uploads/2008/06/rome.png" alt="Rome API" width="200" height="144" /></a>
 </p>
 
 <p class="level1">

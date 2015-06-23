@@ -250,5 +250,5 @@ En effet toutes les lettres de l&#8217;alphabet ont une fréquence d&#8217;appar
 Image <a class="urlextern" title="http://fr.wikipedia.org/wiki/Fr%C3%A9quence_d'apparition_des_lettres_en_fran%C3%A7ais" rel="nofollow" href="http://fr.wikipedia.org/wiki/Fr%C3%A9quence_d%27apparition_des_lettres_en_fran%C3%A7ais">Wikipedia</a> de la répartition des lettres en français.
 
 <p style="text-align: center;">
-  <a href="http://www.mkhelif.fr/wp-content/uploads/2008/06/frequence-lettres.png"><img class="size-full wp-image-63" title="Fréquence des lettres" src="http://www.mkhelif.fr/wp-content/uploads/2008/06/frequence-lettres.png" alt="Fréquence des lettres en Français" width="500" height="194" /></a>
+  <a href="http://www.mkhelif.fr/uploads/2008/06/frequence-lettres.png"><img class="size-full wp-image-63" title="Fréquence des lettres" src="http://www.mkhelif.fr/uploads/2008/06/frequence-lettres.png" alt="Fréquence des lettres en Français" width="500" height="194" /></a>
 </p>

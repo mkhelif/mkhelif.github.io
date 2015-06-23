@@ -350,14 +350,14 @@ L&#8217;intérêt de cette méthode par rapport au [chiffre de César][1] est qu
 
 Texte clair :
 
-[<img class="alignnone size-medium wp-image-60" title="Texte clair" src="http://www.mkhelif.fr/wp-content/uploads/2008/06/vigenere-clair-300x184.png" alt="" width="300" height="184" />][2]
+[<img class="alignnone size-medium wp-image-60" title="Texte clair" src="http://www.mkhelif.fr/uploads/2008/06/vigenere-clair-300x184.png" alt="" width="300" height="184" />][2]
 
 Texte chiffré :
 
-[<img class="alignnone size-medium wp-image-59" title="Texte chiffré" src="http://www.mkhelif.fr/wp-content/uploads/2008/06/vigenere-chiffre-300x185.png" alt="" width="300" height="185" />][3]
+[<img class="alignnone size-medium wp-image-59" title="Texte chiffré" src="http://www.mkhelif.fr/uploads/2008/06/vigenere-chiffre-300x185.png" alt="" width="300" height="185" />][3]
 
 Source des images : <a class="urlextern" title="http://www.apprendre-en-ligne.net/crypto/vigenere/index.html" rel="nofollow" href="http://www.apprendre-en-ligne.net/crypto/vigenere/index.html">Ars Cryptographica</a>
 
  [1]: http://wiki.mkhelif.fr/2008/01/17/chiffre-de-cesar.html
- [2]: http://www.mkhelif.fr/wp-content/uploads/2008/06/vigenere-clair.png
- [3]: http://www.mkhelif.fr/wp-content/uploads/2008/06/vigenere-chiffre.png
+ [2]: http://www.mkhelif.fr/uploads/2008/06/vigenere-clair.png
+ [3]: http://www.mkhelif.fr/uploads/2008/06/vigenere-chiffre.png
