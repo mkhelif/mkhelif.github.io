@@ -305,6 +305,7 @@ li {
     height: 500px;
     min-height: 500px;
     max-height: 500px;
+    position: relative;
 }
 
 #contact h3 {
@@ -338,6 +339,62 @@ li {
 }
 #contact input[type="submit"]:hover {
     background-color: #560000;
+}
+
+#contact #connect {
+    position: absolute;
+    right: 360px;
+    top: 150px;
+    border-radius: 2px;
+    background-color: #ffffff;
+    border: 1px solid #999999;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.25);
+}
+#contact #connect h5 {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+}
+#contact #connect h5:first-child {
+    border-top: none;
+}
+#contact #connect p {
+    margin: 0;
+}
+#contact #connect a {
+    margin-right: 20px;
+    color: #999999;
+}
+#contact #connect a:hover {
+    color: #f64744;
+}
+#contact #connect i {
+    font-size: 1.25em;
+    border-right: 1px solid #dddddd;
+    padding: 15px;
+    display: inline-block;
+    margin-right: 15px;
+}
+#contact #connect i.icon-smartphone {
+    padding: 15px 20px 15px 21px;
+}
+#contact #connect #social a {
+    margin-right: 0;
+}
+#contact #connect #social i {
+    margin-right: 0;
+}
+#contact #connect #social i.icon-git {
+    padding: 15px 19px 15px 19px;
+}
+#contact #connect #social i.icon-linked_in {
+    padding: 15px 20px 15px 15px;
+}
+#contact #connect #social i.icon-twitter {
+    padding: 15px 20px 15px 16px;
+}
+#contact #connect #social i.icon-newspaper {
+    border-right: none;
 }
 
 /* Blog */
@@ -400,7 +457,7 @@ li {
 }
 
 /* Posts List */
-#navbar {
+#n  avbar {
     margin: 0;
     line-height: 85px;
     background-color: #d9d9d9;
