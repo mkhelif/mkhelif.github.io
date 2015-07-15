@@ -525,6 +525,8 @@ article.post #post-body h4 {
     color: #cccccc;
 }
 article.post #post-body pre {
+    font-family: "Inconsolata", monospace, sans-serif;
+    font-size: 14px;
     margin: 15px -100px;
     border: 1px solid #cccccc;
     background-color: #f8f8f8;
