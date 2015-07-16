@@ -522,7 +522,7 @@ article.post #post-body h3 {
     color: #aaaaaa;
 }
 article.post #post-body h4 {
-    color: #cccccc;
+    color: #aaaaaa;
 }
 article.post #post-body pre {
     font-family: "Inconsolata", monospace, sans-serif;
@@ -533,6 +533,10 @@ article.post #post-body pre {
     padding: 10px;
     border-radius: 3px;
     overflow: auto;
+}
+article.post #post-body img {
+    margin: 0 auto;
+    display: block;
 }
 
 #post-meta {
