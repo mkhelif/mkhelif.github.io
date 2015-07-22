@@ -496,10 +496,21 @@ li {
 
 
 /* Post */
+article.post header {
+    padding: 10% 0;
+    background-color: #dddddd;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    border-bottom: 1px solid #999999;
+}
+article.post header h2 {
+    color: #ffffff;
+}
+
 article.post h1 {
     color: #f64744;
     font-size: 4em;
-    margin-top: 50px;
     margin-bottom: 2%;
 }
 article.post h2 {
