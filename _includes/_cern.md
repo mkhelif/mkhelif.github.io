@@ -57,17 +57,3 @@ I was in charge of administering all the applications used by the developers, in
 * ##### Selenium Grid
   I was managing the entire _Selenium_ grid, from its setup to its maintenance using _OpenStack_ to manage the nodes of the cluster.  
   I decided to develop a simple framework that allows to drastically simplify the development of integration tests, by creating a layer between Selenium API and our own applications.
-
-
-{% comment %}
-### Developers@CERN
-
-Main organizer of a series of events whose main goal was to build a community of software developers around CERN.
-Started in 2015, these events are now very popular...
-
-The events take place every quarter and span on a full day.
-In the morning standard conferences are helf by CERN software developers presenting there point of view about the chosen event topic.
-Then in the afternoon hands-on workshops are organized.
-
-The first event ..
-{% endcomment %}

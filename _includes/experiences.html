@@ -23,9 +23,37 @@
                 <span>Tests <em>JUnit, Selenium</em></span>
             </p>
         </div>
+	<div class="col-2-3">
+            <div class="description">
+                {% capture description %}{% include _cern.developers.md  %}{% endcapture %}
+                {{ description | markdownify }}
+            </div>
+        </div>
     </div>
 </div>
-<div class="experience odd section">
+<div id="developers-forum" class="experience section">
+    <div class="grid grid-pad">
+	<div class="col-2-3">
+            <h1><span>{</span>Developers@CERN Forum<span>}</span></h1>
+            <p class="metadata">
+                Sept. 2015,
+                Geneva Switzerland,
+                <a href="https://indico.cern.ch/event/404359/">Event details</a>,
+                <a href="https://cdsweb.cern.ch/search?f=490__a&p=1st%20Developers%40CERN%20Forum">Recordings</a>
+            </p>
+            <div class="description">
+                {% capture description %}{% include _cern.developers.md  %}{% endcapture %}
+                {{ description | markdownify }}
+            </div>
+        </div>
+        <div class="col-1-3">
+            <div class="logo">
+                <img src="assets/images/developers-cern-forum-1st.png" alt="Developers@CERN Forum" />
+            </div>
+        </div>
+    </div>
+</div>
+<div class="experience even section">
     <div class="grid grid-pad">
         <div class="col-1-3">
             <div class="logo">

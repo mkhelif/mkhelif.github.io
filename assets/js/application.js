@@ -1,11 +1,11 @@
 $(document).ready(function() {
     // Scroll down listener
-    $("p.down a").on("click", function() {
-        $("body").animate({ scrollTop: $($(this).attr('href')).offset().top }, 1000, "easeInOutCubic");
+    $('p.down a').on('click', function() {
+        $('body').animate({ scrollTop: $($(this).attr('href')).offset().top }, 1000, 'easeInOutCubic');
         return false;
     });
-    $("p.down img").on("click", function() {
-        $("body").animate({ scrollTop: $('#skills').offset().top }, 1000, "easeInOutCubic");
+    $('p.down img').on('click', function() {
+        $('body').animate({ scrollTop: $('#skills').offset().top }, 1000, 'easeInOutCubic');
         return false;
     });
 
@@ -27,10 +27,14 @@ $(document).ready(function() {
     $('.tooltip.left').tooltipster(settings);
 
     // Setup waypoints
-	$("#skills").waypoint(function(direction) {
-        $(".value span", this).each(function() {
+    $('#skills').waypoint(function(direction) {
+        $('.value span', this).each(function() {
             var element = $(this);
-            element.animate({ width: element.data("width") }, 1500, "easeOutSine");
-        });
-	}, { offset: '50%', triggerOnce: true });
+            element.animate({ width: element.data('width') }, 1500, 'easeOutSine');
+        })
+    }, { offset: '50%', triggerOnce: true });
+
+    // Overwrite cover background
+    var image = '/assets/images/background-cover-' + parseInt(Math.random() * 3) + '.png';
+    $('#cover').css('background-image', 'url(' + image + ')');
 });

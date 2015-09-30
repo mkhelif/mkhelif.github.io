@@ -85,7 +85,7 @@ li {
 
 /* Cover */
 #cover {
-    background-image: url(../images/background-cover.png);
+    background-image: url(../images/background-cover-0.png);
     background-size: 100%;
     background-attachment: fixed;
     height: 100%;
@@ -97,7 +97,7 @@ li {
     }
 }
 #cover h1 {
-    color: #cfcfcf;
+    color: #f64744;
 }
 #cover p {
     text-align: center;
@@ -108,18 +108,19 @@ li {
 }
 #cover p.down {
     position: absolute;
-    bottom: 10px;
+    bottom: 0px;
     width: 100%;
+    margin: 0;
+    padding: 25px 0;
+    background-color: rgba(0, 0, 0, 0.25);
 }
 #cover p.down img {
     cursor: pointer;
+    vertical-align: bottom;
 }
 #cover p.down a {
     margin: 0 5%;
-    vertical-align: top;
-    color: #666;
-}
-#cover p.down a:hover {
+    vertical-align: 10px;
     color: #f64744;
 }
 
@@ -256,6 +257,31 @@ li {
     .experience .actions {
         right: 15px;
     }
+}
+
+.experience#developers-forum {
+    background-color: #f15a24;
+    color: #ffffff;
+    padding: 5% 0 8% 0;
+}
+.experience#developers-forum h1 {
+    font-size: 3em;
+    color: #ffffff;
+}
+
+.experience#developers-forum .metadata {
+    color: #ffffff;
+}
+
+.experience#developers-forum h2,
+.experience#developers-forum h3,
+.experience#developers-forum h4,
+.experience#developers-forum h5 {
+    color: #a60704;
+}
+
+.experience#developers-forum a {
+    color: #a60704;
 }
 
 /* Projects */
