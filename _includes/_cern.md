@@ -13,29 +13,32 @@ Admin application
 New layered architecture
 
 
-#### WebReq
+#### LANDB Portal
 
-User-facing application
-Legacy Perl code migrated to Grails
+User-facing application, it is used by all the users at CERN who requires network connectivity.
+
+The old application WebReq was in Perl and written more than 20 years ago, it has been migrated to Grails.
 
 * ##### Grails
-  Backend in Grails
+  The application backend is written using Grails framework. The service layer is shared between CSDB and LANDB Portal as a Maven artifact.
 
 * ##### AngularJS
-  Frontend in AngularJS
+  The application frontend is using AngularJS.
 
 * ##### Micro-services
-  After evaluating different options, I proposed to replace some parts of the legacy application using micro-services using _Spring Boot_.  
+  After evaluating different options, I proposed to replace some parts of the legacy application using _Spring Boot_ powered micro-services.  
   I chose Spring Boot as we were already heavily using Spring framework and it was at that time the more mature framework.
+  It allowed us to migrate very quickly and easily legacy features to our new architecture.
 
 
 #### LANDB Database
 
 LANDB is the core network database which stored all the network configuration: topology, devices, users, connections, firewall, fibers, telephony, ...  
-This database is the core of all the applications developers in the section and is heavily used by other people around CERN using _SOAP_ and _REST_ API.
+This database is the core of all the application developped in the section and is heavily used by other people around CERN using _SOAP_ and _REST_ API.
 
-I was administering the database
-PL/SQL replacement by service layer in Java
+Since the database was the common layer of the legacies application, all the logic has been developped in PL/SQL over many years.
+In order to greatly simplify the maintenance and the evolution of the codebase, I proposed to migrate this legacy code to a service oriented architecture.
+The two main application now use the same service layer and 
 
 
 #### Devops
@@ -48,11 +51,12 @@ I was in charge of administering all the applications used by the developers, in
 
 * ##### Atlassian Bamboo
   To build our applications we are using Atlassian _Bamboo_.  
-  Very similar to Jenkins, I was maintaining and updating the build plans depending on the environment change: migration to Java 8, development of new applications based on different frameworks (_Grails_, _Spring Boot_, _Android_), retirement of old applications.
+  Very similar to Jenkins, I was maintaining and updating the build plans depending on the environment change: migration to Java 8, development of new applications based on different frameworks (_Grails_, _Spring Boot_, _Android_, _ANT_, _Maven_), retirement of old applications.
 
 * ##### Atlassian Fisheye
-  As part of our software development life cycle, prior to deploy any changes to the codebase, peer reviews were mandatory. Using Atlassian _Fisheye_ at least two other developers had to review the code.  
-  This not only greatly improved the code quality, but also allowed the simplify knowledge transfer.
+  As part of our software development life cycle, prior to deploy any changes to the codebase, peer reviews were mandatory.
+  Using Atlassian _Fisheye_ at least two other developers had to review the code. 
+  This not only greatly improved the code quality, but also allowed the simplify knowledge transfer among all the developers.
 
 * ##### Selenium Grid
   I was managing the entire _Selenium_ grid, from its setup to its maintenance using _OpenStack_ to manage the nodes of the cluster.  
