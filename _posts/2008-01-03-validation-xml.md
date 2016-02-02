@@ -49,7 +49,7 @@ Une DTD est définie de la façon suivante :
   &lt;!ENTITY ...&gt;
 ]&gt;</pre>
 
-Voici un site permettant de valider un fichier XML avec sa DTD : <a href="http://www.stg.brown.edu/service/xmlvalid/" title="Validateur XML" target="_blank">http://www.stg.brown.edu/service/xmlvalid/</a>.
+Voici un site permettant de valider un fichier XML avec sa DTD : <a href="http://www.xmlvalidation.com/" title="Validateur XML" target="_blank">http://www.xmlvalidation.com/</a>.
 
 ### Élément
 
