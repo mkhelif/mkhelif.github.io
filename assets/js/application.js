@@ -1,12 +1,14 @@
 $(document).ready(function() {
+    var $scrollTarget = $(jQuery.browser.webkit ? 'body' : 'html');
+
     // Scroll down listener
-    $('p.down a').on('click', function() {
-        $('body,html').animate({ scrollTop: $($(this).attr('href')).offset().top }, 1000, 'easeInOutCubic');
-        return false;
+    $('p.down a').on('click', function(e) {
+        $scrollTarget.animate({ scrollTop: $($(this).attr('href')).offset().top }, 1000, 'easeInOutCubic');
+        e.preventDefault();
     });
-    $('p.down img').on('click', function() {
-        $('body,html').animate({ scrollTop: $('#skills').offset().top }, 1000, 'easeInOutCubic');
-        return false;
+    $('p.down img').on('click', function(e) {
+        $scrollTarget.animate({ scrollTop: $('#skills').offset().top }, 1000, 'easeInOutCubic');
+        e.preventDefault();
     });
 
     // Setup tooltips
