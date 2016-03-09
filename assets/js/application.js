@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var $scrollTarget = $(jQuery.browser.webkit ? 'body' : 'html');
+    var $scrollTarget = $(Modernizr.browser === 'webkit' ? 'body' : 'html');
 
     // Scroll down listener
     $('p.down a').on('click', function(e) {
