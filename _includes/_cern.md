@@ -2,20 +2,23 @@
 
 Member of the IT-CS group (Communication Systems) which is in charge of telephony (GSM, VOIP, analog), networks (from top-down: structured cabling, selection of switches/routers, installation, network engineering, network support, Wi-Fi) and central network services (DNS, DHCP, Radius, NTP, ...).
 
-In this group, my section, IT-CS-CT (Communication Tools) is a small team (around 7 people) of young and multicultural developers and is in charge of building software to support and manage the network, telephony, and network services.
+In this group, my section, IT-CS-CT (Communication Tools) is a small team (around 7 people) of young and multicultural developers and is in charge of building software to support and manage the network, telephony, and group services.
 
 The database controlled by our section (LANDB), is the core of the network activities at CERN, and we model all needed networking and telephony concepts that will be either consumed by high-level applications that we build or by other low-level applications in other sections of the group.
 
 #### CSDB
 
-Admin application
+Administrators application, it is used by members of the group, security team and other power users to configure the network.
 
-New layered architecture
+This application has been developped since many years, thus there were many architectures (JSP code, J2EE beans, master singleton with all the code, ...).
+I proposed to introduce a new layered service-oriented architecture based on Spring (MVC, Data, ...). This ended up with the standard three layers: controllers, services, repositories.
+
+By using this architecture we were able to share code (through maven artifacts) among all the application that we develop.
 
 
 #### LANDB Portal
 
-User-facing application, it is used by all the users at CERN who requires network connectivity.
+User-facing application, it is used by all the users and visitors at CERN who requires network connectivity.
 
 The old application WebReq was in Perl and written more than 20 years ago, it has been migrated to Grails.
 
@@ -36,9 +39,9 @@ The old application WebReq was in Perl and written more than 20 years ago, it ha
 LANDB is the core network database which stored all the network configuration: topology, devices, users, connections, firewall, fibers, telephony, ...  
 This database is the core of all the application developped in the section and is heavily used by other people around CERN using _SOAP_ and _REST_ API.
 
-Since the database was the common layer of the legacies application, all the logic has been developped in PL/SQL over many years.
+Since the database was the common layer of the legacy applications, all the logic has been developped in PL/SQL over many years.
 In order to greatly simplify the maintenance and the evolution of the codebase, I proposed to migrate this legacy code to a service oriented architecture.
-The two main application now use the same service layer and 
+The two main application now use the same service layer and a REST interface will be setup based on the same layer.
 
 
 #### Devops
@@ -61,3 +64,6 @@ I was in charge of administering all the applications used by the developers, in
 * ##### Selenium Grid
   I was managing the entire _Selenium_ grid, from its setup to its maintenance using _OpenStack_ to manage the nodes of the cluster.  
   I decided to develop a simple framework that allows to drastically simplify the development of integration tests, by creating a layer between Selenium API and our own applications.
+
+* ##### Migration to Git
+  The IT department at CERN is mostly using Git as VCS. In order to profit of all central services provided by IT, I took care of the migration of our standalone SVN server to GitLab.
