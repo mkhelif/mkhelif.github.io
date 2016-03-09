@@ -1,11 +1,11 @@
 $(document).ready(function() {
     // Scroll down listener
     $('p.down a').on('click', function() {
-        $('body').animate({ scrollTop: $($(this).attr('href')).offset().top }, 1000, 'easeInOutCubic');
+        $('body,html').animate({ scrollTop: $($(this).attr('href')).offset().top }, 1000, 'easeInOutCubic');
         return false;
     });
     $('p.down img').on('click', function() {
-        $('body').animate({ scrollTop: $('#skills').offset().top }, 1000, 'easeInOutCubic');
+        $('body,html').animate({ scrollTop: $('#skills').offset().top }, 1000, 'easeInOutCubic');
         return false;
     });
 
