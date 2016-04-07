@@ -1,4 +1,6 @@
-### 2nd Developers@CERN Forum - Python at CERN: Language, frameworks and tools
+### 2nd Developers@CERN Forum
+
+#### Python at CERN: Language, frameworks and tools
 
 _Are you a Python guru, or would you like to learn?_
 

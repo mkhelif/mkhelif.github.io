@@ -1,4 +1,6 @@
-### 1st Developers@CERN Forum - Software Quality, Reliability and Testing
+### 1st Developers@CERN Forum
+
+#### Software Quality, Reliability and Testing
 
 _How do you keep your software from exploding?_
 
