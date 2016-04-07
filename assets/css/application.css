@@ -229,16 +229,12 @@ li {
 .experience:hover h1 span {
     color: rgba(0, 0, 40, 0.5);
 }
+.experience div.event {
+    padding: 30px 0;
+}
 .experience div.logo {
     text-align: center;
-    opacity: 0.3;
-    transition: opacity ease-in 0.2s;
     margin-bottom: 50px;
-}
-@media screen and (max-width: 650px) {
-.experience div.logo {
-    opacity: 1;
-}
 }
 .experience div.logo img {
     width: 75%;
