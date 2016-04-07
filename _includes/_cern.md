@@ -67,3 +67,5 @@ I was in charge of administering all the applications used by the developers, in
 
 * ##### Migration to Git
   The IT department at CERN is mostly using Git as VCS. In order to profit of all central services provided by IT, I took care of the migration of our standalone SVN server to GitLab.
+
+  This included to migrate all SVN repositories to Git keeping the history. As well to migrate our build system (based on Atlassian Bamboo) to GitLab CI (using Docker containers).
