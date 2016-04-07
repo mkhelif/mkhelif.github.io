@@ -8,20 +8,22 @@ The Forums consist of talks and presentations by CERN software developers which 
 
 Topic: Software Quality, Reliability and Testing
 
-Punchline: How do you keep your software from exploding?
+Punchline: _How do you keep your software from exploding?_
 
 Date: September 28 and 29 2015
 
 Due to its popularity we had to extend the number of presentation slots from 6 to 20.
 Thus the event spanned over one day and half and more than 200 people attended both in person or via the webcast.
 
+[https://cdsweb.cern.ch/search?f=490__a&p=1st%20Developers%40CERN%20Forum](Recordings), [https://indico.cern.ch/event/404359/](Event details)
+
 
 #### 2nd Developers@CERN Forum
 
 Topic: Python at CERN, language, tools and experiences
 
-Punchline: Are you a Python guru, or would you like to learn?
+Punchline: _Are you a Python guru, or would you like to learn?_
 
 Date: May 30 and 31 2016
 
-
+[https://cdsweb.cern.ch/search?f=490__a&p=2nd%20Developers%40CERN%20Forum](Recordings), [https://indico.cern.ch/event/487416/](Event details)

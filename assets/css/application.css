@@ -233,6 +233,7 @@ li {
     text-align: center;
     opacity: 0.3;
     transition: opacity ease-in 0.2s;
+    margin-bottom: 50px;
 }
 @media screen and (max-width: 650px) {
 .experience div.logo {
