@@ -37,6 +37,6 @@ $(document).ready(function() {
     }, { offset: '50%', triggerOnce: true });
 
     // Overwrite cover background
-    var image = '/assets/images/background-cover-' + parseInt(Math.random() * 3) + '.png';
-    $('#cover').css('background-image', 'url(' + image + ')');
+    //var image = '/assets/images/background-cover-' + parseInt(Math.random() * 3) + '.png';
+    //$('#cover').css('background-image', 'url(' + image + ')');
 });
