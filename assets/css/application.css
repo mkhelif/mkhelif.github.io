@@ -362,6 +362,11 @@ li {
     content: close-quote;
     right: -28px;
 }
+.experience#developers-forum strong {
+    font-weight: normal;
+    font-size: 0.8em;
+    color: #aaccff;
+}
 
 /* Projects */
 #projects {
