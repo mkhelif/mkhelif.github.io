@@ -101,7 +101,6 @@ li {
 
 /* Cover */
 #cover {
-    /*background-image: url(../images/background-cover-0.png);*/
     background-image: url(../images/background-cover-1.png);
     background-size: 100%;
     background-attachment: fixed;
