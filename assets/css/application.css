@@ -367,6 +367,10 @@ li {
     font-size: 0.8em;
     color: #aaccff;
 }
+.experience#developers-forum .icon {
+    font-size: 1.5em;
+    margin-right: 10px;
+}
 
 /* Projects */
 #projects {
