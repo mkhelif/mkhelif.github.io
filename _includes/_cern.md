@@ -65,7 +65,7 @@ I was in charge of administering all the applications used by the developers, in
   I was managing the entire _Selenium_ grid, from its setup to its maintenance using _OpenStack_ to manage the nodes of the cluster.  
   I decided to develop a simple framework that allows to drastically simplify the development of integration tests, by creating a layer between Selenium API and our own applications.
 
-* ##### Migration to Git
+* ##### Migration to GitLab
   The IT department at CERN is mostly using Git as VCS. In order to profit of all central services provided by IT, I took care of the migration of our standalone SVN server to GitLab.
 
   This included to migrate all SVN repositories to Git keeping the history. As well to migrate our build system (based on Atlassian Bamboo) to GitLab CI (using Docker containers).
