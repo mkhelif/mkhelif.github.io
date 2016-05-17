@@ -410,7 +410,7 @@ li {
 
 /* Contact */
 #contact {
-    background-color: #f64744;
+    background-color: #3b4141;
     background-repeat: no-repeat;
     background-position: right;
     background-size: auto 100%;
@@ -422,7 +422,7 @@ li {
 }
 
 #contact h3 {
-    color: #760704;
+    color: #999999;
 }
 
 #contact form {
@@ -430,7 +430,7 @@ li {
 }
 #contact input, #contact textarea {
     width: 100%;
-    background-color: #f64744;
+    background-color: #2E3434;
     border-color: #ffffff;
     border-style: solid;
     border-width: 0 0 1px 0;
@@ -459,7 +459,7 @@ li {
 #contact input[type="submit"] {
     width: 100px;
     border: none;
-    background-color: #760704;
+    background-color: #2E3434;
     color: #ffffff;
     font-family: "Source Sans Pro", sans;
     font-size: 20px;
@@ -468,7 +468,7 @@ li {
     cursor: pointer;
 }
 #contact input[type="submit"]:hover {
-    background-color: #560000;
+    background-color: #889093;
 }
 
 #contact ul {
@@ -478,7 +478,7 @@ li {
     color: #ffffff;
 }
 #contact ul a:hover {
-    color: #760704;
+    color: #999999;
 }
 #contact ul i.icon {
     font-size: 1.5em;
@@ -541,7 +541,7 @@ li {
 
 /* Footer */
 #footer {
-    background-color: #f64744;
+    background-color: #3b4141;
     padding: 40px;
     color: #ffffff;
     font-size: 12px;
