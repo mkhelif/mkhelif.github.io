@@ -69,6 +69,22 @@
                     <img src="assets/images/developers-cern-forum-2nd.png" alt="2nd Developers@CERN Forum" title="2nd Developers@CERN Forum - Python at CERN" />
                 </div>
             </div>
+
+            <!-- 3rd Developers@CERN Forum -->
+            <div class="event col-3-3">
+                <div class="logo col-1-3">
+                    <img src="assets/images/developers-cern-forum-3rd.png" alt="3rd Developers@CERN Forum" title="3rd Developers@CERN Forum - Frontend and User Interfaces" />
+                </div>
+                <div class="col-2-3">
+                    {% capture description %}{% include _cern.developers.3.md  %}{% endcapture %}
+                    {{ description | markdownify }}
+
+                    <p>
+                        <a href="https://indico.cern.ch/event/577155/" title="Event details"><i class="icon icon-link"> </i></a>
+                        <a href="https://cdsweb.cern.ch/search?f=490__a&p=3rd%20Developers%40CERN%20Forum" title="Recordings"><i class="icon icon-video_camera"> </i></a>
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
