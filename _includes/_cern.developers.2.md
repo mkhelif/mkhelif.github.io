@@ -4,4 +4,4 @@
 
 _Are you a Python guru, or would you like to learn?_
 
-__May 30 and 31 2016__
+__May 30 and 31, 2016__

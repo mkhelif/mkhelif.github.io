@@ -314,13 +314,19 @@ li {
 }
 
 .experience#developers-forum {
-    background-color: #0053a1;
+    background-color: #093363;
     color: #ffffff;
     padding: 5% 0 8% 0;
 }
 .experience#developers-forum h1 {
     font-size: 3em;
     color: #ffffff;
+}
+.experience#developers-forum h1 span {
+    color: rgba(0, 0, 40, 0.5);
+}
+.experience#developers-forum .metadata {
+    color: #cccccc;
 }
 
 .experience#developers-forum div.logo {
@@ -334,11 +340,11 @@ li {
 .experience#developers-forum h3,
 .experience#developers-forum h4,
 .experience#developers-forum h5 {
-    color: #152367;
+    color: #cccccc;
 }
 
 .experience#developers-forum a {
-    color: #152367;
+    color: #051946;
 }
 .experience#developers-forum a:hover {
     color: #5583c7;
@@ -350,7 +356,7 @@ li {
 }
 .experience#developers-forum em:before, .experience#developers-forum em:after {
     font-size: 45px;
-    color: #5583c7;
+    color: #051946;
     position: absolute;
     top: -23px;
 }
